@@ -14,5 +14,8 @@ public class QuayDongGoi extends KhoHang {
     public void setHanSuDung(String HanSuDung_1){
         this.HanSuDung_1 = HanSuDung_1;
     }
-    
+    @Override
+    public String toString(){
+        return "Ten San Pham: "+Ten+"/Ma So San Pham: "+ MaSo+"/Ngay Nhap Hang: "+ NgayNhapHang+"/So Luong: "+SoLuong+"/Xuat Xu: "+XuatXu+"/Han Su Dung: "+ HanSuDung_1;
+    }
 }
