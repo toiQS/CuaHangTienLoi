@@ -1,5 +1,7 @@
 package HangHoa;
 
-public class KhoHang {
-    
+import Main.ThongTin;
+
+public class KhoHang extends ThongTin{
+    public String 
 }
