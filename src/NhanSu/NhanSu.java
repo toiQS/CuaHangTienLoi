@@ -1,17 +1,17 @@
 package NhanSu;
 
-public abstract class ThongTin {
-    public String HoTen;
-    public String MaSo;
+import Main.ThongTin;
+
+public class NhanSu extends ThongTin{
+   
     public String GioiTinh;
     public int CCCD;
     public String DiaChi;
     public String SDT;
     public String NgayVaoLam;
     
-    public ThongTin(String HoTen, String MaSo, String GioiTinh, int CCCD, String DiaChi, String SDT, String NgayVaoLam){
-        this.HoTen = HoTen;
-        this.MaSo = MaSo;
+    public NhanSu(String Ten, String MaSo, String GioiTinh, int CCCD, String DiaChi, String SDT, String NgayVaoLam){
+        super(Ten,MaSo);
         this.GioiTinh = GioiTinh;
         this.CCCD = CCCD;
         this.DiaChi = DiaChi;
@@ -20,12 +20,7 @@ public abstract class ThongTin {
         
     }
     
-    public String getHoTen(){
-        return HoTen;
-    }
-    public String getMaSo(){
-        return MaSo;
-    }
+  
     public String getGioiTinh(){
         return GioiTinh;
     }
@@ -43,12 +38,7 @@ public abstract class ThongTin {
     }
     
 
-    public void setHoTen(String HoTen){
-        this.HoTen = HoTen;
-    }
-    public void setMaSo(String MaSo){
-        this.MaSo = MaSo;
-    }
+    
     public void setGioiTinh(String GioiTinh){
         this.GioiTinh = GioiTinh;
     }
@@ -64,6 +54,5 @@ public abstract class ThongTin {
     public void getNgayVaoLam(String NgayVaoLam){
         this.NgayVaoLam = NgayVaoLam;
     }
-    
-    
+     
 }
