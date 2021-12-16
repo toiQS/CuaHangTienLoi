@@ -15,6 +15,6 @@ public class LaoCong extends NhanSu {
                 + "/CCCD: " + CCCD
                 + "/Địa Chỉ: " + DiaChi
                 + "/Số Ngày Làm: " + SoNgayLam
-                + "Luong = " + SoNgayLam * 176000; //Set Lương mặc định mỗi ngày là 22000
+                + "Luong = " + SoNgayLam * 176000; //Set Lương mặc định là 22000/giờ, Mỗi ngày làm 8 giờ
     }
 }
