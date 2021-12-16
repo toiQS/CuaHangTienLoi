@@ -15,6 +15,6 @@ public class NhanVien extends NhanSu {
                 + "/CCCD: " + CCCD
                 + "/Địa Chỉ: " + DiaChi
                 + "/Số Ngày Làm: " + SoNgayLam
-                + "Luong = " + SoNgayLam*200000; //Set Lương mặc định mỗi ngày là 25000
+                + "Luong = " + SoNgayLam*200000; //Set Lương mặc định là 25000/giờ, Mỗi ngày làm 8 giờ
     }
 }
