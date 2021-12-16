@@ -57,8 +57,15 @@ public class NhanSu extends ThongTin {
         return SoNgayLam;
     }
 
+    public void getSoNgayLam(int SoNgayLam) {
+        this.SoNgayLam = SoNgayLam;
+    }
+
     public int getLuong() {
         return Luong;
     }
 
+    public void getLuong(int Luong) {
+        this.Luong = Luong;
+    }
 }
