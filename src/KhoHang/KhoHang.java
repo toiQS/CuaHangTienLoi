@@ -1,8 +1,15 @@
 package KhoHang;
 
+import java.util.List;
+
 import Main.ThongTin;
 
-public class KhoHang extends ThongTin {
+public abstract class KhoHang extends ThongTin {
+    public static List<QuayKhac>quaykhacList;
+    public static List<QuayGiaDung>giadungList;
+    public static List<QuayThucPham>thucphamList;
+    public static List<QuayTuoiSong>tuoisongList;
+
     public String NgayNhapHang;
     public String XuatXu;
     public int SoLuong;
@@ -38,4 +45,6 @@ public class KhoHang extends ThongTin {
     public void setGiaCa(float GiaCa){
         this.GiaCa = GiaCa;
     }
+
+    
 }
