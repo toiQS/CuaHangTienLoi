@@ -23,17 +23,17 @@ public class QuayThucPham extends KhoHang{
         System.out.println("Gia Du Dinh: ");
         float GiaCa = sc.nextFloat();
         QuayThucPham thucpham = new QuayThucPham(Ten, MaSo, NgayNhapHang, XuatXu, SoLuong, GiaCa);
-        thucphamList.add(giadung);
+        thucphamList.add(thucpham);
     }
     public void del(){
         Scanner sc = new Scanner(System.in);
         System.out.println("Nhap Ma So Muon Xoa: ");
         String MaSo = sc.nextLine();
         QuayThucPham thucpham= this.thucphamList.stream().filter(o ->o.getMaSo().equals(MaSo)).findFirst().orElse(null);
-        if(giadung == null){
+        if(thucpham == null){
             System.out.println("Khong Ton Tai.");
         }
-        this.thucphamList.remove(giadung);
+        this.thucphamList.remove(thucpham);
         System.out.println("Xac Nhan Xoa.");
     }
     @Override

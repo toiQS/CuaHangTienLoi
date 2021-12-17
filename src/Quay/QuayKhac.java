@@ -23,20 +23,22 @@ public class QuayKhac extends KhoHang{
         int SoLuong = sc.nextInt();
         System.out.println("Gia Du Dinh: ");
         float GiaCa = sc.nextFloat();
-        QuayKhac quayKhac = new QuayKhac(Ten, MaSo, NgayNhapHang, XuatXu, SoLuong, GiaCa);
-        quaykhacList.add(giadung);
+        QuayKhac quaykhac = new QuayKhac(Ten, MaSo, NgayNhapHang, XuatXu, SoLuong, GiaCa);
+        quaykhacList.add(quaykhac);
     }
+
     public void del(){
         Scanner sc = new Scanner(System.in);
         System.out.println("Nhap Ma So Muon Xoa: ");
         String MaSo = sc.nextLine();
         QuayKhac quaykhac = this.quaykhacList.stream().filter(o ->o.getMaSo().equals(MaSo)).findFirst().orElse(null);
-        if(giadung == null){
+        if(quaykhac == null){
             System.out.println("Khong Ton Tai.");
         }
-        this.giadungList.remove(giadung);
+        this.quaykhacList.remove(quaykhac);
         System.out.println("Xac Nhan Xoa.");
     }
+
     @Override
     public String toString(){
         return d +".Ten San Pham: " +Ten+"/Ma San Pham: "+MaSo+"/Xuat Su: "+  XuatXu+"/SoLuong: "+ SoLuong+"/GiaCa: "+ GiaCa;
