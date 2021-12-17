@@ -3,6 +3,10 @@ package KhoHang;
 import java.util.List;
 
 import Main.ThongTin;
+import Quay.QuayGiaDung;
+import Quay.QuayKhac;
+import Quay.QuayThucPham;
+import Quay.QuayTuoiSong;
 
 public abstract class KhoHang extends ThongTin {
     public static List<QuayKhac>quaykhacList;
@@ -46,5 +50,10 @@ public abstract class KhoHang extends ThongTin {
         this.GiaCa = GiaCa;
     }
 
-    
+    public void add(){
+
+    }
+    public void del(){
+
+    }
 }
