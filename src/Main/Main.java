@@ -6,6 +6,7 @@ import Quay.QuayKhac;
 import Quay.QuayThucPham;
 import Quay.QuayTuoiSong;
 
+import java.io.*;
 import java.util.Objects;
 import java.util.Scanner;
 
@@ -39,7 +40,13 @@ import java.util.Scanner;
  */
 
 public class Main{
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
+        //input dau vao
+        inputDauVao("D:\\CuaHangTienLoi\\src\\Database\\inputQuayGiaDung.txt", "QuayGiaDung");
+        inputDauVao("D:\\CuaHangTienLoi\\src\\Database\\inputQuayThucPham.txt", "QuayThucPham");
+        inputDauVao("D:\\CuaHangTienLoi\\src\\Database\\inputQuayTuoiSong.txt", "QuayTuoiSong");
+        inputDauVao("D:\\CuaHangTienLoi\\src\\Database\\inputQuayKhac.txt", "QuayKhac");
+
         // xuat thong tin cua cua hang mini
         int endCuaHangMini = 0;
         do {
@@ -71,7 +78,7 @@ public class Main{
                                                 System.out.print("So luong: ");
                                                 int soLuong = scanner.nextInt();
                                                 System.out.print("Gia ca: ");
-                                                int giaCa = scanner.nextInt();
+                                                float giaCa = scanner.nextFloat();
                                                 scanner.nextLine();
 
                                                 QuayGiaDung giaDung = new QuayGiaDung(ten, maSo, ngayNhapHang, xuatSu, soLuong, giaCa);
@@ -90,7 +97,7 @@ public class Main{
                                                 System.out.print("So luong: ");
                                                 int soLuong = scanner.nextInt();
                                                 System.out.print("Gia ca: ");
-                                                int giaCa = scanner.nextInt();
+                                                float giaCa = scanner.nextFloat();
                                                 scanner.nextLine();
 
                                                 QuayThucPham thucPham = new QuayThucPham(ten, maSo, ngayNhapHang, xuatSu, soLuong, giaCa);
@@ -110,7 +117,7 @@ public class Main{
                                                 System.out.print("So luong: ");
                                                 int soLuong = scanner.nextInt();
                                                 System.out.print("Gia ca: ");
-                                                int giaCa = scanner.nextInt();
+                                                float giaCa = scanner.nextFloat();
                                                 scanner.nextLine();
 
                                                 QuayTuoiSong tuoiSong = new QuayTuoiSong(ten, maSo, ngayNhapHang, xuatSu, soLuong, giaCa);
@@ -130,7 +137,7 @@ public class Main{
                                                 System.out.print("So luong: ");
                                                 int soLuong = scanner.nextInt();
                                                 System.out.print("Gia ca: ");
-                                                int giaCa = scanner.nextInt();
+                                                float giaCa = scanner.nextFloat();
                                                 scanner.nextLine();
 
                                                 QuayKhac khac = new QuayKhac(ten, maSo, ngayNhapHang, xuatSu, soLuong, giaCa);
@@ -237,10 +244,18 @@ public class Main{
                                         switch (luaChon()) {
                                             case 1 -> {
                                                 System.out.println("Chon xuat ra man hinh");
+                                                System.out.println("-----------------Quay Gia Dung-----------------");
                                                 KhoHang.xuatGiaDung();
+                                                System.out.println("-----------------Quay Thuc Pham-----------------");
+                                                KhoHang.xuatThucPham();
+                                                System.out.println("-----------------Quay Tuoi Song-----------------");
+                                                KhoHang.xuatTuoiSong();
+                                                System.out.println("-----------------Quay Khac-----------------");
+                                                KhoHang.xuatKhac();
                                             }
                                             case 2 -> {
-                                                System.out.println("Chon xuat ra file");
+                                                System.out.println("Da xuat ra file thanh cong!");
+                                                KhoHang.outputFile("D:\\CuaHangTienLoi\\src\\Database\\output.txt");
                                             }
                                             case 3 -> {
                                                 endXuatThongTin = 1;
@@ -447,5 +462,79 @@ public class Main{
         System.out.print("Nhap mat khau: ");
         String checkMK= login.nextLine();
         return Objects.equals(checkTK, "admin") && Objects.equals(checkMK, "admin");
+    }
+
+    private static void inputDauVao(String URL, String quay) throws IOException {
+        // Quay gia dung
+        if (Objects.equals(quay, "QuayGiaDung")) {
+            File file = new File(URL);
+            InputStream inputStream = new FileInputStream(file);
+            InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
+            BufferedReader reader = new BufferedReader(inputStreamReader);
+
+            String ten = reader.readLine();
+            String maSo = reader.readLine();
+            String ngayNhapHang = reader.readLine();
+            String xuatSu = reader.readLine();
+            int soLuong = Integer.parseInt(reader.readLine());
+            float giaCa = Float.parseFloat(reader.readLine());
+
+            QuayGiaDung giaDung = new QuayGiaDung(ten, maSo, ngayNhapHang, xuatSu, soLuong, giaCa);
+            KhoHang.themGiaDung(giaDung);
+        }
+
+        // Quay khac
+        if (Objects.equals(quay, "QuayKhac")) {
+            File file = new File(URL);
+            InputStream inputStream = new FileInputStream(file);
+            InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
+            BufferedReader reader = new BufferedReader(inputStreamReader);
+
+            String ten = reader.readLine();
+            String maSo = reader.readLine();
+            String ngayNhapHang = reader.readLine();
+            String xuatSu = reader.readLine();
+            int soLuong = Integer.parseInt(reader.readLine());
+            float giaCa = Float.parseFloat(reader.readLine());
+
+            QuayKhac khac = new QuayKhac(ten, maSo, ngayNhapHang, xuatSu, soLuong, giaCa);
+            KhoHang.themKhac(khac);
+        }
+
+        // Quay Tuoi song
+        if (Objects.equals(quay, "QuayTuoiSong")) {
+            File file = new File(URL);
+            InputStream inputStream = new FileInputStream(file);
+            InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
+            BufferedReader reader = new BufferedReader(inputStreamReader);
+
+            String ten = reader.readLine();
+            String maSo = reader.readLine();
+            String ngayNhapHang = reader.readLine();
+            String xuatSu = reader.readLine();
+            int soLuong = Integer.parseInt(reader.readLine());
+            float giaCa = Float.parseFloat(reader.readLine());
+
+            QuayTuoiSong tuoiSong = new QuayTuoiSong(ten, maSo, ngayNhapHang, xuatSu, soLuong, giaCa);
+            KhoHang.themTuoiSong(tuoiSong);
+        }
+
+        //Quay Thuc Pham
+        if (Objects.equals(quay, "QuayThucPham")) {
+            File file = new File(URL);
+            InputStream inputStream = new FileInputStream(file);
+            InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
+            BufferedReader reader = new BufferedReader(inputStreamReader);
+
+            String ten = reader.readLine();
+            String maSo = reader.readLine();
+            String ngayNhapHang = reader.readLine();
+            String xuatSu = reader.readLine();
+            int soLuong = Integer.parseInt(reader.readLine());
+            float giaCa = Float.parseFloat(reader.readLine());
+
+            QuayThucPham thucPham = new QuayThucPham(ten, maSo, ngayNhapHang, xuatSu, soLuong, giaCa);
+            KhoHang.themThucPham(thucPham);
+        }
     }
 }

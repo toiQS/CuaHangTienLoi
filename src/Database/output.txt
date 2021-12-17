@@ -1,0 +1,14 @@
+------------Quay Tuoi Song---------------
+2.Ten San Pham: Tôm Sú/Ma San Pham: 001/Xuat Su: Việt Nam/SoLuong: 20/GiaCa: 19000.0
+
+
+------------Quay Gia Dung---------------
+2.Ten San Pham: Chảo/Ma San Pham: 001/Xuat Su: Việt Nam/SoLuong: 30/GiaCa: 21500.0
+
+
+------------Quay Tuoi Song---------------
+2.Ten San Pham: Pizza/Ma San Pham: 001/Xuat Su: Việt Nam/SoLuong: 30/GiaCa: 19000.0
+
+
+------------Quay Khac---------------
+2.Ten San Pham: Bánh xe/Ma San Pham: 001/Xuat Su: Việt Nam/SoLuong: 30/GiaCa: 9000.0

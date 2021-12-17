@@ -1,5 +1,6 @@
 package KhoHang;
 
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -89,5 +90,39 @@ public abstract class KhoHang extends ThongTin {
         for (QuayKhac khac: quaykhacList) {
             System.out.println(khac);
         }
+    }
+
+    //out put ra file
+    public static void outputFile(String URL) throws IOException {
+        File file = new File(URL);
+        OutputStream outputStream = new FileOutputStream(file);
+        OutputStreamWriter outputStreamWriter = new OutputStreamWriter(outputStream);
+
+        //in quay tuoi song
+        outputStreamWriter.write("------------Quay Tuoi Song---------------\n");
+        for (QuayTuoiSong tuoiSong: tuoisongList) {
+            outputStreamWriter.write(String.valueOf(tuoiSong));
+            outputStreamWriter.write("\n");
+        }
+        outputStreamWriter.flush();
+        outputStreamWriter.write("\n\n------------Quay Gia Dung---------------\n");
+        for (QuayGiaDung giaDung: giadungList) {
+            outputStreamWriter.write(String.valueOf(giaDung));
+            outputStreamWriter.write("\n");
+        }
+        outputStreamWriter.flush();
+        outputStreamWriter.write("\n\n------------Quay Tuoi Song---------------\n");
+        for (QuayThucPham thucPham: thucphamList) {
+            outputStreamWriter.write(String.valueOf(thucPham));
+            outputStreamWriter.write("\n");
+        }
+
+        outputStreamWriter.flush();
+        outputStreamWriter.write("\n\n------------Quay Khac---------------\n");
+        for (QuayKhac khac: quaykhacList) {
+            outputStreamWriter.write(String.valueOf(khac));
+            outputStreamWriter.write("\n");
+        }
+        outputStreamWriter.flush();
     }
 }
