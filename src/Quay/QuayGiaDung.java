@@ -41,6 +41,11 @@ public class QuayGiaDung extends KhoHang {
         this.giadungList.remove(giadung);
         System.out.println("Xac Nhan Xoa.");
     }
+    public void xem(){
+        for( QuayGiaDung s2 : KhoHang.giadungList)
+            if(s2 instanceof QuayGiaDung)
+                System.out.println(s2);
+    }
     @Override
     public String toString(){
         return c +".Ten San Pham: " +Ten+"/Ma San Pham: "+MaSo+"/Xuat Su: "+  XuatXu+"/SoLuong: "+ SoLuong+"/GiaCa: "+ GiaCa;

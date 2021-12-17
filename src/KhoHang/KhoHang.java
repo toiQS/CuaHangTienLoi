@@ -56,4 +56,7 @@ public abstract class KhoHang extends ThongTin {
     public void del(){
 
     }
+    public void xem(){
+
+    }
 }
