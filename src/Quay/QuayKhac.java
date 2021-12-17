@@ -39,6 +39,12 @@ public class QuayKhac extends KhoHang{
         System.out.println("Xac Nhan Xoa.");
     }
 
+    public void xem(){
+        for( QuayKhac s2 : KhoHang.quaykhacList)
+            if(s2 instanceof QuayKhac)
+                System.out.println(s2);
+    }
+
     @Override
     public String toString(){
         return d +".Ten San Pham: " +Ten+"/Ma San Pham: "+MaSo+"/Xuat Su: "+  XuatXu+"/SoLuong: "+ SoLuong+"/GiaCa: "+ GiaCa;

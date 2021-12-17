@@ -59,4 +59,7 @@ public abstract class KhoHang extends ThongTin {
             System.out.println(giaDung);
         }
     }
+    public void xem(){
+
+    }
 }

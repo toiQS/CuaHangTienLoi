@@ -36,6 +36,11 @@ public class QuayThucPham extends KhoHang{
         this.thucphamList.remove(thucpham);
         System.out.println("Xac Nhan Xoa.");
     }
+    public void xem(){
+        for( QuayThucPham s2 : KhoHang.thucphamList)
+            if(s2 instanceof QuayThucPham)
+                System.out.println(s2);
+    }
     @Override
     public String toString(){
         return b +".Ten San Pham: " +Ten+"/Ma San Pham: "+MaSo+"/Xuat Su: "+  XuatXu+"/SoLuong: "+ SoLuong+"/GiaCa: "+ GiaCa;

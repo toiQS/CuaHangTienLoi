@@ -38,6 +38,13 @@ public class QuayTuoiSong extends KhoHang {
         this.tuoisongList.remove(tuoisong);
         System.out.println("Xac Nhan Xoa.");
     }
+
+    public void xem(){
+        for( QuayTuoiSong s2 : KhoHang.tuoisongList)
+            if(s2 instanceof QuayTuoiSong)
+                System.out.println(s2);
+    }
+
     @Override
     public String toString(){
         return a +".Ten San Pham: " +Ten+"/Ma San Pham: "+MaSo+"/Xuat Su: "+  XuatXu+"/SoLuong: "+ SoLuong+"/GiaCa: "+ GiaCa;
