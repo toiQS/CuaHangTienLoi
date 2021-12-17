@@ -1,5 +1,6 @@
 package KhoHang;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import Main.ThongTin;
@@ -9,10 +10,10 @@ import Quay.QuayThucPham;
 import Quay.QuayTuoiSong;
 
 public abstract class KhoHang extends ThongTin {
-    public static List<QuayKhac>quaykhacList;
-    public static List<QuayGiaDung>giadungList;
-    public static List<QuayThucPham>thucphamList;
-    public static List<QuayTuoiSong>tuoisongList;
+    public static List<QuayKhac>quaykhacList = new ArrayList<>();
+    public static List<QuayGiaDung>giadungList = new ArrayList<>();
+    public static List<QuayThucPham>thucphamList = new ArrayList<>();
+    public static List<QuayTuoiSong>tuoisongList = new ArrayList<>();
 
     public String NgayNhapHang;
     public String XuatXu;
@@ -50,10 +51,12 @@ public abstract class KhoHang extends ThongTin {
         this.GiaCa = GiaCa;
     }
 
-    public void add(){
-
+    public static void themGiaDung(QuayGiaDung giaDung){
+        giadungList.add(giaDung);
     }
-    public void del(){
-
+    public static void xuatGiaDung(){
+        for (QuayGiaDung giaDung: giadungList) {
+            System.out.println(giaDung);
+        }
     }
 }

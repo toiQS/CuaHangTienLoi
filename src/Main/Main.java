@@ -1,5 +1,8 @@
 package Main;
 
+import KhoHang.KhoHang;
+import Quay.QuayGiaDung;
+
 import java.util.Objects;
 import java.util.Scanner;
 
@@ -60,14 +63,16 @@ public class Main{
                                                 String maSo = scanner.nextLine();
                                                 System.out.print("Ngay nhap hang: ");
                                                 String ngayNhapHang = scanner.nextLine();
+                                                System.out.print("Xuat su: ");
+                                                String xuatSu = scanner.nextLine();
                                                 System.out.print("So luong: ");
                                                 int soLuong = scanner.nextInt();
                                                 System.out.print("Gia ca: ");
                                                 int giaCa = scanner.nextInt();
                                                 scanner.nextLine();
 
-                                                // them loai hang hoa duoi day
-
+                                                QuayGiaDung giaDung = new QuayGiaDung(ten, maSo, ngayNhapHang, xuatSu, soLuong, giaCa);
+                                                KhoHang.themGiaDung(giaDung);
                                             }
                                             case 2 -> {
                                                 System.out.println("-----------Them Thuc Pham------------");
@@ -223,6 +228,7 @@ public class Main{
                                         switch (luaChon()) {
                                             case 1 -> {
                                                 System.out.println("Chon xuat ra man hinh");
+                                                KhoHang.xuatGiaDung();
                                             }
                                             case 2 -> {
                                                 System.out.println("Chon xuat ra file");
