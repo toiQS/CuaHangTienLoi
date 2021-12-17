@@ -2,6 +2,9 @@ package Main;
 
 import KhoHang.KhoHang;
 import Quay.QuayGiaDung;
+import Quay.QuayKhac;
+import Quay.QuayThucPham;
+import Quay.QuayTuoiSong;
 
 import java.util.Objects;
 import java.util.Scanner;
@@ -82,15 +85,16 @@ public class Main{
                                                 String maSo = scanner.nextLine();
                                                 System.out.print("Ngay nhap hang: ");
                                                 String ngayNhapHang = scanner.nextLine();
+                                                System.out.print("Xuat su: ");
+                                                String xuatSu = scanner.nextLine();
                                                 System.out.print("So luong: ");
                                                 int soLuong = scanner.nextInt();
                                                 System.out.print("Gia ca: ");
                                                 int giaCa = scanner.nextInt();
                                                 scanner.nextLine();
 
-                                                // them loai hang hoa duoi day
-
-
+                                                QuayThucPham thucPham = new QuayThucPham(ten, maSo, ngayNhapHang, xuatSu, soLuong, giaCa);
+                                                KhoHang.themThucPham(thucPham);
                                             }
 
                                             case 3 -> {
@@ -101,31 +105,36 @@ public class Main{
                                                 String maSo = scanner.nextLine();
                                                 System.out.print("Ngay nhap hang: ");
                                                 String ngayNhapHang = scanner.nextLine();
+                                                System.out.print("Xuat su: ");
+                                                String xuatSu = scanner.nextLine();
                                                 System.out.print("So luong: ");
                                                 int soLuong = scanner.nextInt();
                                                 System.out.print("Gia ca: ");
                                                 int giaCa = scanner.nextInt();
                                                 scanner.nextLine();
 
-                                                // them loai hang hoa duoi day
-
+                                                QuayTuoiSong tuoiSong = new QuayTuoiSong(ten, maSo, ngayNhapHang, xuatSu, soLuong, giaCa);
+                                                KhoHang.themTuoiSong(tuoiSong);
                                             }
 
                                             case 4 -> {
-                                                System.out.println("-----------Them Dong Hop------------");
+                                                System.out.println("-----------Them Khac------------");
                                                 System.out.print("Ten: ");
                                                 String ten = scanner.nextLine();
                                                 System.out.print("Ma so: ");
                                                 String maSo = scanner.nextLine();
                                                 System.out.print("Ngay nhap hang: ");
                                                 String ngayNhapHang = scanner.nextLine();
+                                                System.out.print("Xuat su: ");
+                                                String xuatSu = scanner.nextLine();
                                                 System.out.print("So luong: ");
                                                 int soLuong = scanner.nextInt();
                                                 System.out.print("Gia ca: ");
                                                 int giaCa = scanner.nextInt();
                                                 scanner.nextLine();
 
-                                                // them loai hang hoa duoi day
+                                                QuayKhac khac = new QuayKhac(ten, maSo, ngayNhapHang, xuatSu, soLuong, giaCa);
+                                                KhoHang.themKhac(khac);
                                             }
                                             case 5 -> {
                                                 int endThemNhanSu = 0;

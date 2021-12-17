@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 import NhanSu.NhanSu;
 
 public class DanhSachNhanSu {
-    private List<NhanSu>nhansuList;
+    private List<NhanSu>nhansuList = new ArrayList<NhanSu>();
     public DanhSachNhanSu(){
         this.nhansuList = new ArrayList<>();
     }
