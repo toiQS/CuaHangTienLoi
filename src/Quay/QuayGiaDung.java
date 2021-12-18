@@ -1,17 +1,17 @@
 package Quay;
 
 
+import KhoHang.KhoHang;
 
 import java.io.*;
 import java.util.Scanner;
 
-import KhoHang.KhoHang;
-
 public class QuayGiaDung extends KhoHang {
     public static int c = 1; //đếm số lượng mặt hàng có trong quầy
-    public QuayGiaDung(String Ten, String MaSo, String NgayNhapHang, String XuatXu, int SoLuong, float GiaCa){
+
+    public QuayGiaDung(String Ten, String MaSo, String NgayNhapHang, String XuatXu, int SoLuong, float GiaCa) {
         super(Ten, MaSo, NgayNhapHang, XuatXu, SoLuong, GiaCa);
-        c+=1;
+        c += 1;
     }
 
     public QuayGiaDung() {
@@ -19,7 +19,7 @@ public class QuayGiaDung extends KhoHang {
     }
 
     @Override
-    public void add(){
+    public void add() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Ten San Pham: ");
         String Ten = sc.nextLine();
@@ -38,12 +38,12 @@ public class QuayGiaDung extends KhoHang {
     }
 
     @Override
-    public void del(){
+    public void del() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Nhap Ma So Muon Xoa: ");
         String MaSo = sc.nextLine();
-        QuayGiaDung giadung = this.giadungList.stream().filter(o ->o.getMaSo().equals(MaSo)).findFirst().orElse(null);
-        if(giadung == null){
+        QuayGiaDung giadung = this.giadungList.stream().filter(o -> o.getMaSo().equals(MaSo)).findFirst().orElse(null);
+        if (giadung == null) {
             System.out.println("Khong Ton Tai.");
         }
         this.giadungList.remove(giadung);
@@ -69,7 +69,11 @@ public class QuayGiaDung extends KhoHang {
     }
 
     @Override
-    public String toString(){
-        return c +".Ten San Pham: " +Ten+"/Ma San Pham: "+MaSo+"/Xuat Su: "+  XuatXu+"/SoLuong: "+ SoLuong+"/GiaCa: "+ GiaCa;
+    public String toString() {
+        return c + ".Ten San Pham: " + Ten + " - "
+                + "Ma San Pham: " + MaSo + " - "
+                + "Xuat Su: " + XuatXu + " - "
+                + "SoLuong: " + SoLuong + " - "
+                + "GiaCa: " + GiaCa;
     }
 }
