@@ -28,6 +28,10 @@ public abstract class NhanSu extends ThongTin {
         this.Luong = Luong;
     }
 
+    public NhanSu() {
+
+    }
+
     //Bảo Vệ
     public static void xuatBaoVe() {
         for (BaoVe baoVe : baoveList) {
@@ -115,4 +119,8 @@ public abstract class NhanSu extends ThongTin {
     }
 
     public abstract void add();
+
+    public abstract void del();
+
+    public abstract void inputFile(String URL) throws IOException;
 }
