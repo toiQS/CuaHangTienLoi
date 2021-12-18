@@ -2,63 +2,84 @@ package NhanSu;
 
 import Main.ThongTin;
 
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class NhanSu extends ThongTin {
-    public static List<BaoVe> baoVeList = new ArrayList<>();
-    public static List<LaoCong> laoCongList = new ArrayList<>();
-    public static List<NhanVien> nhanVienList = new ArrayList<>();
+public abstract class NhanSu extends ThongTin {
+    public static List<BaoVe> baoveList = new ArrayList<>();
+    public static List<LaoCong> laocongList = new ArrayList<>();
+    public static List<NhanVien> nhanvienList = new ArrayList<>();
 
+    public String CCCD;
     public String GioiTinh;
     public String MaSo;
     public String DiaChi;
     public String SDT;
-    public int SoNgayLam;
+    public float Luong;
 
-    public NhanSu(String Ten, String MaSo, String GioiTinh, String DiaChi, String SDT, int SoNgayLam) {
+    public NhanSu(String Ten, String MaSo, String CCCD, String GioiTinh, String DiaChi, String SDT, float Luong) {
         super(Ten, MaSo);
+        this.CCCD = CCCD;
         this.GioiTinh = GioiTinh;
         this.MaSo = MaSo;
         this.DiaChi = DiaChi;
         this.SDT = SDT;
-        this.SoNgayLam = SoNgayLam;
+        this.Luong = Luong;
     }
 
-    public static void themBaoVe(BaoVe baoVe) {
-        baoVeList.add(baoVe);
-    }
-
+    //Bảo Vệ
     public static void xuatBaoVe() {
-        for (BaoVe baoVe : baoVeList) {
+        for (BaoVe baoVe : baoveList) {
             System.out.println(baoVe);
         }
     }
 
-    public static void themLaoCong(LaoCong laoCong) {
-        laoCongList.add(laoCong);
-    }
-
+    //Lao Công
     public static void xuatLaoCong() {
-        for (LaoCong laoCong : laoCongList) {
+        for (LaoCong laoCong : laocongList) {
             System.out.println(laoCong);
         }
     }
 
-    public String getTen() {
-        return Ten;
+    //Nhân Viên Bán Hàng
+    public static void xuatNhanVien() {
+        for (NhanVien nhanVien : nhanvienList) {
+            System.out.println(nhanVien);
+        }
     }
 
-    public void getTen(String Ten) {
-        this.Ten = Ten;
+    public static void outputFile(String URL) throws IOException {
+        File file = new File(URL);
+        OutputStream outputStream = new FileOutputStream(file);
+        OutputStreamWriter outputStreamWriter = new OutputStreamWriter(outputStream);
+
+        outputStreamWriter.write("------------Bảo Vệ---------------\n");
+        for (BaoVe baoVe : baoveList) {
+            outputStreamWriter.write(String.valueOf(baoVe));
+            outputStreamWriter.write("\n");
+        }
+        outputStreamWriter.flush();
+        outputStreamWriter.write("\n\n------------Lao Công---------------\n");
+        for (LaoCong laoCong : laocongList) {
+            outputStreamWriter.write(String.valueOf(laoCong));
+            outputStreamWriter.write("\n");
+        }
+        outputStreamWriter.flush();
+        outputStreamWriter.write("\n\n------------Nhân Viên---------------\n");
+        for (NhanVien nhanVien : nhanvienList) {
+            outputStreamWriter.write(String.valueOf(nhanVien));
+            outputStreamWriter.write("\n");
+        }
+        outputStreamWriter.flush();
     }
 
-    public String getMaSo() {
-        return MaSo;
+    public String getCCCD() {
+        return CCCD;
     }
 
-    public void setMaSo(String MaSo) {
-        this.MaSo = MaSo;
+    public void getCCCD(String CCCD) {
+        this.CCCD = CCCD;
     }
 
     public String getGioiTinh() {
@@ -85,19 +106,13 @@ public class NhanSu extends ThongTin {
         this.SDT = SDT;
     }
 
-    public int getSoNgayLam() {
-        return SoNgayLam;
+    public float getLuong() {
+        return Luong;
     }
 
-    public void getSoNgayLam(int SoNgayLam) {
-        this.SoNgayLam = SoNgayLam;
+    public void getLuong(float Luong) {
+        this.Luong = Luong;
     }
 
-//    public int getLuong() {
-//        return Luong;
-//    }
-//
-//    public void getLuong(int Luong) {
-//        this.Luong = Luong;
-//    }
+    public abstract void add();
 }
