@@ -25,7 +25,7 @@ public class LaoCong extends NhanSu {
         System.out.println("Số ngày làm: ");
         int SoNgayLam = sc.nextInt();
         LaoCong laocong = new LaoCong(Ten, MaSo, GioiTinh, DiaChi, SDT, SoNgayLam);
-        laoCongList.add(laocong);
+        laocongList.add(laocong);
     }
 
     @Override
