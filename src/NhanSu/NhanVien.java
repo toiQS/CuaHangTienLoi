@@ -25,7 +25,7 @@ public class NhanVien extends NhanSu {
         System.out.println("Số ngày làm: ");
         int SoNgayLam = sc.nextInt();
         NhanVien nhanvien = new NhanVien(Ten, MaSo, GioiTinh, DiaChi, SDT, SoNgayLam);
-        nhanVienList.add(nhanvien);
+        nhanvienList.add(nhanvien);
     }
 
     @Override
