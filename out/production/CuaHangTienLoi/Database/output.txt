@@ -3,8 +3,7 @@
 
 
 ------------Quay Gia Dung---------------
-3.Ten San Pham: Chảo/Ma San Pham: 001/Xuat Su: Việt Nam/SoLuong: 30/GiaCa: 21500.0
-3.Ten San Pham: Đũa/Ma San Pham: 002/Xuat Su: Việt Nam/SoLuong: 13/GiaCa: 134.13
+2.Ten San Pham: Chảo/Ma San Pham: 001/Xuat Su: Việt Nam/SoLuong: 30/GiaCa: 21500.0
 
 
 ------------Quay Tuoi Song---------------
