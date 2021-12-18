@@ -25,7 +25,7 @@ public class BaoVe extends NhanSu {
         System.out.println("Số ngày làm: ");
         int SoNgayLam = sc.nextInt();
         BaoVe baove = new BaoVe(Ten, MaSo, GioiTinh, DiaChi, SDT, SoNgayLam);
-        baoVeList.add(baove);
+        baoveList.add(baove);
     }
 
     @Override
