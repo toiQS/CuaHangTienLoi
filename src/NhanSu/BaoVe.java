@@ -1,5 +1,6 @@
 package NhanSu;
 
+import java.io.*;
 import java.util.Scanner;
 
 public class BaoVe extends NhanSu {
@@ -10,25 +11,61 @@ public class BaoVe extends NhanSu {
         a += 1;
     }
 
+    public BaoVe() {
+
+    }
+
     @Override
     public void add() {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Tên nhân viên: ");
+        System.out.print("Tên nhân viên: ");
         String Ten = sc.nextLine();
-        System.out.println("Mã nhân viên: ");
+        System.out.print("Mã nhân viên: ");
         String MaSo = sc.nextLine();
-        System.out.println("Căn cước công dân: ");
+        System.out.print("Căn cước công dân: ");
         String CCCD = sc.nextLine();
-        System.out.println("Giới tính: ");
+        System.out.print("Giới tính: ");
         String GioiTinh = sc.nextLine();
-        System.out.println("Địa chỉ: ");
+        System.out.print("Địa chỉ: ");
         String DiaChi = sc.nextLine();
-        System.out.println("Số điện thoại: ");
+        System.out.print("Số điện thoại: ");
         String SDT = sc.nextLine();
-        System.out.println("Lương: ");
+        System.out.print("Lương: ");
         float Luong = sc.nextInt();
         BaoVe baove = new BaoVe(Ten, MaSo, CCCD, GioiTinh, DiaChi, SDT, Luong);
         baoveList.add(baove);
+    }
+
+    @Override
+    public void del() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Nhập Mã Nhân Viên Muốn Sa Thải: ");
+        String MaSo = sc.nextLine();
+        BaoVe baoVe = baoveList.stream().filter(o -> o.getMaSo().equals(MaSo)).findFirst().orElse(null);
+        if (baoVe == null) {
+            System.out.println("Nhân Viên Không Tồn Tại!!!!!");
+        }
+        baoveList.remove(baoVe);
+        System.out.println("Xác Nhận Sa Thải Nhân Viên.");
+    }
+
+    @Override
+    public void inputFile(String URL) throws IOException {
+        File file = new File(URL);
+        InputStream inputStream = new FileInputStream(file);
+        InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
+        BufferedReader reader = new BufferedReader(inputStreamReader);
+
+        String Ten = reader.readLine();
+        String MaSo = reader.readLine();
+        String CCCD = reader.readLine();
+        String GioiTinh = reader.readLine();
+        String DiaChi = reader.readLine();
+        String SDT = reader.readLine();
+        float Luong = Float.parseFloat(reader.readLine());
+
+        BaoVe baoVe = new BaoVe(Ten, MaSo, CCCD, GioiTinh, DiaChi, SDT, Luong);
+        baoveList.add(baoVe);
     }
 
     @Override
