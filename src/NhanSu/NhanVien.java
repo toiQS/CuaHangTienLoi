@@ -10,7 +10,7 @@ public class NhanVien extends NhanSu {
         stt += 1;
     }
 
-    public void add(){
+    public void add() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Ten nhân viên: ");
         String Ten = sc.nextLine();
