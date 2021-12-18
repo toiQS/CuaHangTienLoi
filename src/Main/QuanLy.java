@@ -8,6 +8,7 @@ import Quay.QuayKhac;
 import Quay.QuayNuoc;
 import Quay.QuayTuoiSong;
 
+import javax.swing.plaf.LabelUI;
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -112,14 +113,44 @@ public class QuanLy {
                         thongTin();
                         switch (luaChon()) {
                             case 1 -> {
-                                KhoHang.xuatGiaDung();
-                                KhoHang.xuatNuoc();
-                                KhoHang.xuatTuoiSong();
-                                KhoHang.xuatKhac();
+                                danhSach();
+                                switch (luaChon()) {
+                                    case 1 -> {
+                                        KhoHang.xuatGiaDung();
+                                        KhoHang.xuatNuoc();
+                                        KhoHang.xuatTuoiSong();
+                                        KhoHang.xuatKhac();
+                                    }
+                                    case 2 -> {
+                                        NhanSu.xuatBaoVe();
+                                        NhanSu.xuatLaoCong();
+                                        NhanSu.xuatNhanVien();
+                                    }
+                                    case 3 -> {
+
+                                    }
+                                    default -> {
+                                        System.out.println("Khong co lua chon nay!");
+                                    }
+                                }
                             }
                             case 2 -> {
+                                danhSach();
+                                switch (luaChon()) {
+                                    case 1 -> {
+                                        KhoHang.outputFile("src/Database/output.txt");
+                                    }
+                                    case 2 -> {
+                                        NhanSu.outputFile("src/Database/outputNhanVien.txt");
+                                    }
+                                    case 3 -> {
+
+                                    }
+                                    default -> {
+                                        System.out.println("Khong co lua chon nay!");
+                                    }
+                                }
                                 System.out.println("Da xuat ra file thanh cong!");
-                                KhoHang.outputFile("src/Database/output.txt");
                             }
                             case 3 -> {
                                 endThongTin = 1;
@@ -228,6 +259,19 @@ public class QuanLy {
         System.out.println("+---------------------------------+");
         System.out.println("|   1. Xuat ra man hinh           |");
         System.out.println("|   2. Xuat ra file               |");
+        System.out.println("|   3. Tro ve                     |");
+        System.out.println("+---------------------------------+");
+    }
+
+    private static void danhSach() {
+        for (int i = 0; i < 10; i++) {
+            System.out.println();
+        }
+        System.out.println("+---------------------------------+");
+        System.out.println("|         Danh Sach               |");
+        System.out.println("+---------------------------------+");
+        System.out.println("|   1. Hang Hoa                   |");
+        System.out.println("|   2. Nhan Vien                  |");
         System.out.println("|   3. Tro ve                     |");
         System.out.println("+---------------------------------+");
     }

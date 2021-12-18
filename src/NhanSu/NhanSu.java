@@ -18,6 +18,8 @@ public abstract class NhanSu extends ThongTin {
     public String SDT;
     public float Luong;
 
+
+
     public NhanSu(String Ten, String MaSo, String CCCD, String GioiTinh, String DiaChi, String SDT, float Luong) {
         super(Ten, MaSo);
         this.CCCD = CCCD;
@@ -58,19 +60,19 @@ public abstract class NhanSu extends ThongTin {
         OutputStream outputStream = new FileOutputStream(file);
         OutputStreamWriter outputStreamWriter = new OutputStreamWriter(outputStream);
 
-        outputStreamWriter.write("------------Bảo Vệ---------------\n");
+        outputStreamWriter.write("***Bảo Vệ***\n");
         for (BaoVe baoVe : baoveList) {
             outputStreamWriter.write(String.valueOf(baoVe));
             outputStreamWriter.write("\n");
         }
         outputStreamWriter.flush();
-        outputStreamWriter.write("\n\n------------Lao Công---------------\n");
+        outputStreamWriter.write("\n\n***Lao Công***\n");
         for (LaoCong laoCong : laocongList) {
             outputStreamWriter.write(String.valueOf(laoCong));
             outputStreamWriter.write("\n");
         }
         outputStreamWriter.flush();
-        outputStreamWriter.write("\n\n------------Nhân Viên---------------\n");
+        outputStreamWriter.write("\n\n***Nhân Viên***\n");
         for (NhanVien nhanVien : nhanvienList) {
             outputStreamWriter.write(String.valueOf(nhanVien));
             outputStreamWriter.write("\n");
