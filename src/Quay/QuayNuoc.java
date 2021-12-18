@@ -1,20 +1,23 @@
 package Quay;
-import java.io.*;
-import java.util.Scanner;
+
 import KhoHang.KhoHang;
 
-public class QuayNuoc extends KhoHang{
-    public static int b = 1;
-    public QuayNuoc(String Ten, String MaSo, String NgayNhapHang, String XuatXu, int SoLuong, float GiaCa){
+import java.io.*;
+import java.util.Scanner;
+
+public class QuayNuoc extends KhoHang {
+    public static int c = 1;
+
+    public QuayNuoc(String Ten, String MaSo, String NgayNhapHang, String XuatXu, int SoLuong, float GiaCa) {
         super(Ten, MaSo, NgayNhapHang, XuatXu, SoLuong, GiaCa);
-        b+=1;
+        c += 1;
     }
 
     public QuayNuoc() {
 
     }
 
-    public void add(){
+    public void add() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Ten San Pham: ");
         String Ten = sc.nextLine();
@@ -31,15 +34,16 @@ public class QuayNuoc extends KhoHang{
         QuayNuoc thucpham = new QuayNuoc(Ten, MaSo, NgayNhapHang, XuatXu, SoLuong, GiaCa);
         nuocList.add(thucpham);
     }
-    public void del(){
+
+    public void del() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Nhap Ma So Muon Xoa: ");
         String MaSo = sc.nextLine();
-        QuayNuoc thucpham= this.nuocList.stream().filter(o ->o.getMaSo().equals(MaSo)).findFirst().orElse(null);
-        if(thucpham == null){
+        QuayNuoc thucpham = nuocList.stream().filter(o -> o.getMaSo().equals(MaSo)).findFirst().orElse(null);
+        if (thucpham == null) {
             System.out.println("Khong Ton Tai.");
         }
-        this.nuocList.remove(thucpham);
+        nuocList.remove(thucpham);
         System.out.println("Xac Nhan Xoa.");
     }
 
@@ -62,7 +66,11 @@ public class QuayNuoc extends KhoHang{
     }
 
     @Override
-    public String toString(){
-        return b +".Ten San Pham: " +Ten+"/Ma San Pham: "+MaSo+"/Xuat Su: "+  XuatXu+"/SoLuong: "+ SoLuong+"/GiaCa: "+ GiaCa;
+    public String toString() {
+        return c + ".Ten San Pham: " + Ten + " - "
+                + "Ma San Pham: " + MaSo + " - "
+                + "Xuat Su: " + XuatXu + " - "
+                + "SoLuong: " + SoLuong + " - "
+                + "GiaCa: " + GiaCa;
     }
 }
