@@ -5,7 +5,7 @@ import Quay.QuayKhac;
 import Quay.QuayNuoc;
 import Quay.QuayTuoiSong;
 
-import java.io.*;
+import java.io.IOException;
 import java.util.Objects;
 import java.util.Scanner;
 
@@ -17,7 +17,7 @@ import java.util.Scanner;
  * |    1. Admin                     |
  * |    2. Khách hàng                |
  * +---------------------------------+
- *
+ * <p>
  * +---------------------------------+
  * |              Admin              |
  * +---------------------------------+
@@ -28,18 +28,18 @@ import java.util.Scanner;
  * |    5. Hien danh sach thong tin  |
  * |    6. Thoat                     |
  * +---------------------------------+
- *
+ * <p>
  * +---------------------------------+
  * |            Khach hang           |
  * +---------------------------------+
  * |    1. Mua                       |
  * |    2. Tiem Kiem                 |
  * +---------------------------------+
- *
  */
 
-public class Main{
+public class Main {
     private static int endCuaHangMini;
+
     public static void main(String[] args) throws IOException {
         //input dau vao
         inputDauVao("src/Database/inputQuayGiaDung.txt", "QuayGiaDung");
@@ -56,8 +56,7 @@ public class Main{
                     if (login()) {
                         QuanLy quanLy = new QuanLy();
                         quanLy.admin();
-                    }
-                    else {
+                    } else {
                         System.out.println("Mat khau hoac tai khoan khong dung!");
                     }
                 }
@@ -78,7 +77,7 @@ public class Main{
     }
 
     private static void cuaHangMini() {
-        for(int i = 0; i < 10; i++) {
+        for (int i = 0; i < 10; i++) {
             System.out.println();
         }
         System.out.println("+---------------------------------+");
@@ -108,7 +107,7 @@ public class Main{
         System.out.print("Nhap tai khoan: ");
         String checkTK = login.nextLine();
         System.out.print("Nhap mat khau: ");
-        String checkMK= login.nextLine();
+        String checkMK = login.nextLine();
         return Objects.equals(checkTK, "admin") && Objects.equals(checkMK, "admin");
     }
 
