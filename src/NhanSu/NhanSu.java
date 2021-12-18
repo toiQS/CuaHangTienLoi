@@ -2,23 +2,63 @@ package NhanSu;
 
 import Main.ThongTin;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class NhanSu extends ThongTin {
+    public static List<BaoVe> baoVeList = new ArrayList<>();
+    public static List<LaoCong> laoCongList = new ArrayList<>();
+    public static List<NhanVien> nhanVienList = new ArrayList<>();
 
     public String GioiTinh;
-    public int CCCD;
+    public String MaSo;
     public String DiaChi;
     public String SDT;
     public int SoNgayLam;
-    public int Luong;
 
-    public NhanSu(String Ten, String MaSo, String GioiTinh, int CCCD, String DiaChi, String SDT, int SoNgayLam, int Luong) {
+    public NhanSu(String Ten, String MaSo, String GioiTinh, String DiaChi, String SDT, int SoNgayLam) {
         super(Ten, MaSo);
         this.GioiTinh = GioiTinh;
-        this.CCCD = CCCD;
+        this.MaSo = MaSo;
         this.DiaChi = DiaChi;
         this.SDT = SDT;
         this.SoNgayLam = SoNgayLam;
-        this.Luong = Luong;
+    }
+
+    public static void themBaoVe(BaoVe baoVe) {
+        baoVeList.add(baoVe);
+    }
+
+    public static void xuatBaoVe() {
+        for (BaoVe baoVe : baoVeList) {
+            System.out.println(baoVe);
+        }
+    }
+
+    public static void themLaoCong(LaoCong laoCong) {
+        laoCongList.add(laoCong);
+    }
+
+    public static void xuatLaoCong() {
+        for (LaoCong laoCong : laoCongList) {
+            System.out.println(laoCong);
+        }
+    }
+
+    public String getTen() {
+        return Ten;
+    }
+
+    public void getTen(String Ten) {
+        this.Ten = Ten;
+    }
+
+    public String getMaSo() {
+        return MaSo;
+    }
+
+    public void setMaSo(String MaSo) {
+        this.MaSo = MaSo;
     }
 
     public String getGioiTinh() {
@@ -27,14 +67,6 @@ public class NhanSu extends ThongTin {
 
     public void setGioiTinh(String GioiTinh) {
         this.GioiTinh = GioiTinh;
-    }
-
-    public int getCCCD() {
-        return CCCD;
-    }
-
-    public void setCCCD(int CCCD) {
-        this.CCCD = CCCD;
     }
 
     public String getDiaChi() {
@@ -61,11 +93,11 @@ public class NhanSu extends ThongTin {
         this.SoNgayLam = SoNgayLam;
     }
 
-    public int getLuong() {
-        return Luong;
-    }
-
-    public void getLuong(int Luong) {
-        this.Luong = Luong;
-    }
+//    public int getLuong() {
+//        return Luong;
+//    }
+//
+//    public void getLuong(int Luong) {
+//        this.Luong = Luong;
+//    }
 }
