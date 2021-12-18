@@ -7,6 +7,11 @@ public abstract class ThongTin {
         this.Ten = Ten;
         this.MaSo = MaSo;
     }
+
+    public ThongTin() {
+
+    }
+
     public String getTen(){
         return Ten;
     }

@@ -7,13 +7,13 @@ import java.util.List;
 import Main.ThongTin;
 import Quay.QuayGiaDung;
 import Quay.QuayKhac;
-import Quay.QuayThucPham;
+import Quay.QuayNuoc;
 import Quay.QuayTuoiSong;
 
 public abstract class KhoHang extends ThongTin {
     public static List<QuayKhac>quaykhacList = new ArrayList<>();
     public static List<QuayGiaDung>giadungList = new ArrayList<>();
-    public static List<QuayThucPham>thucphamList = new ArrayList<>();
+    public static List<QuayNuoc>nuocList = new ArrayList<>();
     public static List<QuayTuoiSong>tuoisongList = new ArrayList<>();
 
     public String NgayNhapHang;
@@ -27,6 +27,11 @@ public abstract class KhoHang extends ThongTin {
         this.SoLuong = SoLuong;
         this.GiaCa = GiaCa;
     }
+
+    public KhoHang() {
+
+    }
+
     public String getNgayNhapHang(){
         return NgayNhapHang;
     }
@@ -52,41 +57,38 @@ public abstract class KhoHang extends ThongTin {
         this.GiaCa = GiaCa;
     }
 
+
+    public abstract void add();
+    public abstract void del() ;
+    public abstract void inputFile(String URL) throws IOException;
+
     // Quay gia dung
-    public static void themGiaDung(QuayGiaDung giaDung){
-        giadungList.add(giaDung);
-    }
     public static void xuatGiaDung(){
+        System.out.println("-----------Quay Gia Dung-------------------");
         for (QuayGiaDung giaDung: giadungList) {
             System.out.println(giaDung);
         }
     }
 
     // Quay thuc pham
-    public static void themThucPham(QuayThucPham thucPham) {
-        thucphamList.add(thucPham);
-    }
-    public static void xuatThucPham() {
-        for (QuayThucPham thucPham: thucphamList) {
+    public static void xuatNuoc() {
+        System.out.println("-----------Quay Nuoc-------------------");
+        for (QuayNuoc thucPham: nuocList) {
             System.out.println(thucPham);
         }
     }
 
     //Quay tuoi song
-    public static void themTuoiSong(QuayTuoiSong tuoiSong) {
-        tuoisongList.add(tuoiSong);
-    }
     public static void xuatTuoiSong() {
+        System.out.println("-----------Quay Tuoi Song-------------------");
         for (QuayTuoiSong tuoiSong: tuoisongList) {
             System.out.println(tuoiSong);
         }
     }
 
     //Quay khac
-    public static void themKhac(QuayKhac khac) {
-        quaykhacList.add(khac);
-    }
     public static void xuatKhac() {
+        System.out.println("-----------Quay Khac-------------------");
         for (QuayKhac khac: quaykhacList) {
             System.out.println(khac);
         }
@@ -112,8 +114,8 @@ public abstract class KhoHang extends ThongTin {
         }
         outputStreamWriter.flush();
         outputStreamWriter.write("\n\n------------Quay Tuoi Song---------------\n");
-        for (QuayThucPham thucPham: thucphamList) {
-            outputStreamWriter.write(String.valueOf(thucPham));
+        for (QuayNuoc nuoc: nuocList) {
+            outputStreamWriter.write(String.valueOf(nuoc));
             outputStreamWriter.write("\n");
         }
 

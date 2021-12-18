@@ -1,9 +1,8 @@
 package Main;
 
-import KhoHang.KhoHang;
 import Quay.QuayGiaDung;
 import Quay.QuayKhac;
-import Quay.QuayThucPham;
+import Quay.QuayNuoc;
 import Quay.QuayTuoiSong;
 
 import java.io.*;
@@ -40,242 +39,23 @@ import java.util.Scanner;
  */
 
 public class Main{
+    private static int endCuaHangMini;
     public static void main(String[] args) throws IOException {
         //input dau vao
-        inputDauVao("D:\\CuaHangTienLoi\\src\\Database\\inputQuayGiaDung.txt", "QuayGiaDung");
-        inputDauVao("D:\\CuaHangTienLoi\\src\\Database\\inputQuayThucPham.txt", "QuayThucPham");
-        inputDauVao("D:\\CuaHangTienLoi\\src\\Database\\inputQuayTuoiSong.txt", "QuayTuoiSong");
-        inputDauVao("D:\\CuaHangTienLoi\\src\\Database\\inputQuayKhac.txt", "QuayKhac");
+        inputDauVao("src/Database/inputQuayGiaDung.txt", "QuayGiaDung");
+        inputDauVao("src/Database/inputQuayNuoc.txt", "QuayNuoc");
+        inputDauVao("src/Database/inputQuayTuoiSong.txt", "QuayTuoiSong");
+        inputDauVao("src/Database/inputQuayKhac.txt", "QuayKhac");
 
         // xuat thong tin cua cua hang mini
-        int endCuaHangMini = 0;
         do {
             cuaHangMini();
             switch (luaChon()) {
                 // xuat thong tin lua chon cua admin
                 case 1 -> {
                     if (login()) {
-                        int endAdmin = 0;
-                        do {
-                            admin();
-                            switch (luaChon()) {
-                                case 1 -> {
-                                    int endThem = 0;
-                                    Scanner scanner = new Scanner(System.in);
-                                    do {
-                                        them();
-                                        switch (luaChon()) {
-                                            case 1 -> {
-                                                System.out.println("-----------Them Gia Dung------------");
-                                                System.out.print("Ten: ");
-                                                String ten = scanner.nextLine();
-                                                System.out.print("Ma so: ");
-                                                String maSo = scanner.nextLine();
-                                                System.out.print("Ngay nhap hang: ");
-                                                String ngayNhapHang = scanner.nextLine();
-                                                System.out.print("Xuat su: ");
-                                                String xuatSu = scanner.nextLine();
-                                                System.out.print("So luong: ");
-                                                int soLuong = scanner.nextInt();
-                                                System.out.print("Gia ca: ");
-                                                float giaCa = scanner.nextFloat();
-                                                scanner.nextLine();
-
-                                                QuayGiaDung giaDung = new QuayGiaDung(ten, maSo, ngayNhapHang, xuatSu, soLuong, giaCa);
-                                                KhoHang.themGiaDung(giaDung);
-                                            }
-                                            case 2 -> {
-                                                System.out.println("-----------Them Thuc Pham------------");
-                                                System.out.print("Ten: ");
-                                                String ten = scanner.nextLine();
-                                                System.out.print("Ma so: ");
-                                                String maSo = scanner.nextLine();
-                                                System.out.print("Ngay nhap hang: ");
-                                                String ngayNhapHang = scanner.nextLine();
-                                                System.out.print("Xuat su: ");
-                                                String xuatSu = scanner.nextLine();
-                                                System.out.print("So luong: ");
-                                                int soLuong = scanner.nextInt();
-                                                System.out.print("Gia ca: ");
-                                                float giaCa = scanner.nextFloat();
-                                                scanner.nextLine();
-
-                                                QuayThucPham thucPham = new QuayThucPham(ten, maSo, ngayNhapHang, xuatSu, soLuong, giaCa);
-                                                KhoHang.themThucPham(thucPham);
-                                            }
-
-                                            case 3 -> {
-                                                System.out.println("-----------Them Tuoi Song------------");
-                                                System.out.print("Ten: ");
-                                                String ten = scanner.nextLine();
-                                                System.out.print("Ma so: ");
-                                                String maSo = scanner.nextLine();
-                                                System.out.print("Ngay nhap hang: ");
-                                                String ngayNhapHang = scanner.nextLine();
-                                                System.out.print("Xuat su: ");
-                                                String xuatSu = scanner.nextLine();
-                                                System.out.print("So luong: ");
-                                                int soLuong = scanner.nextInt();
-                                                System.out.print("Gia ca: ");
-                                                float giaCa = scanner.nextFloat();
-                                                scanner.nextLine();
-
-                                                QuayTuoiSong tuoiSong = new QuayTuoiSong(ten, maSo, ngayNhapHang, xuatSu, soLuong, giaCa);
-                                                KhoHang.themTuoiSong(tuoiSong);
-                                            }
-
-                                            case 4 -> {
-                                                System.out.println("-----------Them Khac------------");
-                                                System.out.print("Ten: ");
-                                                String ten = scanner.nextLine();
-                                                System.out.print("Ma so: ");
-                                                String maSo = scanner.nextLine();
-                                                System.out.print("Ngay nhap hang: ");
-                                                String ngayNhapHang = scanner.nextLine();
-                                                System.out.print("Xuat su: ");
-                                                String xuatSu = scanner.nextLine();
-                                                System.out.print("So luong: ");
-                                                int soLuong = scanner.nextInt();
-                                                System.out.print("Gia ca: ");
-                                                float giaCa = scanner.nextFloat();
-                                                scanner.nextLine();
-
-                                                QuayKhac khac = new QuayKhac(ten, maSo, ngayNhapHang, xuatSu, soLuong, giaCa);
-                                                KhoHang.themKhac(khac);
-                                            }
-                                            case 5 -> {
-                                                int endThemNhanSu = 0;
-                                                do {
-                                                    nhanSu();
-                                                    switch (luaChon()) {
-                                                        case 1 -> {
-                                                            System.out.println("Them bao ve");
-                                                        }
-                                                        case 2 -> {
-                                                            System.out.println("Them lao cong");
-                                                        }
-                                                        case 3 -> {
-                                                            System.out.println("Them nhan vien");
-                                                        }
-                                                        case 4 -> {
-                                                            endThemNhanSu = 1;
-                                                        }
-                                                        default -> {
-                                                            System.out.println("Khong co lua chon nay!");
-                                                        }
-                                                    }
-                                                } while (endThemNhanSu == 0);
-                                            }
-                                            case 6 -> {
-                                                endThem = 1;
-                                            }
-                                            default -> {
-                                                System.out.println("Khong co lua chon nay!");
-                                            }
-                                        }
-                                    } while (endThem == 0);
-                                }
-                                case 2 -> {
-                                    int endXoa = 0;
-                                    do {
-                                        xoa();
-                                        switch (luaChon()) {
-                                            case 1 -> {
-                                                System.out.println("Chon xoa gia dung");
-                                            }
-                                            case 2 -> {
-                                                System.out.println("Chon xoa thuc pham");
-                                            }
-                                            case 3 -> {
-                                                System.out.println("Chon xoa tuoi song");
-                                            }
-                                            case 4 -> {
-                                                System.out.println("Chon xoa dong hop");
-                                            }
-                                            case 5 -> {
-                                                System.out.println("Chon xoa nhan vien");
-                                            }
-                                            case 6 -> {
-                                                endXoa = 1;
-                                            }
-                                            default -> {
-                                                System.out.println("Khong co lua cho nay!");
-                                            }
-                                        }
-                                    } while (endXoa == 0);
-                                }
-                                case 3 -> {
-                                    int endSua = 0;
-                                    do {
-                                        sua();
-                                        switch (luaChon()) {
-                                            case 1 -> {
-                                                System.out.println("Chon sua gia dung");
-                                            }
-                                            case 2 -> {
-                                                System.out.println("CHon sua thuc pham");
-                                            }
-                                            case 3 -> {
-                                                System.out.println("Chon sua tuoi song");
-                                            }
-                                            case 4 -> {
-                                                System.out.println("Chon sua dong hop");
-                                            }
-                                            case 5 -> {
-                                                System.out.println("Chon sua nhan vien");
-                                            }
-                                            case 6 -> {
-                                                endSua = 1;
-                                            }
-                                            default -> {
-                                                System.out.println("Khong co lua chon nay!");
-                                            }
-                                        }
-                                    } while (endSua == 0);
-                                }
-                                case 4 -> {
-                                    timKiem();
-                                    String a = nhapTimKiem();
-                                }
-                                case 5 -> {
-                                    int endXuatThongTin = 0;
-                                    do {
-                                        thongTin();
-                                        switch (luaChon()) {
-                                            case 1 -> {
-                                                System.out.println("Chon xuat ra man hinh");
-                                                System.out.println("-----------------Quay Gia Dung-----------------");
-                                                KhoHang.xuatGiaDung();
-                                                System.out.println("-----------------Quay Thuc Pham-----------------");
-                                                KhoHang.xuatThucPham();
-                                                System.out.println("-----------------Quay Tuoi Song-----------------");
-                                                KhoHang.xuatTuoiSong();
-                                                System.out.println("-----------------Quay Khac-----------------");
-                                                KhoHang.xuatKhac();
-                                            }
-                                            case 2 -> {
-                                                System.out.println("Da xuat ra file thanh cong!");
-                                                KhoHang.outputFile("D:\\CuaHangTienLoi\\src\\Database\\output.txt");
-                                            }
-                                            case 3 -> {
-                                                endXuatThongTin = 1;
-                                            }
-                                            default -> {
-                                                System.out.println("Khong co lua chon nay!");
-                                            }
-                                        }
-                                    } while (endXuatThongTin == 0);
-                                }
-                                case 6 -> {
-                                    endAdmin = 1;
-                                    endCuaHangMini = 1;
-                                    System.out.println("Cam on ban da su dung phan men!");
-                                }
-                                default -> {
-                                    System.out.println("Khong co lua chon nay!");
-                                }
-                            }
-                        } while (endAdmin == 0);
+                        QuanLy quanLy = new QuanLy();
+                        quanLy.admin();
                     }
                     else {
                         System.out.println("Mat khau hoac tai khoan khong dung!");
@@ -283,30 +63,12 @@ public class Main{
                 }
                 // xuat thong tin lua chon cua khach hang
                 case 2 -> {
-                    int endKhacHang = 0;
-                    do {
-                        khachHang();
-                        switch (luaChon()) {
-                            case 1 -> {
-                                System.out.println("Chon mua");
-                            }
-                            case 2 -> {
-                                timKiem();
-                                String tenMonHang = nhapTimKiem();
-                                System.out.println(tenMonHang);
-                            }
-                            case 3 -> {
-                                endKhacHang = 1;
-                                endCuaHangMini = 1;
-                                System.out.println("Cam on quy khach!");
-                            }
-                        }
-                    }while (endKhacHang == 0);
+                    KhachHang khachHang = new KhachHang();
+                    khachHang.khachHang();
                 }
                 // thoat
                 case 3 -> {
                     endCuaHangMini = 1;
-                    System.out.println("Cam on va hen gap lai!");
                 }
                 default -> {
                     System.out.println("Khong co lua chon nay!");
@@ -328,122 +90,8 @@ public class Main{
         System.out.println("+---------------------------------+");
     }
 
-    private static void khachHang() {
-        for(int i = 0; i < 10; i++) {
-            System.out.println();
-        }
-        System.out.println("+---------------------------------+");
-        System.out.println("|            Khach hang           |");
-        System.out.println("+---------------------------------+");
-        System.out.println("|    1. Mua                       |");
-        System.out.println("|    2. Tiem Kiem                 |");
-        System.out.println("|    3. Thoat                     |");
-        System.out.println("+---------------------------------+");
-    }
-
-    private static void admin() {
-        for(int i = 0; i < 10; i++) {
-            System.out.println();
-        }
-        System.out.println("+---------------------------------+");
-        System.out.println("|            Admin                |");
-        System.out.println("+---------------------------------+");
-        System.out.println("|    1. Them                      |");
-        System.out.println("|    2. Xoa                       |");
-        System.out.println("|    3. Sua                       |");
-        System.out.println("|    4. Tim Kiem                  |");
-        System.out.println("|    5. Hien danh sach thong tin  |");
-        System.out.println("|    6. Thoat                     |");
-        System.out.println("+---------------------------------+");
-    }
-
-    private static void them() {
-        for(int i = 0; i < 10; i++) {
-            System.out.println();
-        }
-        System.out.println("+---------------------------------+");
-        System.out.println("|            Them                 |");
-        System.out.println("+---------------------------------+");
-        System.out.println("|   1. Them Gia Dung              |");
-        System.out.println("|   2. Them Thuc PHam             |");
-        System.out.println("|   3. Them Tuoi Song             |");
-        System.out.println("|   4. Them Dong Hop              |");
-        System.out.println("|   5. Them Nhan Su               |");
-        System.out.println("|   6. Tro ve                     |");
-        System.out.println("+---------------------------------+");
-    }
-    private static void xoa() {
-        for(int i = 0; i < 10; i++) {
-            System.out.println();
-        }
-        System.out.println("+---------------------------------+");
-        System.out.println("|            Xoa                  |");
-        System.out.println("+---------------------------------+");
-        System.out.println("|   1. Xoa Gia Dung               |");
-        System.out.println("|   2. Xoa Thuc PHam              |");
-        System.out.println("|   3. Xoa Tuoi Song              |");
-        System.out.println("|   4. Xoa Dong Hop               |");
-        System.out.println("|   5. Xoa Nhan Su                |");
-        System.out.println("|   6. Tro ve                     |");
-        System.out.println("+---------------------------------+");
-    }
-
-    private static void sua() {
-        for(int i = 0; i < 10; i++) {
-            System.out.println();
-        }
-        System.out.println("+---------------------------------+");
-        System.out.println("|            Sua                  |");
-        System.out.println("+---------------------------------+");
-        System.out.println("|   1. Sua Gia Dung               |");
-        System.out.println("|   2. Sua Thuc PHam              |");
-        System.out.println("|   3. Sua Tuoi Song              |");
-        System.out.println("|   4. Sua Dong Hop               |");
-        System.out.println("|   5. Sua Nhan Su                |");
-        System.out.println("|   6. Tro ve                     |");
-        System.out.println("+---------------------------------+");
-    }
-
-    private static void nhanSu() {
-        for(int i = 0; i < 10; i++) {
-            System.out.println();
-        }
-        System.out.println("+---------------------------------+");
-        System.out.println("|            Nhan Su              |");
-        System.out.println("+---------------------------------+");
-        System.out.println("|   1. Bao Ve                     |");
-        System.out.println("|   2. Lao Cong                   |");
-        System.out.println("|   3. Nhan Vien                  |");
-        System.out.println("|   4. Tro ve                     |");
-        System.out.println("+---------------------------------+");
-    }
-
-    private static void thongTin() {
-        for (int i = 0; i < 10; i++) {
-            System.out.println();
-        }
-        System.out.println("+---------------------------------+");
-        System.out.println("|         Xuat thong tin          |");
-        System.out.println("+---------------------------------+");
-        System.out.println("|   1. Xuat ra man hinh           |");
-        System.out.println("|   2. Xuat ra file               |");
-        System.out.println("|   3. Tro ve                     |");
-        System.out.println("+---------------------------------+");
-    }
-
-    private static void timKiem() {
-        for (int i = 0; i < 10 ; i++) {
-            System.out.println();
-        }
-        System.out.println("+---------------------------------+");
-        System.out.println("|            Tim Kiem             |");
-        System.out.println("+---------------------------------+");
-    }
-
-    private static String nhapTimKiem() {
-        System.out.println("Nhap ten mon hang can tim");
-        Scanner scanner = new Scanner(System.in);
-        return scanner.nextLine();
+    public static void endCuaHang(int end) {
+        endCuaHangMini = end;
     }
 
     private static int luaChon() {
@@ -467,74 +115,26 @@ public class Main{
     private static void inputDauVao(String URL, String quay) throws IOException {
         // Quay gia dung
         if (Objects.equals(quay, "QuayGiaDung")) {
-            File file = new File(URL);
-            InputStream inputStream = new FileInputStream(file);
-            InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
-            BufferedReader reader = new BufferedReader(inputStreamReader);
-
-            String ten = reader.readLine();
-            String maSo = reader.readLine();
-            String ngayNhapHang = reader.readLine();
-            String xuatSu = reader.readLine();
-            int soLuong = Integer.parseInt(reader.readLine());
-            float giaCa = Float.parseFloat(reader.readLine());
-
-            QuayGiaDung giaDung = new QuayGiaDung(ten, maSo, ngayNhapHang, xuatSu, soLuong, giaCa);
-            KhoHang.themGiaDung(giaDung);
+            QuayGiaDung quayGiaDung = new QuayGiaDung();
+            quayGiaDung.inputFile(URL);
         }
 
         // Quay khac
         if (Objects.equals(quay, "QuayKhac")) {
-            File file = new File(URL);
-            InputStream inputStream = new FileInputStream(file);
-            InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
-            BufferedReader reader = new BufferedReader(inputStreamReader);
-
-            String ten = reader.readLine();
-            String maSo = reader.readLine();
-            String ngayNhapHang = reader.readLine();
-            String xuatSu = reader.readLine();
-            int soLuong = Integer.parseInt(reader.readLine());
-            float giaCa = Float.parseFloat(reader.readLine());
-
-            QuayKhac khac = new QuayKhac(ten, maSo, ngayNhapHang, xuatSu, soLuong, giaCa);
-            KhoHang.themKhac(khac);
+            QuayKhac khac = new QuayKhac();
+            khac.inputFile(URL);
         }
 
         // Quay Tuoi song
         if (Objects.equals(quay, "QuayTuoiSong")) {
-            File file = new File(URL);
-            InputStream inputStream = new FileInputStream(file);
-            InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
-            BufferedReader reader = new BufferedReader(inputStreamReader);
-
-            String ten = reader.readLine();
-            String maSo = reader.readLine();
-            String ngayNhapHang = reader.readLine();
-            String xuatSu = reader.readLine();
-            int soLuong = Integer.parseInt(reader.readLine());
-            float giaCa = Float.parseFloat(reader.readLine());
-
-            QuayTuoiSong tuoiSong = new QuayTuoiSong(ten, maSo, ngayNhapHang, xuatSu, soLuong, giaCa);
-            KhoHang.themTuoiSong(tuoiSong);
+            QuayTuoiSong tuoiSong = new QuayTuoiSong();
+            tuoiSong.inputFile(URL);
         }
 
         //Quay Thuc Pham
-        if (Objects.equals(quay, "QuayThucPham")) {
-            File file = new File(URL);
-            InputStream inputStream = new FileInputStream(file);
-            InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
-            BufferedReader reader = new BufferedReader(inputStreamReader);
-
-            String ten = reader.readLine();
-            String maSo = reader.readLine();
-            String ngayNhapHang = reader.readLine();
-            String xuatSu = reader.readLine();
-            int soLuong = Integer.parseInt(reader.readLine());
-            float giaCa = Float.parseFloat(reader.readLine());
-
-            QuayThucPham thucPham = new QuayThucPham(ten, maSo, ngayNhapHang, xuatSu, soLuong, giaCa);
-            KhoHang.themThucPham(thucPham);
+        if (Objects.equals(quay, "QuayNuoc")) {
+            QuayNuoc nuoc = new QuayNuoc();
+            nuoc.inputFile(URL);
         }
     }
 }

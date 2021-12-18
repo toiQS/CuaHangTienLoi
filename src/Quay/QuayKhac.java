@@ -1,5 +1,6 @@
 package Quay;
 
+import java.io.*;
 import java.util.Scanner;
 import KhoHang.KhoHang;
 
@@ -9,6 +10,11 @@ public class QuayKhac extends KhoHang{
         super(Ten, MaSo, NgayNhapHang, XuatXu, SoLuong, GiaCa);
         d+=1;
     }
+
+    public QuayKhac() {
+
+    }
+
     public void add(){
         Scanner sc = new Scanner(System.in);
         System.out.println("Ten San Pham: ");
@@ -39,10 +45,22 @@ public class QuayKhac extends KhoHang{
         System.out.println("Xac Nhan Xoa.");
     }
 
-    public void xem(){
-        for( QuayKhac s2 : KhoHang.quaykhacList)
-            if(s2 instanceof QuayKhac)
-                System.out.println(s2);
+    @Override
+    public void inputFile(String URL) throws IOException {
+        File file = new File(URL);
+        InputStream inputStream = new FileInputStream(file);
+        InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
+        BufferedReader reader = new BufferedReader(inputStreamReader);
+
+        String ten = reader.readLine();
+        String maSo = reader.readLine();
+        String ngayNhapHang = reader.readLine();
+        String xuatSu = reader.readLine();
+        int soLuong = Integer.parseInt(reader.readLine());
+        float giaCa = Float.parseFloat(reader.readLine());
+
+        QuayKhac khac = new QuayKhac(ten, maSo, ngayNhapHang, xuatSu, soLuong, giaCa);
+        quaykhacList.add(khac);
     }
 
     @Override

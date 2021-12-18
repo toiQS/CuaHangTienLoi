@@ -2,6 +2,7 @@ package Quay;
 
 
 
+import java.io.*;
 import java.util.Scanner;
 
 import KhoHang.KhoHang;
@@ -13,6 +14,11 @@ public class QuayGiaDung extends KhoHang {
         c+=1;
     }
 
+    public QuayGiaDung() {
+
+    }
+
+    @Override
     public void add(){
         Scanner sc = new Scanner(System.in);
         System.out.println("Ten San Pham: ");
@@ -30,6 +36,8 @@ public class QuayGiaDung extends KhoHang {
         QuayGiaDung giadung = new QuayGiaDung(Ten, MaSo, NgayNhapHang, XuatXu, SoLuong, GiaCa);
         giadungList.add(giadung);
     }
+
+    @Override
     public void del(){
         Scanner sc = new Scanner(System.in);
         System.out.println("Nhap Ma So Muon Xoa: ");
@@ -41,11 +49,25 @@ public class QuayGiaDung extends KhoHang {
         this.giadungList.remove(giadung);
         System.out.println("Xac Nhan Xoa.");
     }
-    public void xem(){
-        for( QuayGiaDung s2 : KhoHang.giadungList)
-            if(s2 instanceof QuayGiaDung)
-                System.out.println(s2);
+
+    @Override
+    public void inputFile(String URL) throws IOException {
+        File file = new File(URL);
+        InputStream inputStream = new FileInputStream(file);
+        InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
+        BufferedReader reader = new BufferedReader(inputStreamReader);
+
+        String ten = reader.readLine();
+        String maSo = reader.readLine();
+        String ngayNhapHang = reader.readLine();
+        String xuatSu = reader.readLine();
+        int soLuong = Integer.parseInt(reader.readLine());
+        float giaCa = Float.parseFloat(reader.readLine());
+
+        QuayGiaDung giaDung = new QuayGiaDung(ten, maSo, ngayNhapHang, xuatSu, soLuong, giaCa);
+        giadungList.add(giaDung);
     }
+
     @Override
     public String toString(){
         return c +".Ten San Pham: " +Ten+"/Ma San Pham: "+MaSo+"/Xuat Su: "+  XuatXu+"/SoLuong: "+ SoLuong+"/GiaCa: "+ GiaCa;
