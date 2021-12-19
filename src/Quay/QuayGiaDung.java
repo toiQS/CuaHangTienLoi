@@ -3,7 +3,9 @@ package Quay;
 import KhoHang.KhoHang;
 
 import java.io.*;
+import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class QuayGiaDung extends KhoHang {
     public static int a = 1; //đếm số lượng mặt hàng có trong quầy
@@ -47,6 +49,17 @@ public class QuayGiaDung extends KhoHang {
         }
         giadungList.remove(giadung);
         System.out.println("Xac Nhan Xoa.");
+    }
+
+    @Override
+    public List<QuayGiaDung> TimKiemGiaDung(String MaSo){
+        return this.giadungList.stream().filter(o -> o.getMaSo().equals(MaSo)).collect(Collectors.toList());
+    }
+
+    @Override
+    public List<QuayGiaDung> SuaThongTinGiaDung(int stt, QuayGiaDung giadung){
+        giadungList.set(stt,giadung);
+        return giadungList;
     }
 
     @Override
