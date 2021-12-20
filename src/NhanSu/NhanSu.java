@@ -18,7 +18,8 @@ public abstract class NhanSu extends ThongTin {
     public String SDT;
     public float Luong;
 
-
+    static String formatTieuDe = "%s %.3s %s %-10s %s %-15s %s %-10s %s %-10s %s %-15s %s %-12s %s %-9s %s\n";
+    static String formatOutput = "%s %3d %s %-10s %s %-15s %s %-10s %s %-10s %s %-15s %s %-12s %s %-9s %s\n";
 
     public NhanSu(String Ten, String MaSo, String CCCD, String GioiTinh, String DiaChi, String SDT, float Luong) {
         super(Ten, MaSo);
@@ -36,23 +37,119 @@ public abstract class NhanSu extends ThongTin {
 
     //Bảo Vệ
     public static void xuatBaoVe() {
-        for (BaoVe baoVe : baoveList) {
-            System.out.println(baoVe);
+        System.out.println("***Bao Ve***");
+        System.out.print("+");
+        for (int i=0; i < 107; i++) {
+            System.out.print("-");
         }
+        System.out.println("+");
+
+        System.out.printf(formatTieuDe,
+                "|", "STT", "|", "Ho va Ten", "|", "Ma So Nhan Vien", "|", "CCCD", "|", "Gioi Tinh", "|", "Dia Chi", "|", "SDT", "|", "Luong", "|");
+        System.out.print("+");
+        for (int i=0; i < 107; i++) {
+            System.out.print("-");
+        }
+        System.out.println("+");
+
+        // chỉnh số thứ tự tăn dần
+        int a = 0;
+        for (BaoVe baoVe: baoveList) {
+            String ten = baoVe.getTen();
+            String maSo = baoVe.getMaSo();
+            String cccd = baoVe.getCCCD();
+            String gioTinh = baoVe.getGioiTinh();
+            String diaChi = baoVe.getDiaChi();
+            String sdt = baoVe.getSDT();
+            float luong = baoVe.getLuong();
+
+            System.out.printf(formatOutput,
+                    "|", a, "|", ten, "|", maSo, "|", cccd, "|", gioTinh, "|", diaChi, "|", sdt, "|", luong, "|");
+            a++;
+        }
+        System.out.print("+");
+        for (int i=0; i < 107; i++) {
+            System.out.print("-");
+        }
+        System.out.println("+");
     }
 
     //Lao Công
     public static void xuatLaoCong() {
-        for (LaoCong laoCong : laocongList) {
-            System.out.println(laoCong);
+        System.out.println("***Lao Cong***");
+        System.out.print("+");
+        for (int i=0; i < 107; i++) {
+            System.out.print("-");
         }
+        System.out.println("+");
+
+        System.out.printf(formatTieuDe,
+                "|", "STT", "|", "Ho va Ten", "|", "Ma So Nhan Vien", "|", "CCCD", "|", "Gioi Tinh", "|", "Dia Chi", "|", "SDT", "|", "Luong", "|");
+        System.out.print("+");
+        for (int i=0; i < 107; i++) {
+            System.out.print("-");
+        }
+        System.out.println("+");
+
+        // chỉnh số thứ tự tăn dần
+        int a = 0;
+        for (LaoCong laoCong: laocongList) {
+            String ten = laoCong.getTen();
+            String maSo = laoCong.getMaSo();
+            String cccd = laoCong.getCCCD();
+            String gioTinh = laoCong.getGioiTinh();
+            String diaChi = laoCong.getDiaChi();
+            String sdt = laoCong.getSDT();
+            float luong = laoCong.getLuong();
+
+            System.out.printf(formatOutput,
+                    "|", a, "|", ten, "|", maSo, "|", cccd, "|", gioTinh, "|", diaChi, "|", sdt, "|", luong, "|");
+            a++;
+        }
+        System.out.print("+");
+        for (int i=0; i < 107; i++) {
+            System.out.print("-");
+        }
+        System.out.println("+");
     }
 
     //Nhân Viên Bán Hàng
     public static void xuatNhanVien() {
-        for (NhanVien nhanVien : nhanvienList) {
-            System.out.println(nhanVien);
+        System.out.println("***Nhan Vien***");
+        System.out.print("+");
+        for (int i=0; i < 107; i++) {
+            System.out.print("-");
         }
+        System.out.println("+");
+
+        System.out.printf(formatTieuDe,
+                "|", "STT", "|", "Ho va Ten", "|", "Ma So Nhan Vien", "|", "CCCD", "|", "Gioi Tinh", "|", "Dia Chi", "|", "SDT", "|", "Luong", "|");
+        System.out.print("+");
+        for (int i=0; i < 107; i++) {
+            System.out.print("-");
+        }
+        System.out.println("+");
+
+        // chỉnh số thứ tự tăn dần
+        int a = 0;
+        for (NhanVien nhanVien: nhanvienList) {
+            String ten = nhanVien.getTen();
+            String maSo = nhanVien.getMaSo();
+            String cccd = nhanVien.getCCCD();
+            String gioTinh = nhanVien.getGioiTinh();
+            String diaChi = nhanVien.getDiaChi();
+            String sdt = nhanVien.getSDT();
+            float luong = nhanVien.getLuong();
+
+            System.out.printf(formatOutput,
+                    "|", a, "|", ten, "|", maSo, "|", cccd, "|", gioTinh, "|", diaChi, "|", sdt, "|", luong, "|");
+            a++;
+        }
+        System.out.print("+");
+        for (int i=0; i < 107; i++) {
+            System.out.print("-");
+        }
+        System.out.println("+");
     }
 
     public static void outputFile(String URL) throws IOException {

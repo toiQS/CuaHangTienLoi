@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 public class NhanVien extends NhanSu {
     public static int stt = 1;
+    public static float luong = 0;
 
     public NhanVien(String Ten, String MaSo, String CCCD, String GioiTinh, String DiaChi, String SDT, float Luong) {
         super(Ten, MaSo, CCCD, GioiTinh, DiaChi, SDT, Luong);
@@ -30,14 +31,22 @@ public class NhanVien extends NhanSu {
         String DiaChi = sc.nextLine();
         System.out.print("Số điện thoại: ");
         String SDT = sc.nextLine();
-        System.out.print("Lương: ");
-        float Luong = sc.nextInt();
-        NhanVien nhanvien = new NhanVien(Ten, MaSo, CCCD, GioiTinh, DiaChi, SDT, Luong);
+        do {
+            System.out.print("Lương: ");
+            try {
+                luong = sc.nextFloat();
+            } catch (Exception ignored) {
+                System.out.println("Không hợp lệ, vui lòng nhập lại!");
+                sc.nextLine();
+            }
+        } while(luong == 0);
+        NhanVien nhanvien = new NhanVien(Ten, MaSo, CCCD, GioiTinh, DiaChi, SDT, luong);
         nhanvienList.add(nhanvien);
     }
 
     @Override
     public void del() {
+        NhanSu.xuatNhanVien();
         Scanner sc = new Scanner(System.in);
         System.out.println("Nhập Mã Nhân Viên Muốn Sa Thải: ");
         String MaSo = sc.nextLine();

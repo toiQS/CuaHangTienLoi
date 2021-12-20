@@ -3,11 +3,13 @@
 
 
 ***Quay Gia Dung***
-2.Ten San Pham: Chảo - Ma San Pham: 001 - Xuat Su: Việt Nam - SoLuong: 30 - GiaCa: 21500.0
+3.Ten San Pham: Chảo - Ma San Pham: 001 - Xuat Su: Việt Nam - SoLuong: 30 - GiaCa: 21500.0
+3.Ten San Pham: Noi - Ma San Pham: ACB - Xuat Su: Viet Nam - SoLuong: 4 - GiaCa: 12.2
 
 
 ***Quay Nuoc***
-2.Ten San Pham: Pizza - Ma San Pham: 001 - Xuat Su: Việt Nam - SoLuong: 30 - GiaCa: 19000.0
+3.Ten San Pham: Pizza - Ma San Pham: 001 - Xuat Su: Việt Nam - SoLuong: 30 - GiaCa: 19000.0
+3.Ten San Pham: Sting - Ma San Pham: ST1 - Xuat Su: Viet Nam - SoLuong: 5 - GiaCa: 12.0
 
 
 ***Quay Khac***

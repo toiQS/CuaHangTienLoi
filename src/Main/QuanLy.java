@@ -3,12 +3,13 @@ package Main;
 import KhoHang.KhoHang;
 import NhanSu.NhanSu;
 import NhanSu.BaoVe;
+import NhanSu.LaoCong;
+import NhanSu.NhanVien;
 import Quay.QuayGiaDung;
 import Quay.QuayKhac;
 import Quay.QuayNuoc;
 import Quay.QuayTuoiSong;
 
-import javax.swing.plaf.LabelUI;
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -50,7 +51,22 @@ public class QuanLy {
                                     nhanSu();
                                     switch (luaChon()) {
                                         case 1 -> {
-
+                                            NhanSu baoVe = new BaoVe();
+                                            baoVe.add();
+                                        }
+                                        case 2 -> {
+                                            NhanSu laoCong = new LaoCong();
+                                            laoCong.add();
+                                        }
+                                        case 3 -> {
+                                            NhanSu nhanVien = new NhanVien();
+                                            nhanVien.add();
+                                        }
+                                        case 4 -> {
+                                            endNhanSu = 1;
+                                        }
+                                        default -> {
+                                            System.out.println("Khong co lua chon nay!");
                                         }
                                     }
                                 } while(endNhanSu == 0);
@@ -70,27 +86,46 @@ public class QuanLy {
                         xoa();
                         switch (luaChon()) {
                             case 1 -> {
-                                KhoHang.xuatGiaDung();
                                 KhoHang khoHang = new QuayGiaDung();
                                 khoHang.del();
                             }
                             case 2 -> {
-                                KhoHang.xuatNuoc();
                                 KhoHang khoHang = new QuayNuoc();
                                 khoHang.del();
                             }
                             case 3 -> {
-                                KhoHang.xuatTuoiSong();
                                 KhoHang khoHang = new QuayTuoiSong();
                                 khoHang.del();
                             }
                             case 4 -> {
-                                KhoHang.xuatKhac();
                                 KhoHang khoHang = new QuayKhac();
                                 khoHang.del();
                             }
                             case 5 -> {
-
+                                int endNhanSu = 0;
+                                do {
+                                    nhanSu();
+                                    switch (luaChon()) {
+                                        case 1 -> {
+                                            NhanSu baoVe = new BaoVe();
+                                            baoVe.del();
+                                        }
+                                        case 2 -> {
+                                            NhanSu baoVe = new LaoCong();
+                                            baoVe.del();
+                                        }
+                                        case 3 -> {
+                                            NhanSu baoVe = new NhanVien();
+                                            baoVe.del();
+                                        }
+                                        case 4 -> {
+                                            endNhanSu = 1;
+                                        }
+                                        default -> {
+                                            System.out.println("Khong co lua chon nay!");
+                                        }
+                                    }
+                                } while(endNhanSu == 0);
                             }
                             case 6 -> {
                                 endXoa = 1;

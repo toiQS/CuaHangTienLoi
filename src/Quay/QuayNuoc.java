@@ -7,6 +7,8 @@ import java.util.Scanner;
 
 public class QuayNuoc extends KhoHang {
     public static int c = 1;
+    public static int soLuong = 0;
+    public static float giaCa = 0;
 
     public QuayNuoc(String Ten, String MaSo, String NgayNhapHang, String XuatXu, int SoLuong, float GiaCa) {
         super(Ten, MaSo, NgayNhapHang, XuatXu, SoLuong, GiaCa);
@@ -27,15 +29,31 @@ public class QuayNuoc extends KhoHang {
         String NgayNhapHang = sc.nextLine();
         System.out.println("Xuat Xu: ");
         String XuatXu = sc.nextLine();
-        System.out.println("So Luong Nhap Vao: ");
-        int SoLuong = sc.nextInt();
-        System.out.println("Gia Du Dinh: ");
-        float GiaCa = sc.nextFloat();
-        QuayNuoc thucpham = new QuayNuoc(Ten, MaSo, NgayNhapHang, XuatXu, SoLuong, GiaCa);
+        do {
+            System.out.println("So Luong Nhap Vao: ");
+            try {
+                soLuong = sc.nextInt();
+            } catch(Exception ignored) {
+                System.out.println("Khong hop le, vui long nhap lai!");
+                sc.nextLine();
+            }
+        }while(soLuong == 0);
+
+        do {
+            System.out.println("Gia Du Dinh: ");
+            try {
+                giaCa = sc.nextFloat();
+            } catch (Exception ignored) {
+                System.out.println("Khong hop le, vui long nhap lai!");
+                sc.nextLine();
+            }
+        } while(giaCa == 0);
+        QuayNuoc thucpham = new QuayNuoc(Ten, MaSo, NgayNhapHang, XuatXu, soLuong, giaCa);
         nuocList.add(thucpham);
     }
 
     public void del() {
+        KhoHang.xuatNuoc();
         Scanner sc = new Scanner(System.in);
         System.out.println("Nhap Ma So Muon Xoa: ");
         String MaSo = sc.nextLine();

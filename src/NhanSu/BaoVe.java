@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 public class BaoVe extends NhanSu {
     public static int a = 1;
+    public static float luong = 0;
 
     public BaoVe(String Ten, String MaSo, String CCCD, String GioiTinh, String DiaChi, String SDT, float Luong) {
         super(Ten, MaSo, CCCD, GioiTinh, DiaChi, SDT, Luong);
@@ -30,14 +31,22 @@ public class BaoVe extends NhanSu {
         String DiaChi = sc.nextLine();
         System.out.print("Số điện thoại: ");
         String SDT = sc.nextLine();
-        System.out.print("Lương: ");
-        float Luong = sc.nextInt();
-        BaoVe baove = new BaoVe(Ten, MaSo, CCCD, GioiTinh, DiaChi, SDT, Luong);
+        do {
+            System.out.print("Lương: ");
+            try {
+                luong = sc.nextFloat();
+            } catch (Exception ignored) {
+                System.out.println("Không hợp lệ, vui lòng nhập lại!");
+                sc.nextLine();
+            }
+        } while(luong == 0);
+        BaoVe baove = new BaoVe(Ten, MaSo, CCCD, GioiTinh, DiaChi, SDT, luong);
         baoveList.add(baove);
     }
 
     @Override
     public void del() {
+        NhanSu.xuatBaoVe();
         Scanner sc = new Scanner(System.in);
         System.out.println("Nhập Mã Nhân Viên Muốn Sa Thải: ");
         String MaSo = sc.nextLine();

@@ -1,5 +1,8 @@
 package Main;
 
+import NhanSu.BaoVe;
+import NhanSu.LaoCong;
+import NhanSu.NhanVien;
 import Quay.QuayGiaDung;
 import Quay.QuayKhac;
 import Quay.QuayNuoc;
@@ -42,10 +45,14 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         //input dau vao
-        inputDauVao("src/Database/inputQuayGiaDung.txt", "QuayGiaDung");
-        inputDauVao("src/Database/inputQuayNuoc.txt", "QuayNuoc");
-        inputDauVao("src/Database/inputQuayTuoiSong.txt", "QuayTuoiSong");
-        inputDauVao("src/Database/inputQuayKhac.txt", "QuayKhac");
+        inputDauVaoHangHoa("src/Database/inputQuayGiaDung.txt", "QuayGiaDung");
+        inputDauVaoHangHoa("src/Database/inputQuayNuoc.txt", "QuayNuoc");
+        inputDauVaoHangHoa("src/Database/inputQuayTuoiSong.txt", "QuayTuoiSong");
+        inputDauVaoHangHoa("src/Database/inputQuayKhac.txt", "QuayKhac");
+
+        inputDauVaoNhanSu("src/Database/inputBaoVe.txt", "BaoVe");
+        inputDauVaoNhanSu("src/Database/inputLaoCong.txt", "LaoCong");
+        inputDauVaoNhanSu("src/Database/inputNhanVien.txt", "NhanVien");
 
         // xuat thong tin cua cua hang mini
         do {
@@ -111,7 +118,7 @@ public class Main {
         return Objects.equals(checkTK, "admin") && Objects.equals(checkMK, "admin");
     }
 
-    private static void inputDauVao(String URL, String quay) throws IOException {
+    private static void inputDauVaoHangHoa(String URL, String quay) throws IOException {
         // Quay gia dung
         if (Objects.equals(quay, "QuayGiaDung")) {
             QuayGiaDung quayGiaDung = new QuayGiaDung();
@@ -134,6 +141,21 @@ public class Main {
         if (Objects.equals(quay, "QuayNuoc")) {
             QuayNuoc nuoc = new QuayNuoc();
             nuoc.inputFile(URL);
+        }
+    }
+
+    private static void inputDauVaoNhanSu(String URL, String nhanSu) throws IOException {
+        if (Objects.equals(nhanSu, "BaoVe")) {
+            BaoVe baoVe = new BaoVe();
+            baoVe.inputFile(URL);
+        }
+        if (Objects.equals(nhanSu, "LaoCong")) {
+            LaoCong laoCong = new LaoCong();
+            laoCong.inputFile(URL);
+        }
+        if (Objects.equals(nhanSu, "NhanVien")) {
+            NhanVien nhanVien = new NhanVien();
+            nhanVien.inputFile(URL);
         }
     }
 }

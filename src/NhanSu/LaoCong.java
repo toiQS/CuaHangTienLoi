@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 public class LaoCong extends NhanSu {
     public static int b = 1;
+    public static float luong = 0;
 
     public LaoCong(String Ten, String MaSo, String CCCD, String GioiTinh, String DiaChi, String SDT, float Luong) {
         super(Ten, MaSo, CCCD, GioiTinh, DiaChi, SDT, Luong);
@@ -30,14 +31,22 @@ public class LaoCong extends NhanSu {
         String DiaChi = sc.nextLine();
         System.out.print("Số điện thoại: ");
         String SDT = sc.nextLine();
-        System.out.print("Lương: ");
-        float Luong = sc.nextInt();
-        LaoCong laocong = new LaoCong(Ten, MaSo, CCCD, GioiTinh, DiaChi, SDT, Luong);
+        do {
+            System.out.print("Lương: ");
+            try {
+                luong = sc.nextFloat();
+            } catch (Exception ignored) {
+                System.out.println("Không hợp lệ vui lòng nhập lại!");
+                sc.nextLine();
+            }
+        }while(luong == 0);
+        LaoCong laocong = new LaoCong(Ten, MaSo, CCCD, GioiTinh, DiaChi, SDT, luong);
         laocongList.add(laocong);
     }
 
     @Override
     public void del() {
+        NhanSu.xuatLaoCong();
         Scanner sc = new Scanner(System.in);
         System.out.println("Nhập Mã Nhân Viên Muốn Sa Thải: ");
         String MaSo = sc.nextLine();

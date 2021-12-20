@@ -63,7 +63,7 @@ public abstract class KhoHang extends ThongTin {
             float giaCa = giaDung.getGiaCa();
 
             System.out.printf(formatHangHoaOutput,
-                    "|", a, "|", ten, "|", ngayNhapHang, "|", maSo, "|", xuatSu, "|", soLuong, "|", giaCa, "|");
+                    "|", a, "|", ten, "|", maSo, "|", ngayNhapHang, "|", xuatSu, "|", soLuong, "|", giaCa, "|");
             a++;
         }
         System.out.print("+");
@@ -99,7 +99,7 @@ public abstract class KhoHang extends ThongTin {
             float giaCa = nuoc.getGiaCa();
 
             System.out.printf(formatHangHoaOutput,
-                    "|", a, "|", ten, "|", ngayNhapHang, "|", maSo, "|", xuatSu, "|", soLuong, "|", giaCa, "|");
+                    "|", a, "|", ten, "|", maSo, "|", ngayNhapHang, "|", xuatSu, "|", soLuong, "|", giaCa, "|");
             a++;
         }
         System.out.print("+");
@@ -135,7 +135,7 @@ public abstract class KhoHang extends ThongTin {
             float giaCa = tuoiSong.getGiaCa();
 
             System.out.printf(formatHangHoaOutput,
-                    "|", a, "|", ten, "|", ngayNhapHang, "|", maSo, "|", xuatSu, "|", soLuong, "|", giaCa, "|");
+                    "|", a, "|", ten, "|", maSo, "|", ngayNhapHang, "|", xuatSu, "|", soLuong, "|", giaCa, "|");
             a++;
         }
         System.out.print("+");
@@ -171,7 +171,7 @@ public abstract class KhoHang extends ThongTin {
             float giaCa = khac.getGiaCa();
 
             System.out.printf(formatHangHoaOutput,
-                    "|", a, "|", ten, "|", ngayNhapHang, "|", maSo, "|", xuatSu, "|", soLuong, "|", giaCa, "|");
+                    "|", a, "|", ten, "|", maSo, "|", ngayNhapHang, "|", xuatSu, "|", soLuong, "|", giaCa, "|");
             a++;
         }
         System.out.print("+");
