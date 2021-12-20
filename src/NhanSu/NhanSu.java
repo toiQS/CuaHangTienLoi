@@ -92,7 +92,7 @@ public abstract class NhanSu extends ThongTin {
         System.out.println("+");
 
         // chỉnh số thứ tự tăn dần
-        int a = 0;
+        int a = 1;
         for (LaoCong laoCong: laocongList) {
             String ten = laoCong.getTen();
             String maSo = laoCong.getMaSo();
@@ -131,7 +131,7 @@ public abstract class NhanSu extends ThongTin {
         System.out.println("+");
 
         // chỉnh số thứ tự tăn dần
-        int a = 0;
+        int a = 1;
         for (NhanVien nhanVien: nhanvienList) {
             String ten = nhanVien.getTen();
             String maSo = nhanVien.getMaSo();

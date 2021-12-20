@@ -53,7 +53,7 @@ public abstract class KhoHang extends ThongTin {
         }
         System.out.println("+");
 
-        int a = 0;
+        int a = 1;
         for (QuayGiaDung giaDung: giadungList) {
             String ten = giaDung.getTen();
             String maSo = giaDung.getMaSo();
@@ -89,7 +89,7 @@ public abstract class KhoHang extends ThongTin {
         }
         System.out.println("+");
 
-        int a = 0;
+        int a = 1;
         for (QuayNuoc nuoc: nuocList) {
             String ten = nuoc.getTen();
             String maSo = nuoc.getMaSo();
@@ -125,7 +125,7 @@ public abstract class KhoHang extends ThongTin {
         }
         System.out.println("+");
 
-        int a = 0;
+        int a = 1;
         for (QuayTuoiSong tuoiSong: tuoisongList) {
             String ten = tuoiSong.getTen();
             String maSo = tuoiSong.getMaSo();
@@ -161,7 +161,7 @@ public abstract class KhoHang extends ThongTin {
         }
         System.out.println("+");
 
-        int a = 0;
+        int a = 1;
         for (QuayKhac khac: quaykhacList) {
             String ten = khac.getTen();
             String maSo = khac.getMaSo();
@@ -188,29 +188,40 @@ public abstract class KhoHang extends ThongTin {
         OutputStreamWriter outputStreamWriter = new OutputStreamWriter(outputStream);
 
         //in quay tuoi song
+        int a=1;
         outputStreamWriter.write("***Quay Tuoi Song***\n");
         for (QuayTuoiSong tuoiSong : tuoisongList) {
+            outputStreamWriter.write(a + " ");
             outputStreamWriter.write(String.valueOf(tuoiSong));
             outputStreamWriter.write("\n");
+            a++;
         }
 
+        a=1;
         outputStreamWriter.flush();
         outputStreamWriter.write("\n\n***Quay Gia Dung***\n");
         for (QuayGiaDung giaDung : giadungList) {
+            outputStreamWriter.write(a + " ");
             outputStreamWriter.write(String.valueOf(giaDung));
             outputStreamWriter.write("\n");
+            a++;
         }
 
+        a=1;
         outputStreamWriter.flush();
         outputStreamWriter.write("\n\n***Quay Nuoc***\n");
         for (QuayNuoc nuoc : nuocList) {
+            outputStreamWriter.write(a + " ");
             outputStreamWriter.write(String.valueOf(nuoc));
             outputStreamWriter.write("\n");
+            a++;
         }
 
+        a=1;
         outputStreamWriter.flush();
         outputStreamWriter.write("\n\n***Quay Khac***\n");
         for (QuayKhac khac : quaykhacList) {
+            outputStreamWriter.write(a + " ");
             outputStreamWriter.write(String.valueOf(khac));
             outputStreamWriter.write("\n");
         }

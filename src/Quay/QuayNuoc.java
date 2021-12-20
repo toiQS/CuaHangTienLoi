@@ -6,13 +6,11 @@ import java.io.*;
 import java.util.Scanner;
 
 public class QuayNuoc extends KhoHang {
-    public static int c = 1;
     public static int soLuong = 0;
     public static float giaCa = 0;
 
     public QuayNuoc(String Ten, String MaSo, String NgayNhapHang, String XuatXu, int SoLuong, float GiaCa) {
         super(Ten, MaSo, NgayNhapHang, XuatXu, SoLuong, GiaCa);
-        c += 1;
     }
 
     public QuayNuoc() {
@@ -21,16 +19,16 @@ public class QuayNuoc extends KhoHang {
 
     public void add() {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Ten San Pham: ");
+        System.out.print("Ten San Pham: ");
         String Ten = sc.nextLine();
-        System.out.println("Ma san pham: ");
+        System.out.print("Ma san pham: ");
         String MaSo = sc.nextLine();
-        System.out.println("Ngay Nhap Hang: ");
+        System.out.print("Ngay Nhap Hang: ");
         String NgayNhapHang = sc.nextLine();
-        System.out.println("Xuat Xu: ");
+        System.out.print("Xuat Xu: ");
         String XuatXu = sc.nextLine();
         do {
-            System.out.println("So Luong Nhap Vao: ");
+            System.out.print("So Luong Nhap Vao: ");
             try {
                 soLuong = sc.nextInt();
             } catch(Exception ignored) {
@@ -40,7 +38,7 @@ public class QuayNuoc extends KhoHang {
         }while(soLuong == 0);
 
         do {
-            System.out.println("Gia Du Dinh: ");
+            System.out.print("Gia Du Dinh: ");
             try {
                 giaCa = sc.nextFloat();
             } catch (Exception ignored) {
@@ -85,7 +83,7 @@ public class QuayNuoc extends KhoHang {
 
     @Override
     public String toString() {
-        return c + ".Ten San Pham: " + Ten + " - "
+        return  ".Ten San Pham: " + Ten + " - "
                 + "Ma San Pham: " + MaSo + " - "
                 + "Xuat Su: " + XuatXu + " - "
                 + "SoLuong: " + SoLuong + " - "
