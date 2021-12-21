@@ -3,6 +3,7 @@ package NhanSu;
 import java.io.*;
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class LaoCong extends NhanSu {
     public static int b = 1;
@@ -59,6 +60,17 @@ public class LaoCong extends NhanSu {
         System.out.println("Xác Nhận Sa Thải Nhân Viên.");
     }
 
+    public List<LaoCong> TimKiemLaoCong(String MaSo){
+        return this.laocongList.stream().filter(o->o.getMaSo().equals(MaSo)).collect(Collectors.toList());
+    }
+    @Override
+    public void TimKiem(){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Nhap ma so nhan su can tim: ");
+        String MaSo = sc.nextLine();
+        TimKiemLaoCong(MaSo);
+    }
+
     public List<LaoCong> SuaThongTinLaoCong(int stt, LaoCong laoCong){
         laocongList.set(stt,laoCong);
         return laocongList;
@@ -89,7 +101,7 @@ public class LaoCong extends NhanSu {
                 sc.nextLine();
             }
         } while(luong == 0);
-        LaoCong laoCong = new BaoVe(Ten, MaSo, CCCD, GioiTinh, DiaChi, SDT, luong);
+        LaoCong laoCong = new LaoCong(Ten, MaSo, CCCD, GioiTinh, DiaChi, SDT, luong);
         SuaThongTinLaoCong(a-1,laoCong);
     }
 

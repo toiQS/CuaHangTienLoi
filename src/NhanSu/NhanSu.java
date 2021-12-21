@@ -221,6 +221,8 @@ public abstract class NhanSu extends ThongTin {
 
     public abstract void del();
 
+    public abstract void TimKiem();
+
     public abstract void SuaThongTin();
 
     public abstract void inputFile(String URL) throws IOException;

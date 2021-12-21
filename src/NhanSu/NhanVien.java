@@ -3,6 +3,7 @@ package NhanSu;
 import java.io.*;
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class NhanVien extends NhanSu {
     public static int stt = 1;
@@ -91,6 +92,17 @@ public class NhanVien extends NhanSu {
         } while(luong == 0);
         NhanVien nhanVien = new NhanVien(Ten, MaSo, CCCD, GioiTinh, DiaChi, SDT, luong);
         SuaThongTinNhanVien(a-1,nhanVien);
+    }
+
+    public List<NhanVien> TimKiemNhanVien(String MaSo){
+        return this.nhanvienList.stream().filter(o->o.getMaSo().equals(MaSo)).collect(Collectors.toList());
+    }
+    @Override
+    public void TimKiem(){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Nhap ma so nhan su can tim: ");
+        String MaSo = sc.nextLine();
+        TimKiemNhanVien(MaSo);
     }
 
     @Override
