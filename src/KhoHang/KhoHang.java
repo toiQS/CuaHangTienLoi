@@ -264,8 +264,7 @@ public abstract class KhoHang extends ThongTin {
 
     public abstract void del();
 
-
-    public abstract List<QuayGiaDung> TimKiemGiaDung(String MaSo);
+    public abstract void TimKiem();
 
     public abstract void SuaThongTin();
 

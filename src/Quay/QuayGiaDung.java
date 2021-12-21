@@ -67,9 +67,16 @@ public class QuayGiaDung extends KhoHang {
         System.out.println("Xac Nhan Xoa.");
     }
 
-    @Override
+
     public List<QuayGiaDung> TimKiemGiaDung(String MaSo){
         return this.giadungList.stream().filter(o -> o.getMaSo().equals(MaSo)).collect(Collectors.toList());
+    }
+    @Override
+    public void TimKiem(){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Nhap Ma So San Pham Muon Tim: ");
+        String MaSo = sc.nextLine();
+        TimKiemGiaDung(MaSo);
     }
 
 

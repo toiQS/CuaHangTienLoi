@@ -5,6 +5,7 @@ import KhoHang.KhoHang;
 import java.io.*;
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class QuayNuoc extends KhoHang {
     public static int soLuong = 0;
@@ -64,9 +65,15 @@ public class QuayNuoc extends KhoHang {
         System.out.println("Xac Nhan Xoa.");
     }
 
+    public List<QuayNuoc> TimKiemThongTinQuayNuoc(String MaSo){
+        return this.nuocList.stream().filter(o -> o.getMaSo().equals(MaSo)).collect(Collectors.toList());
+    }
     @Override
-    public List<QuayGiaDung> TimKiemGiaDung(String MaSo) {
-        return null;
+    public void TimKiem(){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Nhap Ma So San Pham Muon Tim: ");
+        String MaSo = sc.nextLine();
+        TimKiemThongTinQuayNuoc(MaSo);
     }
 
     public List<QuayNuoc> SuaThongTinNuoc(int stt, QuayNuoc nuoc){
