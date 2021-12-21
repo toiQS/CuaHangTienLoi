@@ -72,10 +72,45 @@ public class QuayGiaDung extends KhoHang {
         return this.giadungList.stream().filter(o -> o.getMaSo().equals(MaSo)).collect(Collectors.toList());
     }
 
-    @Override
+
     public List<QuayGiaDung> SuaThongTinGiaDung(int stt, QuayGiaDung giadung){
         giadungList.set(stt,giadung);
         return giadungList;
+    }
+    @Override
+    public void SuaThongTin(){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Nhap stt muon sua thong tin: ");
+        int a = sc.nextInt();
+        System.out.print("Ten San Pham: ");
+        String Ten = sc.nextLine();
+        System.out.print("Ma san pham: ");
+        String MaSo = sc.nextLine();
+        System.out.print("Ngay Nhap Hang: ");
+        String NgayNhapHang = sc.nextLine();
+        System.out.print("Xuat Xu: ");
+        String XuatXu = sc.nextLine();
+        do {
+            System.out.print("So Luong Nhap Vao: ");
+            try {
+                soLuong = sc.nextInt();
+            } catch (Exception ignored) {
+                System.out.println("Khong hop le, vui long nhap lai!");
+                sc.nextLine();
+            }
+        }while(soLuong == 0);
+
+        do {
+            System.out.print("Gia Du Dinh: ");
+            try {
+                giaCa = sc.nextFloat();
+            } catch (Exception ignored) {
+                System.out.println("Khong hop le, vui long nhap lai!");
+                sc.nextLine();
+            }
+        }while(giaCa == 0);
+        QuayGiaDung giadung = new QuayGiaDung(Ten, MaSo, NgayNhapHang, XuatXu, soLuong, giaCa);
+        SuaThongTinGiaDung(a-1,giadung);
     }
 
     @Override
