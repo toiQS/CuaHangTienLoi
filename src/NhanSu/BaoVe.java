@@ -1,6 +1,7 @@
 package NhanSu;
 
 import java.io.*;
+import java.util.List;
 import java.util.Scanner;
 
 public class BaoVe extends NhanSu {
@@ -56,6 +57,40 @@ public class BaoVe extends NhanSu {
         }
         baoveList.remove(baoVe);
         System.out.println("Xác Nhận Sa Thải Nhân Viên.");
+    }
+
+    public List<BaoVe> SuaThongTinBaoVe(int stt, BaoVe baoVe){
+        baoveList.set(stt,baoVe);
+        return baoveList;
+    }
+    @Override
+    public void SuaThongTin(){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Nhap vi tri muon sua: ");
+        int a = sc.nextInt();
+        System.out.print("Tên nhân viên: ");
+        String Ten = sc.nextLine();
+        System.out.print("Mã nhân viên: ");
+        String MaSo = sc.nextLine();
+        System.out.print("Căn cước công dân: ");
+        String CCCD = sc.nextLine();
+        System.out.print("Giới tính: ");
+        String GioiTinh = sc.nextLine();
+        System.out.print("Địa chỉ: ");
+        String DiaChi = sc.nextLine();
+        System.out.print("Số điện thoại: ");
+        String SDT = sc.nextLine();
+        do {
+            System.out.print("Lương: ");
+            try {
+                luong = sc.nextFloat();
+            } catch (Exception ignored) {
+                System.out.println("Không hợp lệ, vui lòng nhập lại!");
+                sc.nextLine();
+            }
+        } while(luong == 0);
+        BaoVe baoVe = new BaoVe(Ten, MaSo, CCCD, GioiTinh, DiaChi, SDT, luong);
+        SuaThongTinBaoVe(a-1,baoVe);
     }
 
     @Override
