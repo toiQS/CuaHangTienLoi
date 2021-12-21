@@ -3,6 +3,7 @@ package Quay;
 import KhoHang.KhoHang;
 
 import java.io.*;
+import java.util.List;
 import java.util.Scanner;
 
 public class QuayTuoiSong extends KhoHang {
@@ -61,6 +62,51 @@ public class QuayTuoiSong extends KhoHang {
         }
         tuoisongList.remove(tuoisong);
         System.out.println("Xac Nhan Xoa.");
+    }
+
+    @Override
+    public List<QuayGiaDung> TimKiemGiaDung(String MaSo) {
+        return null;
+    }
+
+    public List<QuayTuoiSong> SuaThongTinQuayTuoiSong(int stt, QuayTuoiSong tuoisong){
+        tuoisongList.set(stt,tuoisong);
+        return tuoisongList;
+    }
+    @Override
+    public void SuaThongTin() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Nhap stt muon sua thong tin: ");
+        int a = sc.nextInt();
+        System.out.print("Ten San Pham: ");
+        String Ten = sc.nextLine();
+        System.out.print("Ma san pham: ");
+        String MaSo = sc.nextLine();
+        System.out.print("Ngay Nhap Hang: ");
+        String NgayNhapHang = sc.nextLine();
+        System.out.print("Xuat Xu: ");
+        String XuatXu = sc.nextLine();
+        do {
+            System.out.print("So Luong Nhap Vao: ");
+            try {
+                soLuong = sc.nextInt();
+            } catch (Exception ignored) {
+                System.out.println("Khong hop le, vui long nhap lai!");
+                sc.nextLine();
+            }
+        }while(soLuong == 0);
+
+        do {
+            System.out.print("Gia Du Dinh: ");
+            try {
+                giaCa = sc.nextFloat();
+            } catch (Exception ignored) {
+                System.out.println("Khong hop le, vui long nhap lai!");
+                sc.nextLine();
+            }
+        }while(giaCa == 0);
+        QuayTuoiSong tuoisong = new QuayTuoiSong(Ten, MaSo, NgayNhapHang, XuatXu, soLuong, giaCa);
+        SuaThongTinQuayTuoiSong(a-1, tuoisong);
     }
 
     @Override

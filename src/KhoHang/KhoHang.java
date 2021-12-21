@@ -264,13 +264,10 @@ public abstract class KhoHang extends ThongTin {
 
     public abstract void del();
 
-    public List<QuayGiaDung> TimKiemGiaDung(String MaSo){
-        return giadungList;
-    };
 
-    public List<QuayGiaDung> SuaThongTinGiaDung(int stt, QuayGiaDung giadung){
-        return giadungList;
-    }
+    public abstract List<QuayGiaDung> TimKiemGiaDung(String MaSo);
+
+    public abstract void SuaThongTin();
 
     public abstract void inputFile(String URL) throws IOException;
 }
