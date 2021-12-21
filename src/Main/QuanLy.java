@@ -138,6 +138,60 @@ public class QuanLy {
                 }
                 case 3 -> {
                     System.out.println("Sua");
+                    int endSua = 0;
+                    do {
+                        sua();
+                        switch (luaChon()) {
+                            case 1 -> {
+                                KhoHang khoHang = new QuayGiaDung();
+                                khoHang.SuaThongTin();
+                            }
+                            case 2 -> {
+                                KhoHang khoHang = new QuayNuoc();
+                                khoHang.SuaThongTin();
+                            }
+                            case 3 -> {
+                                KhoHang khoHang = new QuayTuoiSong();
+                                khoHang.SuaThongTin();
+                            }
+                            case 4 -> {
+                                KhoHang khoHang = new QuayKhac();
+                                khoHang.SuaThongTin();
+                            }
+                            case 5 -> {
+                                int endNhanSu = 0;
+                                do {
+                                    nhanSu();
+                                    switch (luaChon()) {
+                                        case 1 -> {
+                                            NhanSu baoVe = new BaoVe();
+                                            baoVe.del();
+                                        }
+                                        case 2 -> {
+                                            NhanSu baoVe = new LaoCong();
+                                            baoVe.del();
+                                        }
+                                        case 3 -> {
+                                            NhanSu baoVe = new NhanVien();
+                                            baoVe.del();
+                                        }
+                                        case 4 -> {
+                                            endNhanSu = 1;
+                                        }
+                                        default -> {
+                                            System.out.println("Khong co lua chon nay!");
+                                        }
+                                    }
+                                } while(endNhanSu == 0);
+                            }
+                            case 6 -> {
+                                endSua = 1;
+                            }
+                            default -> {
+                                System.out.println("Khong co lua chon nay!");
+                            }
+                        }
+                    } while (endSua == 0);
                 }
                 case 4 -> {
                     System.out.println("Tim Kiem");
