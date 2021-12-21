@@ -88,6 +88,7 @@ public class QuayTuoiSong extends KhoHang {
         int a = sc.nextInt();
         System.out.print("Ten San Pham: ");
         String Ten = sc.nextLine();
+        sc.nextLine();
         System.out.print("Ma san pham: ");
         String MaSo = sc.nextLine();
         System.out.print("Ngay Nhap Hang: ");
