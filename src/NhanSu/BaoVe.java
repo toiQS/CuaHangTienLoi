@@ -52,7 +52,7 @@ public class BaoVe extends NhanSu {
     public void del() {
         NhanSu.xuatBaoVe();
         Scanner sc = new Scanner(System.in);
-        System.out.println("Nhập Mã Nhân Viên Muốn Sa Thải: ");
+        System.out.print("Nhập Mã Nhân Viên Muốn Sa Thải: ");
         String MaSo = sc.nextLine();
         BaoVe baoVe = baoveList.stream().filter(o -> o.getMaSo().equals(MaSo)).findFirst().orElse(null);
         if (baoVe == null) {
@@ -73,11 +73,17 @@ public class BaoVe extends NhanSu {
     @Override
     public void TimKiem(){
         Scanner sc = new Scanner(System.in);
+
         System.out.println("Nhap ma san pham muon tim: ");
         String a = sc.nextLine();
         TimKiemBaoVe(a).forEach(baoVe -> {
             System.out.println(baoVe.toString());
         });
+
+        System.out.println("Nhập mã số nhân viên cần tìm: ");
+        String MaSo = sc.nextLine();
+        TimKiemBaoVe(MaSo);
+
     }
 
     public List<BaoVe> SuaThongTinBaoVe(int stt, BaoVe baoVe){
@@ -87,7 +93,7 @@ public class BaoVe extends NhanSu {
     @Override
     public void SuaThongTin(){
         Scanner sc = new Scanner(System.in);
-        System.out.println("Nhap vi tri muon sua: ");
+        System.out.print("Nhập vị trí muốn sửa: ");
         int a = sc.nextInt();
         System.out.print("Tên nhân viên: ");
         sc.nextLine();
@@ -142,6 +148,6 @@ public class BaoVe extends NhanSu {
                 + "Giới Tính: " + GioiTinh + " - "
                 + "Địa Chỉ: " + DiaChi + " - "
                 + "Số điện thoại: " + SDT + " - "
-                + "Luong = " + Luong * 8 * 30; //Set mỗi ngày làm 8 giờ và lương tính 1 tháng 30 ngày.
+                + "Lương = " + Luong * 8 * 30; //Set mỗi ngày làm 8 giờ và lương tính 1 tháng 30 ngày.
     }
 }

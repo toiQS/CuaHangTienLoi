@@ -21,30 +21,30 @@ public class QuayKhac extends KhoHang {
 
     public void add() {
         Scanner sc = new Scanner(System.in);
-        System.out.print("Ten San Pham: ");
+        System.out.print("Tên sản phẩm: ");
         String Ten = sc.nextLine();
-        System.out.print("Ma san pham: ");
+        System.out.print("Mã sản phẩm: ");
         String MaSo = sc.nextLine();
-        System.out.print("Ngay Nhap Hang: ");
+        System.out.print("Ngày nhập hàng: ");
         String NgayNhapHang = sc.nextLine();
-        System.out.print("Xuat Xu: ");
+        System.out.print("Xuất xứ: ");
         String XuatXu = sc.nextLine();
         do {
-            System.out.print("So Luong Nhap Vao: ");
+            System.out.print("Số lượng nhập vào: ");
             try {
                 soLuong = sc.nextInt();
             } catch(Exception ignored) {
-                System.out.println("Khong hop le, vui long nhap lai!");
+                System.out.println("Không hợp lệ, vui lòng nhập lại!");
                 sc.nextLine();
             }
         }while(soLuong == 0);
 
         do {
-            System.out.print("Gia Du Dinh: ");
+            System.out.print("Giá dự định: ");
             try {
                 giaCa = sc.nextFloat();
             } catch (Exception ignored) {
-                System.out.println("Khong hop le, vui long nhap lai!");
+                System.out.println("Không hợp lệ, vui lòng nhập lại!");
                 sc.nextLine();
             }
         } while(giaCa == 0);
@@ -55,14 +55,14 @@ public class QuayKhac extends KhoHang {
     public void del() {
         KhoHang.xuatKhac();
         Scanner sc = new Scanner(System.in);
-        System.out.println("Nhap Ma So Muon Xoa: ");
+        System.out.print("Nhập mã số sản phẩm muốn xoá: ");
         String MaSo = sc.nextLine();
         QuayKhac quaykhac = quaykhacList.stream().filter(o -> o.getMaSo().equals(MaSo)).findFirst().orElse(null);
         if (quaykhac == null) {
-            System.out.println("Khong Ton Tai.");
+            System.out.println("Không tồn tại.");
         }
         quaykhacList.remove(quaykhac);
-        System.out.println("Xac Nhan Xoa.");
+        System.out.println("Xác nhận xoá.");
     }
 
     @Override
@@ -76,11 +76,17 @@ public class QuayKhac extends KhoHang {
     @Override
     public void TimKiem(){
         Scanner sc = new Scanner(System.in);
+
         System.out.println("Nhap ma san pham muon tim: ");
         String a = sc.nextLine();
         TimKiemQuayKhac(a).forEach(quayKhac -> {
             System.out.println(quayKhac.toString());
         });
+
+        System.out.print("Nhập mã số sản phẩm muốn tìm: ");
+        String MaSo = sc.nextLine();
+        TimKiemThongTinQuayKhac(MaSo);
+
     }
 
     public List<QuayKhac> suaThongTinQuayKhac(int stt, QuayKhac quaykhac){
@@ -90,33 +96,40 @@ public class QuayKhac extends KhoHang {
     @Override
     public void SuaThongTin() {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Nhap stt muon sua thong tin: ");
+        System.out.print("Nhập STT muốn sửa thông tin: ");
         int a = sc.nextInt();
+
         System.out.print("Ten San Pham: ");
         sc.nextLine();
         String Ten = sc.nextLine();
         System.out.print("Ma san pham: ");
+
+        System.out.print("Tên sản phẩm: ");
+        String Ten = sc.nextLine();
+        sc.nextLine();
+        System.out.print("Mã sản phẩm: ");
+
         String MaSo = sc.nextLine();
-        System.out.print("Ngay Nhap Hang: ");
+        System.out.print("Ngày nhập hàng: ");
         String NgayNhapHang = sc.nextLine();
-        System.out.print("Xuat Xu: ");
+        System.out.print("Xuất xứ: ");
         String XuatXu = sc.nextLine();
         do {
-            System.out.print("So Luong Nhap Vao: ");
+            System.out.print("Số lượng nhập vào: ");
             try {
                 soLuong = sc.nextInt();
             } catch (Exception ignored) {
-                System.out.println("Khong hop le, vui long nhap lai!");
+                System.out.println("Không hợp lệ, vui lòng nhập lại!");
                 sc.nextLine();
             }
         }while(soLuong == 0);
 
         do {
-            System.out.print("Gia Du Dinh: ");
+            System.out.print("Giá dự định: ");
             try {
                 giaCa = sc.nextFloat();
             } catch (Exception ignored) {
-                System.out.println("Khong hop le, vui long nhap lai!");
+                System.out.println("Không hợp lệ, vui lòng nhập lại!");
                 sc.nextLine();
             }
         }while(giaCa == 0);
@@ -144,10 +157,10 @@ public class QuayKhac extends KhoHang {
 
     @Override
     public String toString() {
-        return  ".Ten San Pham: " + Ten + " - "
+        return  ".Tên sản phẩm: " + Ten + " - "
                 + "Ma San Pham: " + MaSo + " - "
-                + "Xuat Su: " + XuatXu + " - "
-                + "SoLuong: " + SoLuong + " - "
-                + "GiaCa: " + GiaCa;
+                + "Xuất xứ: " + XuatXu + " - "
+                + "Số lượng: " + SoLuong + " - "
+                + "Giá cả: " + GiaCa;
     }
 }

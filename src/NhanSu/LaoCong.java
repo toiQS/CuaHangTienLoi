@@ -50,7 +50,7 @@ public class LaoCong extends NhanSu {
     public void del() {
         NhanSu.xuatLaoCong();
         Scanner sc = new Scanner(System.in);
-        System.out.println("Nhập Mã Nhân Viên Muốn Sa Thải: ");
+        System.out.print("Nhập Mã Nhân Viên Muốn Sa Thải: ");
         String MaSo = sc.nextLine();
         LaoCong laoCong = laocongList.stream().filter(o -> o.getMaSo().equals(MaSo)).findFirst().orElse(null);
         if (laoCong == null) {
@@ -66,11 +66,17 @@ public class LaoCong extends NhanSu {
     @Override
     public void TimKiem(){
         Scanner sc = new Scanner(System.in);
+
         System.out.println("Nhap ma san pham muon tim: ");
         String a = sc.nextLine();
         TimKiemLaoCong(a).forEach(laoCong -> {
             System.out.println(laoCong.toString());
         });
+
+        System.out.print("Nhập mã số lao công cần tìm: ");
+        String MaSo = sc.nextLine();
+        TimKiemLaoCong(MaSo);
+
     }
 
     public List<LaoCong> SuaThongTinLaoCong(int stt, LaoCong laoCong){
@@ -80,7 +86,7 @@ public class LaoCong extends NhanSu {
     @Override
     public void SuaThongTin(){
         Scanner sc = new Scanner(System.in);
-        System.out.println("Nhap vi tri muon sua: ");
+        System.out.print("Nhập vị trí muốn sửa: ");
         int a = sc.nextInt();
         System.out.print("Tên nhân viên: ");
         sc.nextLine();
@@ -135,6 +141,6 @@ public class LaoCong extends NhanSu {
                 + "Giới Tính: " + GioiTinh + " - "
                 + "Địa Chỉ: " + DiaChi + " - "
                 + "Số điện thoại: " + SDT + " - "
-                + "Luong = " + Luong * 8 * 30; //Set mỗi ngày làm 8 giờ và lương tính 1 tháng 30 ngày.
+                + "Lương = " + Luong * 8 * 30; //Set mỗi ngày làm 8 giờ và lương tính 1 tháng 30 ngày.
     }
 }

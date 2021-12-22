@@ -18,12 +18,16 @@ public class KhachHang {
                     System.out.println(inputKhacHang);
                 }
                 case 3 -> {
+                    System.out.println("Giỏ hàng");
+                }
+
+                case 4 -> {
                     endKhachHang = 1;
                     Main.endCuaHang(endKhachHang);
-                    System.out.println("Cam on va hen gap lai!");
+                    System.out.println("Cảm ơn và hẹn gặp lại!");
                 }
                 default -> {
-                    System.out.println("Khong co lua chon nay!");
+                    System.out.println("Không có lựa chọn này!");
                 }
             }
         } while(endKhachHang == 0);
@@ -34,11 +38,12 @@ public class KhachHang {
             System.out.println();
         }
         System.out.println("+---------------------------------+");
-        System.out.println("|            Khach hang           |");
+        System.out.println("|            Khách hàng           |");
         System.out.println("+---------------------------------+");
         System.out.println("|    1. Mua                       |");
-        System.out.println("|    2. Tiem Kiem                 |");
-        System.out.println("|    3. Thoat                     |");
+        System.out.println("|    2. Tìm kiếm                 |");
+        System.out.println("|    3. Giỏ hàng                 |");
+        System.out.println("|    4. Thoát                     |");
         System.out.println("+---------------------------------+");
     }
 
@@ -47,18 +52,18 @@ public class KhachHang {
             System.out.println();
         }
         System.out.println("+---------------------------------+");
-        System.out.println("|            Tim Kiem             |");
+        System.out.println("|            Tìm kiếm             |");
         System.out.println("+---------------------------------+");
     }
 
     private static String nhapTimKiem() {
-        System.out.println("Nhap ten mon hang can tim");
+        System.out.print("Nhập tên món hàng cần tìm: ");
         Scanner scanner = new Scanner(System.in);
         return scanner.nextLine();
     }
 
     private int luaChon() {
-        System.out.print("Lua chon: ");
+        System.out.print("Nhập lựa chọn: ");
         Scanner scanner = new Scanner(System.in);
         char check = scanner.next().charAt(0);
         return check - '0';
