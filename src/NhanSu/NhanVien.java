@@ -96,14 +96,16 @@ public class NhanVien extends NhanSu {
     }
 
     public List<NhanVien> TimKiemNhanVien(String MaSo){
-        return this.nhanvienList.stream().filter(o->o.getMaSo().equals(MaSo)).collect(Collectors.toList());
+        return this.nhanvienList.stream().filter(o ->o.getMaSo().contains(MaSo)).collect(Collectors.toList());
     }
     @Override
     public void TimKiem(){
         Scanner sc = new Scanner(System.in);
-        System.out.println("Nhap ma so nhan su can tim: ");
-        String MaSo = sc.nextLine();
-        TimKiemNhanVien(MaSo);
+        System.out.println("Nhap ma san pham muon tim: ");
+        String a = sc.nextLine();
+        TimKiemNhanVien(a).forEach(nhanVien -> {
+            System.out.println(nhanVien.toString());
+        });
     }
 
     @Override

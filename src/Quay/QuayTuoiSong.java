@@ -10,6 +10,8 @@ import java.util.stream.Collectors;
 public class QuayTuoiSong extends KhoHang {
     public static int soLuong = 0;
     public static float giaCa = 0;
+    private static final String formatHangHoaTieuDe = "%s %.3s %s %-15s %s %-13s %s %-15s %s %-10s %s %-10s %s %-15s %s\n";
+    private static final String formatHangHoaOutput = "%s %3d %s %-15s %s %-13s %s %-15s %s %-10s %s %-10d %s %-15.3f %s\n";
 
     public QuayTuoiSong(String Ten, String MaSo, String NgayNhapHang, String XuatXu, int SoLuong, float GiaCa) {
         super(Ten, MaSo, NgayNhapHang, XuatXu, SoLuong, GiaCa);
@@ -65,16 +67,54 @@ public class QuayTuoiSong extends KhoHang {
         System.out.println("Xac Nhan Xoa.");
     }
 
+    @Override
+    public void showThongTin() {
+//        this.nuocList.forEach(o -> System.out.println(o.toString()));
+        System.out.print("+");
+        for (int i=0; i < 101; i++) {
+            System.out.print("-");
+        }
+        System.out.println("+");
+        System.out.printf(formatHangHoaTieuDe,
+            "|", "STT", "|", "Ten San Pham", "|", "Ma San Pham", "|", "Ngay Nhap Hang", "|", "Xuat Su", "|", "So Luong", "|", "Gia Ca", "|");
+        System.out.print("+");
+        for (int i=0; i < 101; i++) {
+            System.out.print("-");
+        }
+        System.out.println("+");
 
-    public List<QuayTuoiSong> TimKiemTuoiSong(String MaSo) {
-        return this.tuoisongList.stream().filter(o->o.getMaSo().equals(MaSo)).collect(Collectors.toList());
+        int a = 1;
+        for (QuayTuoiSong tuoiSong: tuoisongList) {
+            String ten = tuoiSong.getTen();
+            String maSo = tuoiSong.getMaSo();
+            String ngayNhapHang = tuoiSong.getNgayNhapHang();
+            String xuatSu = tuoiSong.getXuatXu();
+            int soLuong = tuoiSong.getSoLuong();
+            float giaCa = tuoiSong.getGiaCa();
+
+            System.out.printf(formatHangHoaOutput,
+                "|", a, "|", ten, "|", maSo, "|", ngayNhapHang, "|", xuatSu, "|", soLuong, "|", giaCa, "|");
+            a++;
+        }
+        System.out.print("+");
+        for (int i=0; i < 101; i++) {
+            System.out.print("-");
+        }
+        System.out.println("+");
+    }
+
+
+    public List<QuayTuoiSong> TimKiemTuoiSong(String MaSo){
+        return this.tuoisongList.stream().filter(o ->o.getMaSo().contains(MaSo)).collect(Collectors.toList());
     }
     @Override
     public void TimKiem(){
         Scanner sc = new Scanner(System.in);
-        System.out.println("Nhap Ma So San Pham Muon Tim: ");
-        String MaSo = sc.nextLine();
-        TimKiemTuoiSong(MaSo);
+        System.out.println("Nhap ma san pham muon tim: ");
+        String a = sc.nextLine();
+        TimKiemTuoiSong(a).forEach(tuoiSong -> {
+            System.out.println(tuoiSong.toString());
+        });
     }
 
     public List<QuayTuoiSong> SuaThongTinQuayTuoiSong(int stt, QuayTuoiSong tuoisong){

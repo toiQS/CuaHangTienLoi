@@ -61,14 +61,16 @@ public class LaoCong extends NhanSu {
     }
 
     public List<LaoCong> TimKiemLaoCong(String MaSo){
-        return this.laocongList.stream().filter(o->o.getMaSo().equals(MaSo)).collect(Collectors.toList());
+        return this.laocongList.stream().filter(o ->o.getMaSo().contains(MaSo)).collect(Collectors.toList());
     }
     @Override
     public void TimKiem(){
         Scanner sc = new Scanner(System.in);
-        System.out.println("Nhap ma so nhan su can tim: ");
-        String MaSo = sc.nextLine();
-        TimKiemLaoCong(MaSo);
+        System.out.println("Nhap ma san pham muon tim: ");
+        String a = sc.nextLine();
+        TimKiemLaoCong(a).forEach(laoCong -> {
+            System.out.println(laoCong.toString());
+        });
     }
 
     public List<LaoCong> SuaThongTinLaoCong(int stt, LaoCong laoCong){

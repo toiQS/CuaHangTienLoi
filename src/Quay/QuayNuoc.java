@@ -65,15 +65,22 @@ public class QuayNuoc extends KhoHang {
         System.out.println("Xac Nhan Xoa.");
     }
 
-    public List<QuayNuoc> TimKiemThongTinQuayNuoc(String MaSo){
-        return this.nuocList.stream().filter(o -> o.getMaSo().equals(MaSo)).collect(Collectors.toList());
+    @Override
+    public void showThongTin() {
+        this.nuocList.forEach(o -> System.out.println(o.toString()));
+    }
+
+    public List<QuayNuoc> TimKiemQuayNuoc(String MaSo){
+        return this.nuocList.stream().filter(o ->o.getMaSo().contains(MaSo)).collect(Collectors.toList());
     }
     @Override
     public void TimKiem(){
         Scanner sc = new Scanner(System.in);
-        System.out.println("Nhap Ma So San Pham Muon Tim: ");
-        String MaSo = sc.nextLine();
-        TimKiemThongTinQuayNuoc(MaSo);
+        System.out.println("Nhap ma san pham muon tim: ");
+        String a = sc.nextLine();
+        TimKiemQuayNuoc(a).forEach(quayNuoc -> {
+            System.out.println(quayNuoc.toString());
+        });
     }
 
     public List<QuayNuoc> SuaThongTinNuoc(int stt, QuayNuoc nuoc){

@@ -1,5 +1,7 @@
 package NhanSu;
 
+import Quay.QuayKhac;
+
 import java.io.*;
 import java.util.List;
 import java.util.Scanner;
@@ -60,15 +62,22 @@ public class BaoVe extends NhanSu {
         System.out.println("Xác Nhận Sa Thải Nhân Viên.");
     }
 
+//    @Override
+//    public void showThongTin(){
+//
+//    }
+
     public List<BaoVe> TimKiemBaoVe(String MaSo){
-        return baoveList.stream().filter(o -> o.getMaSo().equals(MaSo)).collect(Collectors.toList());
+        return this.baoveList.stream().filter(o ->o.getMaSo().contains(MaSo)).collect(Collectors.toList());
     }
     @Override
     public void TimKiem(){
         Scanner sc = new Scanner(System.in);
-        System.out.println("Nhap ma so nhan su can tim: ");
-        String MaSo = sc.nextLine();
-        TimKiemBaoVe(MaSo);
+        System.out.println("Nhap ma san pham muon tim: ");
+        String a = sc.nextLine();
+        TimKiemBaoVe(a).forEach(baoVe -> {
+            System.out.println(baoVe.toString());
+        });
     }
 
     public List<BaoVe> SuaThongTinBaoVe(int stt, BaoVe baoVe){
