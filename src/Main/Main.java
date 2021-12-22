@@ -64,7 +64,7 @@ public class Main {
                         QuanLy quanLy = new QuanLy();
                         quanLy.admin();
                     } else {
-                        System.out.println("Mat khau hoac tai khoan khong dung!");
+                        System.out.println("Sai mật khẩu hoặc tài khoản!");
                     }
                 }
                 // xuat thong tin lua chon cua khach hang
@@ -77,7 +77,7 @@ public class Main {
                     endCuaHangMini = 1;
                 }
                 default -> {
-                    System.out.println("Khong co lua chon nay!");
+                    System.out.println("Không có lựa chọn này!");
                 }
             }
         } while (endCuaHangMini == 0);
@@ -88,11 +88,11 @@ public class Main {
             System.out.println();
         }
         System.out.println("+---------------------------------+");
-        System.out.println("|        Cua hang mini            |");
+        System.out.println("|        Cửa hàng mini            |");
         System.out.println("+---------------------------------+");
-        System.out.println("|    1. Admin                     |");
+        System.out.println("|    1. Quản lý                   |");
         System.out.println("|    2. Khách hàng                |");
-        System.out.println("|    3. Thoat                     |");
+        System.out.println("|    3. Thoát                     |");
         System.out.println("+---------------------------------+");
     }
 
@@ -101,7 +101,7 @@ public class Main {
     }
 
     private static int luaChon() {
-        System.out.print("Lua chon: ");
+        System.out.print("Nhập lựa chọn: ");
         Scanner scanner = new Scanner(System.in);
         char check = scanner.next().charAt(0);
         return check - '0';
@@ -111,9 +111,9 @@ public class Main {
         String tk = "admin";
         String mk = "admin";
         Scanner login = new Scanner(System.in);
-        System.out.print("Nhap tai khoan: ");
+        System.out.print("Nhập tài khoản: ");
         String checkTK = login.nextLine();
-        System.out.print("Nhap mat khau: ");
+        System.out.print("Nhập mật khẩu: ");
         String checkMK = login.nextLine();
         return Objects.equals(checkTK, "admin") && Objects.equals(checkMK, "admin");
     }

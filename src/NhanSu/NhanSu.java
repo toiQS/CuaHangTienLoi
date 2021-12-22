@@ -37,7 +37,7 @@ public abstract class NhanSu extends ThongTin {
 
     //Bảo Vệ
     public static void xuatBaoVe() {
-        System.out.println("***Bao Ve***");
+        System.out.println("***Bảo Vệ***");
         System.out.print("+");
         for (int i=0; i < 107; i++) {
             System.out.print("-");
@@ -45,7 +45,7 @@ public abstract class NhanSu extends ThongTin {
         System.out.println("+");
 
         System.out.printf(formatTieuDe,
-                "|", "STT", "|", "Ho va Ten", "|", "Ma So Nhan Vien", "|", "CCCD", "|", "Gioi Tinh", "|", "Dia Chi", "|", "SDT", "|", "Luong", "|");
+                "|", "STT", "|", "Họ và Tên", "|", "Mã số nhân viên", "|", "CCCD", "|", "Giới tính", "|", "Địa chỉ", "|", "SDT", "|", "Lương", "|");
         System.out.print("+");
         for (int i=0; i < 107; i++) {
             System.out.print("-");
@@ -53,7 +53,7 @@ public abstract class NhanSu extends ThongTin {
         System.out.println("+");
 
         // chỉnh số thứ tự tăn dần
-        int a = 0;
+        int a = 1;
         for (BaoVe baoVe: baoveList) {
             String ten = baoVe.getTen();
             String maSo = baoVe.getMaSo();
@@ -76,7 +76,7 @@ public abstract class NhanSu extends ThongTin {
 
     //Lao Công
     public static void xuatLaoCong() {
-        System.out.println("***Lao Cong***");
+        System.out.println("***Lao Công***");
         System.out.print("+");
         for (int i=0; i < 107; i++) {
             System.out.print("-");
@@ -84,7 +84,7 @@ public abstract class NhanSu extends ThongTin {
         System.out.println("+");
 
         System.out.printf(formatTieuDe,
-                "|", "STT", "|", "Ho va Ten", "|", "Ma So Nhan Vien", "|", "CCCD", "|", "Gioi Tinh", "|", "Dia Chi", "|", "SDT", "|", "Luong", "|");
+                "|", "STT", "|", "Họ và Tên", "|", "Mã số nhân viên", "|", "CCCD", "|", "Giới tính", "|", "Địa chỉ", "|", "SDT", "|", "Lương", "|");
         System.out.print("+");
         for (int i=0; i < 107; i++) {
             System.out.print("-");
@@ -115,7 +115,7 @@ public abstract class NhanSu extends ThongTin {
 
     //Nhân Viên Bán Hàng
     public static void xuatNhanVien() {
-        System.out.println("***Nhan Vien***");
+        System.out.println("***Nhân Viên***");
         System.out.print("+");
         for (int i=0; i < 107; i++) {
             System.out.print("-");
@@ -123,7 +123,7 @@ public abstract class NhanSu extends ThongTin {
         System.out.println("+");
 
         System.out.printf(formatTieuDe,
-                "|", "STT", "|", "Ho va Ten", "|", "Ma So Nhan Vien", "|", "CCCD", "|", "Gioi Tinh", "|", "Dia Chi", "|", "SDT", "|", "Luong", "|");
+                "|", "STT", "|", "Họ và Tên", "|", "Mã số nhân viên", "|", "CCCD", "|", "Giới tính", "|", "Địa chỉ", "|", "SDT", "|", "Lương", "|");
         System.out.print("+");
         for (int i=0; i < 107; i++) {
             System.out.print("-");

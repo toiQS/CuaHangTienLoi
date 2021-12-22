@@ -39,14 +39,14 @@ public abstract class KhoHang extends ThongTin {
 
     // Quay gia dung
     public static void xuatGiaDung() {
-        System.out.println("***Quay Gia Dung***");
+        System.out.println("***Quầy Gia Dụng***");
         System.out.print("+");
         for (int i=0; i < 101; i++) {
             System.out.print("-");
         }
         System.out.println("+");
         System.out.printf(formatHangHoaTieuDe,
-                "|", "STT", "|", "Ten San Pham", "|", "Ma San Pham", "|", "Ngay Nhap Hang", "|", "Xuat Su", "|", "So Luong", "|", "Gia Ca", "|");
+                "|", "STT", "|", "Tên Sản Phẩm", "|", "Mã Sản Phẩm", "|", "Ngày Nhập Hàng", "|", "Xuất Sứ", "|", "Số Lượng", "|", "Giá Cả", "|");
         System.out.print("+");
         for (int i=0; i < 101; i++) {
             System.out.print("-");
@@ -75,14 +75,14 @@ public abstract class KhoHang extends ThongTin {
 
     // Quay thuc pham
     public static void xuatNuoc() {
-        System.out.println("***Quay Nuoc***");
+        System.out.println("***Quầy Nước***");
         System.out.print("+");
         for (int i=0; i < 101; i++) {
             System.out.print("-");
         }
         System.out.println("+");
         System.out.printf(formatHangHoaTieuDe,
-                "|", "STT", "|", "Ten San Pham", "|", "Ma San Pham", "|", "Ngay Nhap Hang", "|", "Xuat Su", "|", "So Luong", "|", "Gia Ca", "|");
+                "|", "STT", "|", "Tên Sản Phẩm", "|", "Mã Sản Phẩm", "|", "Ngày Nhập Hàng", "|", "Xuất Sứ", "|", "Số Lượng", "|", "Giá Cả", "|");
         System.out.print("+");
         for (int i=0; i < 101; i++) {
             System.out.print("-");
@@ -111,14 +111,14 @@ public abstract class KhoHang extends ThongTin {
 
     //Quay tuoi song
     public static void xuatTuoiSong() {
-        System.out.println("***Quay Tuoi Song***");
+        System.out.println("***Quầy Tươi Sống***");
         System.out.print("+");
         for (int i=0; i < 101; i++) {
             System.out.print("-");
         }
         System.out.println("+");
         System.out.printf(formatHangHoaTieuDe,
-                "|", "STT", "|", "Ten San Pham", "|", "Ma San Pham", "|", "Ngay Nhap Hang", "|", "Xuat Su", "|", "So Luong", "|", "Gia Ca", "|");
+                "|", "STT", "|", "Tên Sản Phẩm", "|", "Mã Sản Phẩm", "|", "Ngày Nhập Hàng", "|", "Xuất Sứ", "|", "Số Lượng", "|", "Giá Cả", "|");
         System.out.print("+");
         for (int i=0; i < 101; i++) {
             System.out.print("-");
@@ -147,14 +147,14 @@ public abstract class KhoHang extends ThongTin {
 
     //Quay khac
     public static void xuatKhac() {
-        System.out.println("***Quay Khac***");
+        System.out.println("***Quầy Khác***");
         System.out.print("+");
         for (int i=0; i < 101; i++) {
             System.out.print("-");
         }
         System.out.println("+");
         System.out.printf(formatHangHoaTieuDe,
-                "|", "STT", "|", "Ten San Pham", "|", "Ma San Pham", "|", "Ngay Nhap Hang", "|", "Xuat Su", "|", "So Luong", "|", "Gia Ca", "|");
+                "|", "STT", "|", "Tên Sản Phẩm", "|", "Mã Sản Phẩm", "|", "Ngày Nhập Hàng", "|", "Xuất Sứ", "|", "Số Lượng", "|", "Giá Cả", "|");
         System.out.print("+");
         for (int i=0; i < 101; i++) {
             System.out.print("-");
@@ -189,7 +189,7 @@ public abstract class KhoHang extends ThongTin {
 
         //in quay tuoi song
         int a=1;
-        outputStreamWriter.write("***Quay Tuoi Song***\n");
+        outputStreamWriter.write("***Quầy Tươi Sống***\n");
         for (QuayTuoiSong tuoiSong : tuoisongList) {
             outputStreamWriter.write(a + " ");
             outputStreamWriter.write(String.valueOf(tuoiSong));
@@ -199,7 +199,7 @@ public abstract class KhoHang extends ThongTin {
 
         a=1;
         outputStreamWriter.flush();
-        outputStreamWriter.write("\n\n***Quay Gia Dung***\n");
+        outputStreamWriter.write("\n\n***Quầy Gia Dụng***\n");
         for (QuayGiaDung giaDung : giadungList) {
             outputStreamWriter.write(a + " ");
             outputStreamWriter.write(String.valueOf(giaDung));
@@ -209,7 +209,7 @@ public abstract class KhoHang extends ThongTin {
 
         a=1;
         outputStreamWriter.flush();
-        outputStreamWriter.write("\n\n***Quay Nuoc***\n");
+        outputStreamWriter.write("\n\n***Quầy Nước***\n");
         for (QuayNuoc nuoc : nuocList) {
             outputStreamWriter.write(a + " ");
             outputStreamWriter.write(String.valueOf(nuoc));
@@ -219,7 +219,7 @@ public abstract class KhoHang extends ThongTin {
 
         a=1;
         outputStreamWriter.flush();
-        outputStreamWriter.write("\n\n***Quay Khac***\n");
+        outputStreamWriter.write("\n\n***Quầy Khác***\n");
         for (QuayKhac khac : quaykhacList) {
             outputStreamWriter.write(a + " ");
             outputStreamWriter.write(String.valueOf(khac));

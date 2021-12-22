@@ -26,22 +26,22 @@ public class QuanLy {
                         them();
                         switch (luaChon()) {
                             case 1 -> {
-                                System.out.println("---------Them Gia Dung---------");
+                                System.out.println("---------Thêm Gia Dụng---------");
                                 KhoHang giaDung = new QuayGiaDung();
                                 giaDung.add();
                             }
                             case 2 -> {
-                                System.out.println("---------Them Nuoc---------");
+                                System.out.println("---------Thêm Nước---------");
                                 KhoHang thucPham = new QuayNuoc();
                                 thucPham.add();
                             }
                             case 3 -> {
-                                System.out.println("---------Them Tuoi Song---------");
+                                System.out.println("---------Thêm Tươi Sống---------");
                                 KhoHang tuoiSong = new QuayTuoiSong();
                                 tuoiSong.add();
                             }
                             case 4 -> {
-                                System.out.println("---------Them Khac---------");
+                                System.out.println("---------Thêm Khác---------");
                                 KhoHang khac = new QuayKhac();
                                 khac.add();
                             }
@@ -66,7 +66,7 @@ public class QuanLy {
                                             endNhanSu = 1;
                                         }
                                         default -> {
-                                            System.out.println("Khong co lua chon nay!");
+                                            System.out.println("Không có lựa chọn này!");
                                         }
                                     }
                                 } while(endNhanSu == 0);
@@ -75,7 +75,7 @@ public class QuanLy {
                                 endThem = 1;
                             }
                             default -> {
-                                System.out.println("Khong co lua chon nay!");
+                                System.out.println("Không có lựa chọn này!");
                             }
                         }
                     } while(endThem == 0);
@@ -122,7 +122,7 @@ public class QuanLy {
                                             endNhanSu = 1;
                                         }
                                         default -> {
-                                            System.out.println("Khong co lua chon nay!");
+                                            System.out.println("Không có lựa chọn này!");
                                         }
                                     }
                                 } while(endNhanSu == 0);
@@ -131,30 +131,33 @@ public class QuanLy {
                                 endXoa = 1;
                             }
                             default -> {
-                                System.out.println("Khong co lua chon nay!");
+                                System.out.println("Không có lựa chọn này!");
                             }
                         }
                     } while (endXoa == 0);
                 }
                 case 3 -> {
-                    System.out.println("Sua");
                     int endSua = 0;
                     do {
                         sua();
                         switch (luaChon()) {
                             case 1 -> {
+                                KhoHang.xuatGiaDung();
                                 KhoHang khoHang = new QuayGiaDung();
                                 khoHang.SuaThongTin();
                             }
                             case 2 -> {
+                                KhoHang.xuatNuoc();
                                 KhoHang khoHang = new QuayNuoc();
                                 khoHang.SuaThongTin();
                             }
                             case 3 -> {
+                                KhoHang.xuatTuoiSong();
                                 KhoHang khoHang = new QuayTuoiSong();
                                 khoHang.SuaThongTin();
                             }
                             case 4 -> {
+                                KhoHang.xuatKhac();
                                 KhoHang khoHang = new QuayKhac();
                                 khoHang.SuaThongTin();
                             }
@@ -179,7 +182,7 @@ public class QuanLy {
                                             endNhanSu = 1;
                                         }
                                         default -> {
-                                            System.out.println("Khong co lua chon nay!");
+                                            System.out.println("Không có lựa chọn này!");
                                         }
                                     }
                                 } while(endNhanSu == 0);
@@ -188,7 +191,7 @@ public class QuanLy {
                                 endSua = 1;
                             }
                             default -> {
-                                System.out.println("Khong co lua chon nay!");
+                                System.out.println("Không có lựa chọn này!");
                             }
                         }
                     } while (endSua == 0);
@@ -219,7 +222,7 @@ public class QuanLy {
 
                                     }
                                     default -> {
-                                        System.out.println("Khong co lua chon nay!");
+                                        System.out.println("Không có lựa chọn này!");
                                     }
                                 }
                             }
@@ -236,16 +239,16 @@ public class QuanLy {
 
                                     }
                                     default -> {
-                                        System.out.println("Khong co lua chon nay!");
+                                        System.out.println("Không có lựa chọn này!");
                                     }
                                 }
-                                System.out.println("Da xuat ra file thanh cong!");
+                                System.out.println("Đã xuất ra file thành công!");
                             }
                             case 3 -> {
                                 endThongTin = 1;
                             }
                             default -> {
-                                System.out.println("Khong co lua chon nay!");
+                                System.out.println("Không có lựa chọn này!");
                             }
                         }
                     }while(endThongTin == 0);
@@ -253,10 +256,10 @@ public class QuanLy {
                 case 6 -> {
                     endAdmin = 1;
                     Main.endCuaHang(endAdmin);
-                    System.out.println("Cam on da su dung phan men!");
+                    System.out.println("Cảm ơn đã sử dụng phần mền!");
                 }
                 default -> {
-                    System.out.println("Khong co lua chon nay!");
+                    System.out.println("Không có lựa chọn này!");
                 }
             }
         } while(endAdmin == 0);
@@ -267,14 +270,14 @@ public class QuanLy {
             System.out.println();
         }
         System.out.println("+---------------------------------+");
-        System.out.println("|            Admin                |");
+        System.out.println("|            Quản lý              |");
         System.out.println("+---------------------------------+");
-        System.out.println("|    1. Them                      |");
-        System.out.println("|    2. Xoa                       |");
-        System.out.println("|    3. Sua                       |");
-        System.out.println("|    4. Tim Kiem                  |");
-        System.out.println("|    5. Hien danh sach thong tin  |");
-        System.out.println("|    6. Thoat                     |");
+        System.out.println("|    1. Thêm                      |");
+        System.out.println("|    2. Xoá                       |");
+        System.out.println("|    3. Sửa                       |");
+        System.out.println("|    4. Tìm Kiếm                  |");
+        System.out.println("|    5. Hiện Danh Sách Thông Tin  |");
+        System.out.println("|    6. Thoát                     |");
         System.out.println("+---------------------------------+");
     }
 
@@ -285,12 +288,12 @@ public class QuanLy {
         System.out.println("+---------------------------------+");
         System.out.println("|            Them                 |");
         System.out.println("+---------------------------------+");
-        System.out.println("|   1. Them Gia Dung              |");
-        System.out.println("|   2. Them Nuoc                  |");
-        System.out.println("|   3. Them Tuoi Song             |");
-        System.out.println("|   4. Them Khac                  |");
-        System.out.println("|   5. Them Nhan Su               |");
-        System.out.println("|   6. Tro ve                     |");
+        System.out.println("|   1. Thêm Gia Dụng              |");
+        System.out.println("|   2. Thêm Nước                  |");
+        System.out.println("|   3. Thêm Tươi Sống             |");
+        System.out.println("|   4. Thêm Khác                  |");
+        System.out.println("|   5. Thêm Nhân Sự               |");
+        System.out.println("|   6. Trở về                     |");
         System.out.println("+---------------------------------+");
     }
     private static void xoa() {
@@ -298,14 +301,14 @@ public class QuanLy {
             System.out.println();
         }
         System.out.println("+---------------------------------+");
-        System.out.println("|            Xoa                  |");
+        System.out.println("|            Xoá                  |");
         System.out.println("+---------------------------------+");
-        System.out.println("|   1. Xoa Gia Dung               |");
-        System.out.println("|   2. Xoa Nuoc                   |");
-        System.out.println("|   3. Xoa Tuoi Song              |");
-        System.out.println("|   4. Xoa Khac                   |");
-        System.out.println("|   5. Xoa Nhan Su                |");
-        System.out.println("|   6. Tro ve                     |");
+        System.out.println("|   1. Xoá Gia Dụng               |");
+        System.out.println("|   2. Xoá Nước                   |");
+        System.out.println("|   3. Xoá Tươi Sống              |");
+        System.out.println("|   4. Xoá Khác                   |");
+        System.out.println("|   5. Xoá Nhân Sự                |");
+        System.out.println("|   6. Trở về                     |");
         System.out.println("+---------------------------------+");
     }
 
@@ -314,14 +317,14 @@ public class QuanLy {
             System.out.println();
         }
         System.out.println("+---------------------------------+");
-        System.out.println("|            Sua                  |");
+        System.out.println("|            Sửa                  |");
         System.out.println("+---------------------------------+");
-        System.out.println("|   1. Sua Gia Dung               |");
-        System.out.println("|   2. Sua Thuc PHam              |");
-        System.out.println("|   3. Sua Tuoi Song              |");
-        System.out.println("|   4. Sua Dong Hop               |");
-        System.out.println("|   5. Sua Nhan Su                |");
-        System.out.println("|   6. Tro ve                     |");
+        System.out.println("|   1. Sửa Gia Dụng               |");
+        System.out.println("|   2. Sửa Nước                   |");
+        System.out.println("|   3. Sửa Tươi Sống              |");
+        System.out.println("|   4. Sửa Khác                   |");
+        System.out.println("|   5. Sửa Nhân Sự                |");
+        System.out.println("|   6. Trở về                     |");
         System.out.println("+---------------------------------+");
     }
 
@@ -330,12 +333,12 @@ public class QuanLy {
             System.out.println();
         }
         System.out.println("+---------------------------------+");
-        System.out.println("|            Nhan Su              |");
+        System.out.println("|            Nhân sự              |");
         System.out.println("+---------------------------------+");
-        System.out.println("|   1. Bao Ve                     |");
-        System.out.println("|   2. Lao Cong                   |");
-        System.out.println("|   3. Nhan Vien                  |");
-        System.out.println("|   4. Tro ve                     |");
+        System.out.println("|   1. Bảo Vệ                     |");
+        System.out.println("|   2. Lao Công                   |");
+        System.out.println("|   3. Nhân Viên                  |");
+        System.out.println("|   4. Trở về                     |");
         System.out.println("+---------------------------------+");
     }
 
@@ -344,11 +347,11 @@ public class QuanLy {
             System.out.println();
         }
         System.out.println("+---------------------------------+");
-        System.out.println("|         Xuat thong tin          |");
+        System.out.println("|         Xuất Thông Tin          |");
         System.out.println("+---------------------------------+");
-        System.out.println("|   1. Xuat ra man hinh           |");
-        System.out.println("|   2. Xuat ra file               |");
-        System.out.println("|   3. Tro ve                     |");
+        System.out.println("|   1. Xuất ra màn hình           |");
+        System.out.println("|   2. Xuất ra file               |");
+        System.out.println("|   3. Trở về                     |");
         System.out.println("+---------------------------------+");
     }
 
@@ -357,16 +360,16 @@ public class QuanLy {
             System.out.println();
         }
         System.out.println("+---------------------------------+");
-        System.out.println("|         Danh Sach               |");
+        System.out.println("|         Danh Sách               |");
         System.out.println("+---------------------------------+");
-        System.out.println("|   1. Hang Hoa                   |");
-        System.out.println("|   2. Nhan Vien                  |");
-        System.out.println("|   3. Tro ve                     |");
+        System.out.println("|   1. Hàng Hoá                   |");
+        System.out.println("|   2. Nhân Viên                  |");
+        System.out.println("|   3. Trở về                     |");
         System.out.println("+---------------------------------+");
     }
 
     private int luaChon() {
-        System.out.print("Lua chon: ");
+        System.out.print("Nhập lựa chọn: ");
         Scanner scanner = new Scanner(System.in);
         char check = scanner.next().charAt(0);
         return check - '0';
