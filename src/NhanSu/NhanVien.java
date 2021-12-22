@@ -70,6 +70,7 @@ public class NhanVien extends NhanSu {
         System.out.println("Nhap vi tri muon sua: ");
         int a = sc.nextInt();
         System.out.print("Tên nhân viên: ");
+        sc.nextLine();
         String Ten = sc.nextLine();
         System.out.print("Mã nhân viên: ");
         String MaSo = sc.nextLine();

@@ -86,8 +86,8 @@ public class QuayNuoc extends KhoHang {
         System.out.println("Nhap stt muon sua thong tin: ");
         int a = sc.nextInt();
         System.out.print("Ten San Pham: ");
-        String Ten = sc.nextLine();
         sc.nextLine();
+        String Ten = sc.nextLine();
         System.out.print("Ma san pham: ");
         String MaSo = sc.nextLine();
         System.out.print("Ngay Nhap Hang: ");
