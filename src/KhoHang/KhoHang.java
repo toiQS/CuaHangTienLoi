@@ -264,6 +264,8 @@ public abstract class KhoHang extends ThongTin {
 
     public abstract void del();
 
+    public abstract void showThongTin();
+
     public abstract void TimKiem();
 
     public abstract void SuaThongTin();
