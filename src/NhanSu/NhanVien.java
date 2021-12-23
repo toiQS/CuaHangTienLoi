@@ -102,16 +102,11 @@ public class NhanVien extends NhanSu {
     public void TimKiem(){
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("Nhap ma san pham muon tim: ");
+        System.out.print("Nhập mã nhân viên muốn tìm: ");
         String a = sc.nextLine();
         TimKiemNhanVien(a).forEach(nhanVien -> {
             System.out.println(nhanVien.toString());
         });
-
-        System.out.print("Nhập mã số nhân viên cần tìm: ");
-        String MaSo = sc.nextLine();
-        TimKiemNhanVien(MaSo);
-
     }
 
     @Override
@@ -120,17 +115,21 @@ public class NhanVien extends NhanSu {
         InputStream inputStream = new FileInputStream(file);
         InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
         BufferedReader reader = new BufferedReader(inputStreamReader);
+        String line = "";
+        while ((line = reader.readLine()) != null) {
+            String[] row = line.split(",");
 
-        String Ten = reader.readLine();
-        String MaSo = reader.readLine();
-        String CCCD = reader.readLine();
-        String GioiTinh = reader.readLine();
-        String DiaChi = reader.readLine();
-        String SDT = reader.readLine();
-        float Luong = Float.parseFloat(reader.readLine());
-
-        NhanVien nhanVien = new NhanVien(Ten, MaSo, CCCD, GioiTinh, DiaChi, SDT, Luong);
-        nhanvienList.add(nhanVien);
+            String Ten = row[0];
+            String MaSo = row[1];
+            String CCCD = row[2];
+            String GioiTinh = row[3];
+            String DiaChi = row[4];
+            String SDT = row[5];
+            float Luong = Float.parseFloat(row[6]);
+            NhanVien nhanVien = new NhanVien(Ten, MaSo, CCCD, GioiTinh, DiaChi, SDT, Luong);
+            nhanvienList.add(nhanVien);
+        }
+        reader.close();
     }
 
     @Override

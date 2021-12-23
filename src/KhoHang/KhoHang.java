@@ -224,6 +224,7 @@ public abstract class KhoHang extends ThongTin {
             outputStreamWriter.write(a + " ");
             outputStreamWriter.write(String.valueOf(khac));
             outputStreamWriter.write("\n");
+            a++;
         }
         outputStreamWriter.flush();
     }

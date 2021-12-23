@@ -79,16 +79,11 @@ public class QuayGiaDung extends KhoHang {
     public void TimKiem(){
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("Nhap ma san pham muon tim: ");
+        System.out.print("Nhập mã sản phẩm muốn tìm: ");
         String a = sc.nextLine();
         TimKiemGiaDung(a).forEach(giaDung -> {
             System.out.println(giaDung.toString());
         });
-
-        System.out.print("Nhập mã số sản phẩm muốn tìm: ");
-        String MaSo = sc.nextLine();
-        TimKiemGiaDung(MaSo);
-
     }
 
 
@@ -140,16 +135,20 @@ public class QuayGiaDung extends KhoHang {
         InputStream inputStream = new FileInputStream(file);
         InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
         BufferedReader reader = new BufferedReader(inputStreamReader);
+        String line = "";
+        while((line = reader.readLine())!= null) {
+            String[] row = line.split(",");
+            String ten = row[0];
+            String maSo = row[1];
+            String ngayNhapHang = row[2];
+            String xuatSu = row[3];
+            int soLuong = Integer.parseInt(row[4]);
+            float giaCa = Float.parseFloat(row[5]);
 
-        String ten = reader.readLine();
-        String maSo = reader.readLine();
-        String ngayNhapHang = reader.readLine();
-        String xuatSu = reader.readLine();
-        int soLuong = Integer.parseInt(reader.readLine());
-        float giaCa = Float.parseFloat(reader.readLine());
-
-        QuayGiaDung giaDung = new QuayGiaDung(ten, maSo, ngayNhapHang, xuatSu, soLuong, giaCa);
-        giadungList.add(giaDung);
+            QuayGiaDung giaDung = new QuayGiaDung(ten, maSo, ngayNhapHang, xuatSu, soLuong, giaCa);
+            giadungList.add(giaDung);
+        }
+        reader.close();
     }
 
     @Override

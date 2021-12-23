@@ -114,10 +114,6 @@ public class QuayTuoiSong extends KhoHang {
         TimKiemTuoiSong(a).forEach(tuoiSong -> {
             System.out.println(tuoiSong.toString());
         });
-
-        System.out.print("Nhập mã số sản phẩm muốn tìm: ");
-        String MaSo = sc.nextLine();
-        TimKiemTuoiSong(MaSo);
     }
     public List<QuayTuoiSong> SuaThongTinQuayTuoiSong(int stt, QuayTuoiSong tuoisong){
         tuoisongList.set(stt,tuoisong);
@@ -166,16 +162,20 @@ public class QuayTuoiSong extends KhoHang {
         InputStream inputStream = new FileInputStream(file);
         InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
         BufferedReader reader = new BufferedReader(inputStreamReader);
+        String line = "";
+        while((line = reader.readLine())!= null) {
+            String[] row = line.split(",");
+            String ten = row[0];
+            String maSo = row[1];
+            String ngayNhapHang = row[2];
+            String xuatSu = row[3];
+            int soLuong = Integer.parseInt(row[4]);
+            float giaCa = Float.parseFloat(row[5]);
 
-        String ten = reader.readLine();
-        String maSo = reader.readLine();
-        String ngayNhapHang = reader.readLine();
-        String xuatSu = reader.readLine();
-        int soLuong = Integer.parseInt(reader.readLine());
-        float giaCa = Float.parseFloat(reader.readLine());
-
-        QuayTuoiSong tuoiSong = new QuayTuoiSong(ten, maSo, ngayNhapHang, xuatSu, soLuong, giaCa);
-        tuoisongList.add(tuoiSong);
+            QuayTuoiSong tuoiSong = new QuayTuoiSong(ten, maSo, ngayNhapHang, xuatSu, soLuong, giaCa);
+            tuoisongList.add(tuoiSong);
+        }
+        reader.close();
     }
 
     @Override

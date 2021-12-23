@@ -197,28 +197,23 @@ public class QuanLy {
                     } while (endSua == 0);
                 }
                 case 4 -> {
-                    System.out.println("Tim Kiem");
                     int endTimKiem = 0;
                     do {
                         timKiem();
                         switch (luaChon()) {
                             case 1 -> {
-                                KhoHang.xuatGiaDung();
                                 KhoHang khoHang = new QuayGiaDung();
                                 khoHang.TimKiem();
                             }
                             case 2 -> {
-                                KhoHang.xuatNuoc();
                                 KhoHang khoHang = new QuayNuoc();
                                 khoHang.TimKiem();
                             }
                             case 3 -> {
-                                KhoHang.xuatTuoiSong();
                                 KhoHang khoHang = new QuayTuoiSong();
                                 khoHang.TimKiem();
                             }
                             case 4 -> {
-                                KhoHang.xuatKhac();
                                 KhoHang khoHang = new QuayKhac();
                                 khoHang.TimKiem();
                             }
@@ -232,12 +227,12 @@ public class QuanLy {
                                             baoVe.TimKiem();
                                         }
                                         case 2 -> {
-                                            NhanSu baoVe = new LaoCong();
-                                            baoVe.TimKiem();
+                                            NhanSu laoCong = new LaoCong();
+                                            laoCong.TimKiem();
                                         }
                                         case 3 -> {
-                                            NhanSu baoVe = new NhanVien();
-                                            baoVe.TimKiem();
+                                            NhanSu nhanVien = new NhanVien();
+                                            nhanVien.TimKiem();
                                         }
                                         case 4 -> {
                                             endNhanSu = 1;
@@ -432,11 +427,11 @@ public class QuanLy {
         System.out.println("+---------------------------------+");
         System.out.println("|            Tìm Kiếm             |");
         System.out.println("+---------------------------------+");
-        System.out.println("|   1. Sửa Gia Dụng               |");
-        System.out.println("|   2. Sửa Nước                   |");
-        System.out.println("|   3. Sửa Tươi Sống              |");
-        System.out.println("|   4. Sửa Khác                   |");
-        System.out.println("|   5. Sửa Nhân Sự                |");
+        System.out.println("|   1. Tìm kiếm Gia Dụng          |");
+        System.out.println("|   2. Tìm kiếm Nước              |");
+        System.out.println("|   3. Tìm kiếm Tươi Sống         |");
+        System.out.println("|   4. Tìm kiếm Khác              |");
+        System.out.println("|   5. Tìm kiếm Nhân Sự           |");
         System.out.println("|   6. Trở về                     |");
         System.out.println("+---------------------------------+");
     }

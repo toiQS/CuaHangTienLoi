@@ -67,16 +67,11 @@ public class LaoCong extends NhanSu {
     public void TimKiem(){
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("Nhap ma san pham muon tim: ");
+        System.out.print("Nhập mã lao công muốn tìm: ");
         String a = sc.nextLine();
         TimKiemLaoCong(a).forEach(laoCong -> {
             System.out.println(laoCong.toString());
         });
-
-        System.out.print("Nhập mã số lao công cần tìm: ");
-        String MaSo = sc.nextLine();
-        TimKiemLaoCong(MaSo);
-
     }
 
     public List<LaoCong> SuaThongTinLaoCong(int stt, LaoCong laoCong){
@@ -120,17 +115,21 @@ public class LaoCong extends NhanSu {
         InputStream inputStream = new FileInputStream(file);
         InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
         BufferedReader reader = new BufferedReader(inputStreamReader);
+        String line = "";
+        while ((line = reader.readLine()) != null) {
+            String[] row = line.split(",");
 
-        String Ten = reader.readLine();
-        String MaSo = reader.readLine();
-        String CCCD = reader.readLine();
-        String GioiTinh = reader.readLine();
-        String DiaChi = reader.readLine();
-        String SDT = reader.readLine();
-        float Luong = Float.parseFloat(reader.readLine());
-
-        LaoCong laoCong = new LaoCong(Ten, MaSo, CCCD, GioiTinh, DiaChi, SDT, Luong);
-        laocongList.add(laoCong);
+            String Ten = row[0];
+            String MaSo = row[1];
+            String CCCD = row[2];
+            String GioiTinh = row[3];
+            String DiaChi = row[4];
+            String SDT = row[5];
+            float Luong = Float.parseFloat(row[6]);
+            LaoCong laoCong = new LaoCong(Ten, MaSo, CCCD, GioiTinh, DiaChi, SDT, Luong);
+            laocongList.add(laoCong);
+        }
+        reader.close();
     }
 
     @Override

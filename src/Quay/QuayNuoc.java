@@ -82,11 +82,6 @@ public class QuayNuoc extends KhoHang {
         TimKiemQuayNuoc(a).forEach(quayNuoc -> {
             System.out.println(quayNuoc.toString());
         });
-
-
-
-
-
     }
 
     public List<QuayNuoc> SuaThongTinNuoc(int stt, QuayNuoc nuoc){
@@ -136,16 +131,20 @@ public class QuayNuoc extends KhoHang {
         InputStream inputStream = new FileInputStream(file);
         InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
         BufferedReader reader = new BufferedReader(inputStreamReader);
+        String line = "";
+        while((line = reader.readLine())!= null) {
+            String[] row = line.split(",");
+            String ten = row[0];
+            String maSo = row[1];
+            String ngayNhapHang = row[2];
+            String xuatSu = row[3];
+            int soLuong = Integer.parseInt(row[4]);
+            float giaCa = Float.parseFloat(row[5]);
 
-        String ten = reader.readLine();
-        String maSo = reader.readLine();
-        String ngayNhapHang = reader.readLine();
-        String xuatSu = reader.readLine();
-        int soLuong = Integer.parseInt(reader.readLine());
-        float giaCa = Float.parseFloat(reader.readLine());
-
-        QuayNuoc nuoc = new QuayNuoc(ten, maSo, ngayNhapHang, xuatSu, soLuong, giaCa);
-        nuocList.add(nuoc);
+            QuayNuoc nuoc = new QuayNuoc(ten, maSo, ngayNhapHang, xuatSu, soLuong, giaCa);
+            nuocList.add(nuoc);
+        }
+        reader.close();
     }
 
     @Override

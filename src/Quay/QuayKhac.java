@@ -131,16 +131,20 @@ public class QuayKhac extends KhoHang {
         InputStream inputStream = new FileInputStream(file);
         InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
         BufferedReader reader = new BufferedReader(inputStreamReader);
+        String line = "";
+        while((line = reader.readLine())!= null) {
+            String[] row = line.split(",");
+            String ten = row[0];
+            String maSo = row[1];
+            String ngayNhapHang = row[2];
+            String xuatSu = row[3];
+            int soLuong = Integer.parseInt(row[4]);
+            float giaCa = Float.parseFloat(row[5]);
 
-        String ten = reader.readLine();
-        String maSo = reader.readLine();
-        String ngayNhapHang = reader.readLine();
-        String xuatSu = reader.readLine();
-        int soLuong = Integer.parseInt(reader.readLine());
-        float giaCa = Float.parseFloat(reader.readLine());
-
-        QuayKhac khac = new QuayKhac(ten, maSo, ngayNhapHang, xuatSu, soLuong, giaCa);
-        quaykhacList.add(khac);
+            QuayKhac khac = new QuayKhac(ten, maSo, ngayNhapHang, xuatSu, soLuong, giaCa);
+            quaykhacList.add(khac);
+        }
+        reader.close();
     }
 
     @Override

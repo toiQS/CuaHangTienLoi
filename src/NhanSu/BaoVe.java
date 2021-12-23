@@ -74,16 +74,11 @@ public class BaoVe extends NhanSu {
     public void TimKiem(){
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("Nhap ma san pham muon tim: ");
+        System.out.print("Nhập mã bảo vệ muốn tìm: ");
         String a = sc.nextLine();
         TimKiemBaoVe(a).forEach(baoVe -> {
             System.out.println(baoVe.toString());
         });
-
-        System.out.println("Nhập mã số nhân viên cần tìm: ");
-        String MaSo = sc.nextLine();
-        TimKiemBaoVe(MaSo);
-
     }
 
     public List<BaoVe> SuaThongTinBaoVe(int stt, BaoVe baoVe){
@@ -127,17 +122,21 @@ public class BaoVe extends NhanSu {
         InputStream inputStream = new FileInputStream(file);
         InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
         BufferedReader reader = new BufferedReader(inputStreamReader);
+        String line = "";
+        while ((line = reader.readLine()) != null) {
+            String[] row = line.split(",");
 
-        String Ten = reader.readLine();
-        String MaSo = reader.readLine();
-        String CCCD = reader.readLine();
-        String GioiTinh = reader.readLine();
-        String DiaChi = reader.readLine();
-        String SDT = reader.readLine();
-        float Luong = Float.parseFloat(reader.readLine());
-
-        BaoVe baoVe = new BaoVe(Ten, MaSo, CCCD, GioiTinh, DiaChi, SDT, Luong);
-        baoveList.add(baoVe);
+            String Ten = row[0];
+            String MaSo = row[1];
+            String CCCD = row[2];
+            String GioiTinh = row[3];
+            String DiaChi = row[4];
+            String SDT = row[5];
+            float Luong = Float.parseFloat(row[6]);
+            BaoVe baoVe = new BaoVe(Ten, MaSo, CCCD, GioiTinh, DiaChi, SDT, Luong);
+            baoveList.add(baoVe);
+        }
+        reader.close();
     }
 
     @Override
