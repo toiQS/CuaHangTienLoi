@@ -102,8 +102,6 @@ public class QuayTuoiSong extends KhoHang {
         }
         System.out.println("+");
     }
-
-
     public List<QuayTuoiSong> TimKiemTuoiSong(String MaSo){
         return this.tuoisongList.stream().filter(o ->o.getMaSo().contains(MaSo)).collect(Collectors.toList());
     }
@@ -120,9 +118,7 @@ public class QuayTuoiSong extends KhoHang {
         System.out.print("Nhập mã số sản phẩm muốn tìm: ");
         String MaSo = sc.nextLine();
         TimKiemTuoiSong(MaSo);
-
     }
-
     public List<QuayTuoiSong> SuaThongTinQuayTuoiSong(int stt, QuayTuoiSong tuoisong){
         tuoisongList.set(stt,tuoisong);
         return tuoisongList;
@@ -132,17 +128,10 @@ public class QuayTuoiSong extends KhoHang {
         Scanner sc = new Scanner(System.in);
         System.out.print("Nhập STT muốn sửa thông tin: ");
         int a = sc.nextInt();
-
-        System.out.print("Ten San Pham: ");
-        sc.nextLine();
-        String Ten = sc.nextLine();
-        System.out.print("Ma san pham: ");
-
         System.out.print("Tên sản phẩm: ");
         String Ten = sc.nextLine();
         sc.nextLine();
         System.out.print("Mã sản phẩm: ");
-
         String MaSo = sc.nextLine();
         System.out.print("Ngày nhập hàng: ");
         String NgayNhapHang = sc.nextLine();

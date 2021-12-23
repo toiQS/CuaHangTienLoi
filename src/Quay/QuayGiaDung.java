@@ -102,17 +102,10 @@ public class QuayGiaDung extends KhoHang {
         Scanner sc = new Scanner(System.in);
         System.out.print("Nhập STT muốn sửa thông tin: ");
         int a = sc.nextInt();
-
-        System.out.print("Ten San Pham: ");
-        sc.nextLine();
-        String Ten = sc.nextLine();
-        System.out.print("Ma san pham: ");
-
         System.out.print("Tên sản phẩm: ");
         String Ten = sc.nextLine();
         sc.nextLine();
         System.out.print("Mã sản phẩm: ");
-
         String MaSo = sc.nextLine();
         System.out.print("Ngày nhập hàng: ");
         String NgayNhapHang = sc.nextLine();

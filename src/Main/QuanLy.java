@@ -198,6 +198,64 @@ public class QuanLy {
                 }
                 case 4 -> {
                     System.out.println("Tim Kiem");
+                    int endTimKiem = 0;
+                    do {
+                        timKiem();
+                        switch (luaChon()) {
+                            case 1 -> {
+                                KhoHang.xuatGiaDung();
+                                KhoHang khoHang = new QuayGiaDung();
+                                khoHang.TimKiem();
+                            }
+                            case 2 -> {
+                                KhoHang.xuatNuoc();
+                                KhoHang khoHang = new QuayNuoc();
+                                khoHang.TimKiem();
+                            }
+                            case 3 -> {
+                                KhoHang.xuatTuoiSong();
+                                KhoHang khoHang = new QuayTuoiSong();
+                                khoHang.TimKiem();
+                            }
+                            case 4 -> {
+                                KhoHang.xuatKhac();
+                                KhoHang khoHang = new QuayKhac();
+                                khoHang.TimKiem();
+                            }
+                            case 5 -> {
+                                int endNhanSu = 0;
+                                do {
+                                    nhanSu();
+                                    switch (luaChon()) {
+                                        case 1 -> {
+                                            NhanSu baoVe = new BaoVe();
+                                            baoVe.TimKiem();
+                                        }
+                                        case 2 -> {
+                                            NhanSu baoVe = new LaoCong();
+                                            baoVe.TimKiem();
+                                        }
+                                        case 3 -> {
+                                            NhanSu baoVe = new NhanVien();
+                                            baoVe.TimKiem();
+                                        }
+                                        case 4 -> {
+                                            endNhanSu = 1;
+                                        }
+                                        default -> {
+                                            System.out.println("Không có lựa chọn này!");
+                                        }
+                                    }
+                                } while(endNhanSu == 0);
+                            }
+                            case 6 -> {
+                                endTimKiem = 1;
+                            }
+                            default -> {
+                                System.out.println("Không có lựa chọn này!");
+                            }
+                        }
+                    } while (endTimKiem == 0);
                 }
                 case 5 -> {
                     int endThongTin = 0;
@@ -365,6 +423,21 @@ public class QuanLy {
         System.out.println("|   1. Hàng Hoá                   |");
         System.out.println("|   2. Nhân Viên                  |");
         System.out.println("|   3. Trở về                     |");
+        System.out.println("+---------------------------------+");
+    }
+    private static void timKiem(){
+        for(int i = 0; i < 10; i++) {
+            System.out.println();
+        }
+        System.out.println("+---------------------------------+");
+        System.out.println("|            Tìm Kiếm             |");
+        System.out.println("+---------------------------------+");
+        System.out.println("|   1. Sửa Gia Dụng               |");
+        System.out.println("|   2. Sửa Nước                   |");
+        System.out.println("|   3. Sửa Tươi Sống              |");
+        System.out.println("|   4. Sửa Khác                   |");
+        System.out.println("|   5. Sửa Nhân Sự                |");
+        System.out.println("|   6. Trở về                     |");
         System.out.println("+---------------------------------+");
     }
 
