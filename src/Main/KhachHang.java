@@ -23,7 +23,7 @@ public class KhachHang {
         System.out.println("|  2. Chọn mua quầy gia dụng        |");
         System.out.println("|  3. Chọn mua quầy nước uống       |");
         System.out.println("|  4. Chọn mua quầy khác            |");
-        System.out.println("|  5. Thoát                         |");
+        System.out.println("|  5. Thanh toán                    |");
         System.out.println("+-----------------------------------+");
     }
 
@@ -117,7 +117,7 @@ public class KhachHang {
         System.out.println("+---------------------------------+");
         System.out.println("|    1. Mua                       |");
         System.out.println("|    2. Giỏ hàng                  |");
-        System.out.println("|    3. Thoát                     |");
+        System.out.println("|    3. Rời cửa hàng              |");
         System.out.println("+---------------------------------+");
     }
 
