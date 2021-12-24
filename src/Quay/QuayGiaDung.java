@@ -38,7 +38,7 @@ public class QuayGiaDung extends KhoHang {
                 System.out.println("Không hợp lệ, vui lòng nhập lại!");
                 sc.nextLine();
             }
-        }while(soLuong == 0);
+        } while (soLuong == 0);
 
         do {
             System.out.print("Giá dự định: ");
@@ -48,7 +48,7 @@ public class QuayGiaDung extends KhoHang {
                 System.out.println("Không hợp lệ, vui lòng nhập lại!");
                 sc.nextLine();
             }
-        }while(giaCa == 0);
+        } while (giaCa == 0);
         QuayGiaDung giadung = new QuayGiaDung(Ten, MaSo, NgayNhapHang, XuatXu, soLuong, giaCa);
         giadungList.add(giadung);
     }
@@ -69,14 +69,15 @@ public class QuayGiaDung extends KhoHang {
 
     @Override
     public void showThongTin() {
-        this.giadungList.forEach(o -> System.out.println(o.toString()));
+        giadungList.forEach(o -> System.out.println(o.toString()));
     }
 
-    public List<QuayGiaDung> TimKiemGiaDung(String MaSo){
-        return this.giadungList.stream().filter(o -> o.getMaSo().contains(MaSo)).collect(Collectors.toList());
+    public List<QuayGiaDung> TimKiemGiaDung(String MaSo) {
+        return giadungList.stream().filter(o -> o.getMaSo().contains(MaSo)).collect(Collectors.toList());
     }
+
     @Override
-    public void TimKiem(){
+    public void TimKiem() {
         Scanner sc = new Scanner(System.in);
 
         System.out.print("Nhập mã sản phẩm muốn tìm: ");
@@ -87,13 +88,14 @@ public class QuayGiaDung extends KhoHang {
     }
 
 
-    public List<QuayGiaDung> SuaThongTinGiaDung(int stt, QuayGiaDung giadung){
-        giadungList.set(stt,giadung);
+    public List<QuayGiaDung> SuaThongTinGiaDung(int stt, QuayGiaDung giadung) {
+        giadungList.set(stt, giadung);
         return giadungList;
 
     }
+
     @Override
-    public void SuaThongTin(){
+    public void SuaThongTin() {
         Scanner sc = new Scanner(System.in);
         System.out.print("Nhập STT muốn sửa thông tin: ");
         int a = sc.nextInt();
@@ -114,7 +116,7 @@ public class QuayGiaDung extends KhoHang {
                 System.out.println("Không hợp lệ, vui lòng nhập lại!");
                 sc.nextLine();
             }
-        }while(soLuong == 0);
+        } while (soLuong == 0);
 
         do {
             System.out.print("Giá dự định: ");
@@ -124,9 +126,9 @@ public class QuayGiaDung extends KhoHang {
                 System.out.println("Không hợp lệ, vui lòng nhập lại!");
                 sc.nextLine();
             }
-        }while(giaCa == 0);
+        } while (giaCa == 0);
         QuayGiaDung giadung = new QuayGiaDung(Ten, MaSo, NgayNhapHang, XuatXu, soLuong, giaCa);
-        SuaThongTinGiaDung(a-1,giadung);
+        SuaThongTinGiaDung(a - 1, giadung);
     }
 
     @Override
@@ -136,7 +138,7 @@ public class QuayGiaDung extends KhoHang {
         InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
         BufferedReader reader = new BufferedReader(inputStreamReader);
         String line = "";
-        while((line = reader.readLine())!= null) {
+        while ((line = reader.readLine()) != null) {
             String[] row = line.split(",");
             String ten = row[0];
             String maSo = row[1];
@@ -153,7 +155,7 @@ public class QuayGiaDung extends KhoHang {
 
     @Override
     public String toString() {
-        return  ".Tên sản phẩm: " + Ten + " - "
+        return ".Tên sản phẩm: " + Ten + " - "
                 + "Mã sản phẩm: " + MaSo + " - "
                 + "Xuất xứ: " + XuatXu + " - "
                 + "Số lượng: " + SoLuong + " - "

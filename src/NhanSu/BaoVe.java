@@ -1,7 +1,5 @@
 package NhanSu;
 
-import Quay.QuayKhac;
-
 import java.io.*;
 import java.util.List;
 import java.util.Scanner;
@@ -43,7 +41,7 @@ public class BaoVe extends NhanSu {
                 System.out.println("Không hợp lệ, vui lòng nhập lại!");
                 sc.nextLine();
             }
-        } while(luong == 0);
+        } while (luong == 0);
         BaoVe baove = new BaoVe(Ten, MaSo, CCCD, GioiTinh, DiaChi, SDT, luong);
         baoveList.add(baove);
     }
@@ -67,11 +65,12 @@ public class BaoVe extends NhanSu {
 //
 //    }
 
-    public List<BaoVe> TimKiemBaoVe(String MaSo){
-        return this.baoveList.stream().filter(o ->o.getMaSo().contains(MaSo)).collect(Collectors.toList());
+    public List<BaoVe> TimKiemBaoVe(String MaSo) {
+        return baoveList.stream().filter(o -> o.getMaSo().contains(MaSo)).collect(Collectors.toList());
     }
+
     @Override
-    public void TimKiem(){
+    public void TimKiem() {
         Scanner sc = new Scanner(System.in);
 
         System.out.print("Nhập mã bảo vệ muốn tìm: ");
@@ -81,12 +80,13 @@ public class BaoVe extends NhanSu {
         });
     }
 
-    public List<BaoVe> SuaThongTinBaoVe(int stt, BaoVe baoVe){
-        baoveList.set(stt,baoVe);
+    public List<BaoVe> SuaThongTinBaoVe(int stt, BaoVe baoVe) {
+        baoveList.set(stt, baoVe);
         return baoveList;
     }
+
     @Override
-    public void SuaThongTin(){
+    public void SuaThongTin() {
         Scanner sc = new Scanner(System.in);
         System.out.print("Nhập vị trí muốn sửa: ");
         int a = sc.nextInt();
@@ -111,9 +111,9 @@ public class BaoVe extends NhanSu {
                 System.out.println("Không hợp lệ, vui lòng nhập lại!");
                 sc.nextLine();
             }
-        } while(luong == 0);
+        } while (luong == 0);
         BaoVe baoVe = new BaoVe(Ten, MaSo, CCCD, GioiTinh, DiaChi, SDT, luong);
-        SuaThongTinBaoVe(a-1,baoVe);
+        SuaThongTinBaoVe(a - 1, baoVe);
     }
 
     @Override

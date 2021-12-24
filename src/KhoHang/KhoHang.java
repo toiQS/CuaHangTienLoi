@@ -11,18 +11,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class KhoHang extends ThongTin {
+    private static final String formatHangHoaTieuDe = "%s %.3s %s %-15s %s %-13s %s %-15s %s %-10s %s %-10s %s %-15s %s\n";
+    private static final String formatHangHoaOutput = "%s %3d %s %-15s %s %-13s %s %-15s %s %-10s %s %-10d %s %-15.3f %s\n";
     public static List<QuayKhac> quaykhacList = new ArrayList<>();
     public static List<QuayGiaDung> giadungList = new ArrayList<>();
     public static List<QuayNuoc> nuocList = new ArrayList<>();
     public static List<QuayTuoiSong> tuoisongList = new ArrayList<>();
-
     public String NgayNhapHang;
     public String XuatXu;
     public int SoLuong;
     public float GiaCa; //giá muốn bán
-
-    private static final String formatHangHoaTieuDe = "%s %.3s %s %-15s %s %-13s %s %-15s %s %-10s %s %-10s %s %-15s %s\n";
-    private static final String formatHangHoaOutput = "%s %3d %s %-15s %s %-13s %s %-15s %s %-10s %s %-10d %s %-15.3f %s\n";
 
 
     public KhoHang(String Ten, String MaSo, String NgayNhapHang, String XuatXu, int SoLuong, float GiaCa) {
@@ -41,20 +39,20 @@ public abstract class KhoHang extends ThongTin {
     public static void xuatGiaDung() {
         System.out.println("***Quầy Gia Dụng***");
         System.out.print("+");
-        for (int i=0; i < 101; i++) {
+        for (int i = 0; i < 101; i++) {
             System.out.print("-");
         }
         System.out.println("+");
         System.out.printf(formatHangHoaTieuDe,
                 "|", "STT", "|", "Tên Sản Phẩm", "|", "Mã Sản Phẩm", "|", "Ngày Nhập Hàng", "|", "Xuất Xứ", "|", "Số Lượng", "|", "Giá Cả", "|");
         System.out.print("+");
-        for (int i=0; i < 101; i++) {
+        for (int i = 0; i < 101; i++) {
             System.out.print("-");
         }
         System.out.println("+");
 
         int a = 1;
-        for (QuayGiaDung giaDung: giadungList) {
+        for (QuayGiaDung giaDung : giadungList) {
             String ten = giaDung.getTen();
             String maSo = giaDung.getMaSo();
             String ngayNhapHang = giaDung.getNgayNhapHang();
@@ -67,7 +65,7 @@ public abstract class KhoHang extends ThongTin {
             a++;
         }
         System.out.print("+");
-        for (int i=0; i < 101; i++) {
+        for (int i = 0; i < 101; i++) {
             System.out.print("-");
         }
         System.out.println("+");
@@ -77,20 +75,20 @@ public abstract class KhoHang extends ThongTin {
     public static void xuatNuoc() {
         System.out.println("***Quầy Nước***");
         System.out.print("+");
-        for (int i=0; i < 101; i++) {
+        for (int i = 0; i < 101; i++) {
             System.out.print("-");
         }
         System.out.println("+");
         System.out.printf(formatHangHoaTieuDe,
                 "|", "STT", "|", "Tên Sản Phẩm", "|", "Mã Sản Phẩm", "|", "Ngày Nhập Hàng", "|", "Xuất Xứ", "|", "Số Lượng", "|", "Giá Cả", "|");
         System.out.print("+");
-        for (int i=0; i < 101; i++) {
+        for (int i = 0; i < 101; i++) {
             System.out.print("-");
         }
         System.out.println("+");
 
         int a = 1;
-        for (QuayNuoc nuoc: nuocList) {
+        for (QuayNuoc nuoc : nuocList) {
             String ten = nuoc.getTen();
             String maSo = nuoc.getMaSo();
             String ngayNhapHang = nuoc.getNgayNhapHang();
@@ -103,7 +101,7 @@ public abstract class KhoHang extends ThongTin {
             a++;
         }
         System.out.print("+");
-        for (int i=0; i < 101; i++) {
+        for (int i = 0; i < 101; i++) {
             System.out.print("-");
         }
         System.out.println("+");
@@ -113,20 +111,20 @@ public abstract class KhoHang extends ThongTin {
     public static void xuatTuoiSong() {
         System.out.println("***Quầy Tươi Sống***");
         System.out.print("+");
-        for (int i=0; i < 101; i++) {
+        for (int i = 0; i < 101; i++) {
             System.out.print("-");
         }
         System.out.println("+");
         System.out.printf(formatHangHoaTieuDe,
                 "|", "STT", "|", "Tên Sản Phẩm", "|", "Mã Sản Phẩm", "|", "Ngày Nhập Hàng", "|", "Xuất Xứ", "|", "Số Lượng", "|", "Giá Cả", "|");
         System.out.print("+");
-        for (int i=0; i < 101; i++) {
+        for (int i = 0; i < 101; i++) {
             System.out.print("-");
         }
         System.out.println("+");
 
         int a = 1;
-        for (QuayTuoiSong tuoiSong: tuoisongList) {
+        for (QuayTuoiSong tuoiSong : tuoisongList) {
             String ten = tuoiSong.getTen();
             String maSo = tuoiSong.getMaSo();
             String ngayNhapHang = tuoiSong.getNgayNhapHang();
@@ -139,7 +137,7 @@ public abstract class KhoHang extends ThongTin {
             a++;
         }
         System.out.print("+");
-        for (int i=0; i < 101; i++) {
+        for (int i = 0; i < 101; i++) {
             System.out.print("-");
         }
         System.out.println("+");
@@ -149,20 +147,20 @@ public abstract class KhoHang extends ThongTin {
     public static void xuatKhac() {
         System.out.println("***Quầy Khác***");
         System.out.print("+");
-        for (int i=0; i < 101; i++) {
+        for (int i = 0; i < 101; i++) {
             System.out.print("-");
         }
         System.out.println("+");
         System.out.printf(formatHangHoaTieuDe,
                 "|", "STT", "|", "Tên Sản Phẩm", "|", "Mã Sản Phẩm", "|", "Ngày Nhập Hàng", "|", "Xuất Xứ", "|", "Số Lượng", "|", "Giá Cả", "|");
         System.out.print("+");
-        for (int i=0; i < 101; i++) {
+        for (int i = 0; i < 101; i++) {
             System.out.print("-");
         }
         System.out.println("+");
 
         int a = 1;
-        for (QuayKhac khac: quaykhacList) {
+        for (QuayKhac khac : quaykhacList) {
             String ten = khac.getTen();
             String maSo = khac.getMaSo();
             String ngayNhapHang = khac.getNgayNhapHang();
@@ -175,7 +173,7 @@ public abstract class KhoHang extends ThongTin {
             a++;
         }
         System.out.print("+");
-        for (int i=0; i < 101; i++) {
+        for (int i = 0; i < 101; i++) {
             System.out.print("-");
         }
         System.out.println("+");
@@ -188,7 +186,7 @@ public abstract class KhoHang extends ThongTin {
         OutputStreamWriter outputStreamWriter = new OutputStreamWriter(outputStream);
 
         //in quay tuoi song
-        int a=1;
+        int a = 1;
         outputStreamWriter.write("***Quầy Tươi Sống***\n");
         for (QuayTuoiSong tuoiSong : tuoisongList) {
             outputStreamWriter.write(a + " ");
@@ -197,7 +195,7 @@ public abstract class KhoHang extends ThongTin {
             a++;
         }
 
-        a=1;
+        a = 1;
         outputStreamWriter.flush();
         outputStreamWriter.write("\n\n***Quầy Gia Dụng***\n");
         for (QuayGiaDung giaDung : giadungList) {
@@ -207,7 +205,7 @@ public abstract class KhoHang extends ThongTin {
             a++;
         }
 
-        a=1;
+        a = 1;
         outputStreamWriter.flush();
         outputStreamWriter.write("\n\n***Quầy Nước***\n");
         for (QuayNuoc nuoc : nuocList) {
@@ -217,7 +215,7 @@ public abstract class KhoHang extends ThongTin {
             a++;
         }
 
-        a=1;
+        a = 1;
         outputStreamWriter.flush();
         outputStreamWriter.write("\n\n***Quầy Khác***\n");
         for (QuayKhac khac : quaykhacList) {

@@ -41,7 +41,7 @@ public class NhanVien extends NhanSu {
                 System.out.println("Không hợp lệ, vui lòng nhập lại!");
                 sc.nextLine();
             }
-        } while(luong == 0);
+        } while (luong == 0);
         NhanVien nhanvien = new NhanVien(Ten, MaSo, CCCD, GioiTinh, DiaChi, SDT, luong);
         nhanvienList.add(nhanvien);
     }
@@ -60,12 +60,13 @@ public class NhanVien extends NhanSu {
         System.out.println("Xác Nhận Sa Thải Nhân Viên.");
     }
 
-    public List<NhanVien> SuaThongTinNhanVien(int stt, NhanVien nhanVien){
-        nhanvienList.set(stt,nhanVien);
+    public List<NhanVien> SuaThongTinNhanVien(int stt, NhanVien nhanVien) {
+        nhanvienList.set(stt, nhanVien);
         return nhanvienList;
     }
+
     @Override
-    public void SuaThongTin(){
+    public void SuaThongTin() {
         Scanner sc = new Scanner(System.in);
         System.out.print("Nhập vị trí muốn sửa: ");
         int a = sc.nextInt();
@@ -90,16 +91,17 @@ public class NhanVien extends NhanSu {
                 System.out.println("Không hợp lệ, vui lòng nhập lại!");
                 sc.nextLine();
             }
-        } while(luong == 0);
+        } while (luong == 0);
         NhanVien nhanVien = new NhanVien(Ten, MaSo, CCCD, GioiTinh, DiaChi, SDT, luong);
-        SuaThongTinNhanVien(a-1,nhanVien);
+        SuaThongTinNhanVien(a - 1, nhanVien);
     }
 
-    public List<NhanVien> TimKiemNhanVien(String MaSo){
-        return this.nhanvienList.stream().filter(o ->o.getMaSo().contains(MaSo)).collect(Collectors.toList());
+    public List<NhanVien> TimKiemNhanVien(String MaSo) {
+        return nhanvienList.stream().filter(o -> o.getMaSo().contains(MaSo)).collect(Collectors.toList());
     }
+
     @Override
-    public void TimKiem(){
+    public void TimKiem() {
         Scanner sc = new Scanner(System.in);
 
         System.out.print("Nhập mã nhân viên muốn tìm: ");

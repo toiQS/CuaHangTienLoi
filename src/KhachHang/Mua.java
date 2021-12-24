@@ -1,14 +1,12 @@
 package KhachHang;
 
-
-
 public interface Mua {
-    public void muaTuoiSong();
+    void muaTuoiSong();
 
-    public void muaGiaDung();
+    void muaGiaDung();
 
-    public void muaNuocUong();
+    void muaNuocUong();
 
-    public void muaKhac();
+    void muaKhac();
 
 }

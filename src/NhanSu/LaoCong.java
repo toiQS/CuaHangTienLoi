@@ -41,7 +41,7 @@ public class LaoCong extends NhanSu {
                 System.out.println("Không hợp lệ vui lòng nhập lại!");
                 sc.nextLine();
             }
-        }while(luong == 0);
+        } while (luong == 0);
         LaoCong laocong = new LaoCong(Ten, MaSo, CCCD, GioiTinh, DiaChi, SDT, luong);
         laocongList.add(laocong);
     }
@@ -60,11 +60,12 @@ public class LaoCong extends NhanSu {
         System.out.println("Xác Nhận Sa Thải Nhân Viên.");
     }
 
-    public List<LaoCong> TimKiemLaoCong(String MaSo){
-        return this.laocongList.stream().filter(o ->o.getMaSo().contains(MaSo)).collect(Collectors.toList());
+    public List<LaoCong> TimKiemLaoCong(String MaSo) {
+        return laocongList.stream().filter(o -> o.getMaSo().contains(MaSo)).collect(Collectors.toList());
     }
+
     @Override
-    public void TimKiem(){
+    public void TimKiem() {
         Scanner sc = new Scanner(System.in);
 
         System.out.print("Nhập mã lao công muốn tìm: ");
@@ -74,12 +75,13 @@ public class LaoCong extends NhanSu {
         });
     }
 
-    public List<LaoCong> SuaThongTinLaoCong(int stt, LaoCong laoCong){
-        laocongList.set(stt,laoCong);
+    public List<LaoCong> SuaThongTinLaoCong(int stt, LaoCong laoCong) {
+        laocongList.set(stt, laoCong);
         return laocongList;
     }
+
     @Override
-    public void SuaThongTin(){
+    public void SuaThongTin() {
         Scanner sc = new Scanner(System.in);
         System.out.print("Nhập vị trí muốn sửa: ");
         int a = sc.nextInt();
@@ -104,9 +106,9 @@ public class LaoCong extends NhanSu {
                 System.out.println("Không hợp lệ, vui lòng nhập lại!");
                 sc.nextLine();
             }
-        } while(luong == 0);
+        } while (luong == 0);
         LaoCong laoCong = new LaoCong(Ten, MaSo, CCCD, GioiTinh, DiaChi, SDT, luong);
-        SuaThongTinLaoCong(a-1,laoCong);
+        SuaThongTinLaoCong(a - 1, laoCong);
     }
 
     @Override
