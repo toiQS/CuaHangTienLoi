@@ -1,6 +1,5 @@
 package KhachHang;
 
-
 import KhoHang.KhoHang;
 import Quay.QuayGiaDung;
 import Quay.QuayKhac;
@@ -11,23 +10,20 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class XuLy implements Mua , GioHang {
-    static double  tongGia ;
-
-    public String name ;
-    public String id ;
-    public String NgayNhap;
-    public String XuatXu;
-    public int Sl ;
-    public float Gia;
-
-    static List<XuLy> ListGioHang= new ArrayList<XuLy>(); // lưu giỏ hàng
-    static List<XuLy> ListHoaDon = new ArrayList<XuLy>(); // lưu những hàng đã mua để in ra hóa đơn
+public class XuLy implements Mua, GioHang {
     static final String formatTieuDe = "%s %.3s %s %-15s %s %-13s %s %-15s %s %-10s %s %-10s %s %-15s %s\n";
     static final String formatOutput = "%s %3d %s %-15s %s %-13s %s %-15s %s %-10s %s %-10d %s %-15.3f %s\n";
+    static double tongGia;
+    static List<XuLy> ListGioHang = new ArrayList<XuLy>(); // lưu giỏ hàng
+    static List<XuLy> ListHoaDon = new ArrayList<XuLy>(); // lưu những hàng đã mua để in ra hóa đơn
+    public String name;
+    public String id;
+    public String NgayNhap;
+    public String XuatXu;
+    public int Sl;
+    public float Gia;
 
-
-    public XuLy(){
+    public XuLy() {
     }
 
     public XuLy(String name, String id, String ngayNhap, String xuatXu, int sl, float gia) {
@@ -39,26 +35,26 @@ public class XuLy implements Mua , GioHang {
         Gia = gia;
     }
 
-
-
     /* ---------------------------------------------------------------------------------------------------------------------------------------*/
-                        // METHOD MUA BÁN
+    // METHOD MUA BÁN
     public void muaTuoiSong() {
         Scanner sc = new Scanner(System.in);
         QuayTuoiSong quayTuoiSongxem = new QuayTuoiSong();
         KhoHang.xuatTuoiSong();
-        float giaChung ;    int sl  = 0;
+        float giaChung;
+        int sl = 0;
         System.out.println("------------Mua Hàng---------------");
 
         System.out.print("Nhập ID loại tươi sống cần mua : ");
         id = sc.nextLine();
 
         try {
-                System.out.print("Nhập số lượng mua: ");
-                sl = sc.nextInt();
-                sc.nextLine();
-            } catch (Exception nhap){
-            System.out.println("Giá trị không hợp lệ ! Hãy nhập lại");  }
+            System.out.print("Nhập số lượng mua: ");
+            sl = sc.nextInt();
+            sc.nextLine();
+        } catch (Exception nhap) {
+            System.out.println("Giá trị không hợp lệ ! Hãy nhập lại");
+        }
 
         for (QuayTuoiSong quayTuoiSong : KhoHang.tuoisongList) {
             if (quayTuoiSong.getMaSo().equals(id)) {
@@ -68,10 +64,10 @@ public class XuLy implements Mua , GioHang {
                 } else {
                     System.out.println("Đã mua thành công !");
                     quayTuoiSong.setSoLuong(quayTuoiSong.getSoLuong() - sl);
-                    giaChung = quayTuoiSong.getGiaCa()*sl;
-                    XuLy hoaDon1 = new XuLy(quayTuoiSong.getTen(),quayTuoiSong.getMaSo(),quayTuoiSong.getNgayNhapHang(),quayTuoiSong.getXuatXu(),sl,giaChung);
+                    giaChung = quayTuoiSong.getGiaCa() * sl;
+                    XuLy hoaDon1 = new XuLy(quayTuoiSong.getTen(), quayTuoiSong.getMaSo(), quayTuoiSong.getNgayNhapHang(), quayTuoiSong.getXuatXu(), sl, giaChung);
                     XuLy.ListHoaDon.add(hoaDon1);
-                    tongGia = tongGia + giaChung ;
+                    tongGia = tongGia + giaChung;
                 }
             }
         }
@@ -82,7 +78,8 @@ public class XuLy implements Mua , GioHang {
 
         QuayGiaDung quayGiaDungXem = new QuayGiaDung();
         KhoHang.xuatGiaDung();
-        float giaChung ;    int sl  = 0;
+        float giaChung;
+        int sl = 0;
         System.out.println("------------Mua Hàng---------------");
 
         System.out.print("Nhập ID loại gia dụng cần mua : ");
@@ -92,8 +89,9 @@ public class XuLy implements Mua , GioHang {
             System.out.print("Nhập số lượng mua: ");
             sl = sc.nextInt();
             sc.nextLine();
-        } catch (Exception nhap){
-            System.out.println("Giá trị không hợp lệ ! Hãy nhập lại");  }
+        } catch (Exception nhap) {
+            System.out.println("Giá trị không hợp lệ ! Hãy nhập lại");
+        }
 
         for (QuayGiaDung quayGiaDung : KhoHang.giadungList) {
             if (quayGiaDung.getMaSo().equals(id)) {
@@ -103,10 +101,10 @@ public class XuLy implements Mua , GioHang {
                 } else {
                     System.out.println("Đã mua thành công !");
                     quayGiaDung.setSoLuong(quayGiaDung.getSoLuong() - sl);
-                    giaChung = quayGiaDung.getGiaCa()*sl;
-                    XuLy hoaDon2 = new XuLy(quayGiaDung.getTen(),quayGiaDung.getMaSo(),quayGiaDung.NgayNhapHang,quayGiaDung.XuatXu,sl,giaChung);
+                    giaChung = quayGiaDung.getGiaCa() * sl;
+                    XuLy hoaDon2 = new XuLy(quayGiaDung.getTen(), quayGiaDung.getMaSo(), quayGiaDung.NgayNhapHang, quayGiaDung.XuatXu, sl, giaChung);
                     XuLy.ListHoaDon.add(hoaDon2);
-                    tongGia = tongGia + giaChung ;
+                    tongGia = tongGia + giaChung;
                 }
             }
         }
@@ -117,7 +115,8 @@ public class XuLy implements Mua , GioHang {
 
         QuayNuoc quayNuocUongxem = new QuayNuoc();
         KhoHang.xuatNuoc();
-        float giaChung; int sl = 0 ;
+        float giaChung;
+        int sl = 0;
         System.out.println("------------Mua Hàng---------------");
 
         System.out.print("Nhập ID loại nước uống cần mua : ");
@@ -127,8 +126,9 @@ public class XuLy implements Mua , GioHang {
             System.out.print("Nhập số lượng mua: ");
             sl = sc.nextInt();
             sc.nextLine();
-        } catch (Exception nhap){
-            System.out.println("Giá trị không hợp lệ ! Hãy nhập lại");  }
+        } catch (Exception nhap) {
+            System.out.println("Giá trị không hợp lệ ! Hãy nhập lại");
+        }
 
         for (QuayNuoc quayNuocUong : KhoHang.nuocList) {
             if (quayNuocUong.getMaSo().equals(id)) {
@@ -138,10 +138,10 @@ public class XuLy implements Mua , GioHang {
                 } else {
                     System.out.println("Đã mua thành công !");
                     quayNuocUong.setSoLuong(quayNuocUong.getSoLuong() - sl);
-                    giaChung = quayNuocUong.getGiaCa()*sl;
-                    XuLy hoaDon3 = new XuLy(quayNuocUong.getTen(),quayNuocUong.getMaSo(),quayNuocUong.NgayNhapHang,quayNuocUong.XuatXu,sl,giaChung);
+                    giaChung = quayNuocUong.getGiaCa() * sl;
+                    XuLy hoaDon3 = new XuLy(quayNuocUong.getTen(), quayNuocUong.getMaSo(), quayNuocUong.NgayNhapHang, quayNuocUong.XuatXu, sl, giaChung);
                     XuLy.ListHoaDon.add(hoaDon3);
-                    tongGia = tongGia + giaChung ;
+                    tongGia = tongGia + giaChung;
                 }
             }
         }
@@ -152,7 +152,8 @@ public class XuLy implements Mua , GioHang {
 
         QuayKhac quayKhacxem = new QuayKhac();
         KhoHang.xuatKhac();
-        float giaChung; int sl = 0 ;
+        float giaChung;
+        int sl = 0;
         System.out.println("------------Mua Hàng---------------");
 
         System.out.print("Nhập ID loại hàng cần mua : ");
@@ -162,8 +163,9 @@ public class XuLy implements Mua , GioHang {
             System.out.print("Nhập số lượng mua: ");
             sl = sc.nextInt();
             sc.nextLine();
-        } catch (Exception nhap){
-            System.out.println("Giá trị không hợp lệ ! Hãy nhập lại");  }
+        } catch (Exception nhap) {
+            System.out.println("Giá trị không hợp lệ ! Hãy nhập lại");
+        }
 
         for (QuayKhac quayKhac : KhoHang.quaykhacList) {
             if (quayKhac.getMaSo().equals(id)) {
@@ -173,17 +175,17 @@ public class XuLy implements Mua , GioHang {
                 } else {
                     System.out.println("Đã mua thành công !");
                     quayKhac.setSoLuong(quayKhac.getSoLuong() - sl);
-                    giaChung = quayKhac.getGiaCa()*sl;
-                    XuLy hoaDon4 = new XuLy(quayKhac.getTen(),quayKhac.getMaSo(),quayKhac.NgayNhapHang,quayKhac.getXuatXu(),sl,giaChung);
+                    giaChung = quayKhac.getGiaCa() * sl;
+                    XuLy hoaDon4 = new XuLy(quayKhac.getTen(), quayKhac.getMaSo(), quayKhac.NgayNhapHang, quayKhac.getXuatXu(), sl, giaChung);
                     XuLy.ListHoaDon.add(hoaDon4);
-                    tongGia = tongGia + giaChung ;
+                    tongGia = tongGia + giaChung;
                 }
             }
         }
     }
 
     /* ---------------------------------------------------------------------------------------------------------------------------------------*/
-                                        // METHOD GIỎ HÀNG
+    // METHOD GIỎ HÀNG
     public void themVaoGioHang() {
         Scanner sc = new Scanner(System.in);
         int whilegiohang = 0;
@@ -203,19 +205,19 @@ public class XuLy implements Mua , GioHang {
                     try {
                         System.out.print("Nhập số lượng mua: ");
                         sl1 = sc.nextInt();
-                    } catch (Exception e ) {
+                    } catch (Exception e) {
                         sc.nextLine();
                         System.out.println("Nhập không hợp lệ ! ");
                     }
 
                     for (QuayTuoiSong quayTuoiSong : KhoHang.tuoisongList) {
                         if (quayTuoiSong.getMaSo().equals(ID1)) {
-                            while (sl1 > quayTuoiSong.getSoLuong()){
+                            while (sl1 > quayTuoiSong.getSoLuong()) {
                                 System.out.println("Số lượng không hợp lệ, hãy nhập lại !");
                                 System.out.print("Nhập số lượng thêm vào giỏ : ");
                                 sl1 = sc.nextInt();
                             }
-                            XuLy xuLy1 = new XuLy(quayTuoiSong.getTen(),ID1,quayTuoiSong.NgayNhapHang,quayTuoiSong.getXuatXu(),sl1,quayTuoiSong.getGiaCa());
+                            XuLy xuLy1 = new XuLy(quayTuoiSong.getTen(), ID1, quayTuoiSong.NgayNhapHang, quayTuoiSong.getXuatXu(), sl1, quayTuoiSong.getGiaCa());
                             ListGioHang.add(xuLy1);
                         }
                     }
@@ -229,19 +231,19 @@ public class XuLy implements Mua , GioHang {
                     try {
                         System.out.print("Nhập số lượng mua: ");
                         sl2 = sc.nextInt();
-                    } catch (Exception e ) {
+                    } catch (Exception e) {
                         sc.nextLine();
                         System.out.println("Nhập không hợp lệ ! ");
                     }
 
                     for (QuayGiaDung quayGiaDung : KhoHang.giadungList) {
                         if (quayGiaDung.getMaSo().equals(ID2)) {
-                            while (sl2 > quayGiaDung.getSoLuong()){
+                            while (sl2 > quayGiaDung.getSoLuong()) {
                                 System.out.println("Số lượng không hợp lệ, hãy nhập lại !");
                                 System.out.print("Nhập số lượng thêm vào giỏ : ");
                                 sl2 = sc.nextInt();
                             }
-                            XuLy xuLy2 = new XuLy(quayGiaDung.getTen(),ID2,quayGiaDung.NgayNhapHang,quayGiaDung.getXuatXu(),sl2,quayGiaDung.getGiaCa());
+                            XuLy xuLy2 = new XuLy(quayGiaDung.getTen(), ID2, quayGiaDung.NgayNhapHang, quayGiaDung.getXuatXu(), sl2, quayGiaDung.getGiaCa());
                             ListGioHang.add(xuLy2);
                         }
                     }
@@ -255,19 +257,19 @@ public class XuLy implements Mua , GioHang {
                     try {
                         System.out.print("Nhập số lượng mua: ");
                         sl3 = sc.nextInt();
-                    } catch (Exception e ) {
+                    } catch (Exception e) {
                         sc.nextLine();
                         System.out.println("Nhập không hợp lệ ! ");
                     }
 
                     for (QuayNuoc quayNuocUong : KhoHang.nuocList) {
                         if (quayNuocUong.getMaSo().equals(ID3)) {
-                            while (sl3 > quayNuocUong.getSoLuong()){
+                            while (sl3 > quayNuocUong.getSoLuong()) {
                                 System.out.println("Số lượng không hợp lệ, hãy nhập lại !");
                                 System.out.print("Nhập số lượng thêm vào giỏ : ");
                                 sl3 = sc.nextInt();
                             }
-                            XuLy xuLy3 = new XuLy(quayNuocUong.getTen(),ID3,quayNuocUong.NgayNhapHang,quayNuocUong.getXuatXu(),sl3,quayNuocUong.getGiaCa());
+                            XuLy xuLy3 = new XuLy(quayNuocUong.getTen(), ID3, quayNuocUong.NgayNhapHang, quayNuocUong.getXuatXu(), sl3, quayNuocUong.getGiaCa());
                             ListGioHang.add(xuLy3);
                         }
                     }
@@ -281,35 +283,35 @@ public class XuLy implements Mua , GioHang {
                     try {
                         System.out.print("Nhập số lượng mua: ");
                         sl4 = sc.nextInt();
-                    } catch (Exception e ) {
+                    } catch (Exception e) {
                         sc.nextLine();
                         System.out.println("Nhập không hợp lệ ! ");
                     }
 
                     for (QuayKhac quayKhac : KhoHang.quaykhacList) {
                         if (quayKhac.getMaSo().equals(ID4)) {
-                            while (sl4 > quayKhac.getSoLuong()){
+                            while (sl4 > quayKhac.getSoLuong()) {
                                 System.out.println("Số lượng không hợp lệ, hãy nhập lại ! ");
                                 System.out.print("Nhập số lượng thêm vào giỏ : ");
                                 sl4 = sc.nextInt();
                             }
-                            XuLy xuLy4 = new XuLy(quayKhac.getTen(),ID4,quayKhac.NgayNhapHang,quayKhac.getXuatXu(),sl4,quayKhac.getGiaCa());
+                            XuLy xuLy4 = new XuLy(quayKhac.getTen(), ID4, quayKhac.NgayNhapHang, quayKhac.getXuatXu(), sl4, quayKhac.getGiaCa());
                             ListGioHang.add(xuLy4);
                         }
                     }
                 }
                 case 5 -> {
-                    if(ListGioHang.size() != 0){
+                    if (ListGioHang.size() != 0) {
                         System.out.println("Giỏ hàng hiện tại gồm : ");
                         System.out.print("+");
-                        for (int i=0; i < 101; i++) {
+                        for (int i = 0; i < 101; i++) {
                             System.out.print("-");
                         }
                         System.out.println("+");
                         System.out.printf(formatTieuDe,
                                 "|", "STT", "|", "Tên Sản Phẩm", "|", "Mã Sản Phẩm", "|", "Ngày Nhập Hàng", "|", "Xuất Xứ", "|", "Số Lượng", "|", "Giá Cả", "|");
                         System.out.print("+");
-                        for (int i=0; i < 101; i++) {
+                        for (int i = 0; i < 101; i++) {
                             System.out.print("-");
                         }
                         System.out.println("+");
@@ -323,16 +325,16 @@ public class XuLy implements Mua , GioHang {
                             float gia = giohang.getGia();
 
                             System.out.printf(formatOutput
-                            , "|", a, "|", name, "|", id, "|", ngayNhap, "|", xuatXu, "|", sl, "|", gia, "|");
+                                    , "|", a, "|", name, "|", id, "|", ngayNhap, "|", xuatXu, "|", sl, "|", gia, "|");
                             a++;
                         }
                         System.out.print("+");
-                        for (int i=0; i < 101; i++) {
+                        for (int i = 0; i < 101; i++) {
                             System.out.print("-");
                         }
                         System.out.println("+");
-                    }
-                    else System.out.println("Giỏ hàng của bạn đang trống. Hãy kham khảo các mặt hàng ưa thích và thêm vào giỏ !");
+                    } else
+                        System.out.println("Giỏ hàng của bạn đang trống. Hãy kham khảo các mặt hàng ưa thích và thêm vào giỏ !");
                 }
                 case 6 -> {
                     whilegiohang = 1;
@@ -343,12 +345,12 @@ public class XuLy implements Mua , GioHang {
     }
 
 
-    public void  ThongTinKhachHang(){
+    public void ThongTinKhachHang() {
 
     }
 
     private void menuGioHang() {
-        for (int i=0; i<10; i++) {
+        for (int i = 0; i < 10; i++) {
             System.out.println();
         }
         System.out.println("+----------------------------------------------------+");
@@ -391,6 +393,6 @@ public class XuLy implements Mua , GioHang {
     //xuất hàng hóa mua
     @Override
     public String toString() {
-        return "|        " + name  +  "    " +  id + "    " + NgayNhap + "    "   + XuatXu + "    "+  Sl + "      " +  Gia+  "        |";
+        return "|        " + name + "    " + id + "    " + NgayNhap + "    " + XuatXu + "    " + Sl + "      " + Gia + "        |";
     }
 }

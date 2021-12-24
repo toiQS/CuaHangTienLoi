@@ -4,14 +4,16 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class HoaDon {
+    static final String formatOutput = "%s %10s %-15s %3s %-13s %3s %-15s %3s %-10s %3s %21s\n";
     public String TenKhach;
     public int IdKhach;
-    public String Sdt ;
+    public String Sdt;
     public String DiaChi;
-    static final String formatOutput = "%s %10s %-15s %3s %-13s %3s %-15s %3s %-10s %3s %21s\n";
-    public HoaDon(){
+
+    public HoaDon() {
 
     }
+
     public HoaDon(String tenKhach, int idKhach, String sdt, String diaChi) {
         TenKhach = tenKhach;
         IdKhach = idKhach;
@@ -51,15 +53,15 @@ public class HoaDon {
         DiaChi = diaChi;
     }
 
-    public void ThongTinKhachHang(){
+    public void ThongTinKhachHang() {
         Scanner sc = new Scanner(System.in);
         Random ramdom = new Random();
 
         System.out.print("Nhập tên : ");
         String ten = sc.nextLine();
 
-        int value= ramdom.nextInt(100)+1;
-        System.out.println("Id đơn hàng  : " +  value );
+        int value = ramdom.nextInt(100) + 1;
+        System.out.println("Id đơn hàng  : " + value);
 
         System.out.print("Nhập SDT : ");
         String sdt = sc.nextLine();
@@ -68,7 +70,7 @@ public class HoaDon {
         String diachi = sc.nextLine();
 
         System.out.print("+");
-        for (int i=0; i<105; i++) {
+        for (int i = 0; i < 105; i++) {
             System.out.print("-");
         }
         System.out.println("+");
@@ -79,6 +81,6 @@ public class HoaDon {
 
     @Override
     public String toString() {
-        return "Thông tin|" +  "Tên : " + TenKhach + " | ID : " + IdKhach + "| Sdt : " + Sdt + "| DiaChi : " + DiaChi  + " |";
+        return "Thông tin|" + "Tên : " + TenKhach + " | ID : " + IdKhach + "| Sdt : " + Sdt + "| DiaChi : " + DiaChi + " |";
     }
 }

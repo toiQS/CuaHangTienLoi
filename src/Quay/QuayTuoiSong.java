@@ -8,10 +8,10 @@ import java.util.Scanner;
 import java.util.stream.Collectors;
 
 public class QuayTuoiSong extends KhoHang {
-    public static int soLuong = 0;
-    public static float giaCa = 0;
     private static final String formatHangHoaTieuDe = "%s %.3s %s %-15s %s %-13s %s %-15s %s %-10s %s %-10s %s %-15s %s\n";
     private static final String formatHangHoaOutput = "%s %3d %s %-15s %s %-13s %s %-15s %s %-10s %s %-10d %s %-15.3f %s\n";
+    public static int soLuong = 0;
+    public static float giaCa = 0;
 
     public QuayTuoiSong(String Ten, String MaSo, String NgayNhapHang, String XuatXu, int SoLuong, float GiaCa) {
         super(Ten, MaSo, NgayNhapHang, XuatXu, SoLuong, GiaCa);
@@ -35,11 +35,11 @@ public class QuayTuoiSong extends KhoHang {
             System.out.print("Số lượng nhập vào: ");
             try {
                 soLuong = sc.nextInt();
-            } catch(Exception ignored) {
+            } catch (Exception ignored) {
                 System.out.println("Không hợp lệ, vui lòng nhập lại!");
                 sc.nextLine();
             }
-        }while(soLuong == 0);
+        } while (soLuong == 0);
 
         do {
             System.out.print("Giá dự định: ");
@@ -49,7 +49,7 @@ public class QuayTuoiSong extends KhoHang {
                 System.out.println("Không hợp lệ, vui lòng nhập lại!");
                 sc.nextLine();
             }
-        } while(giaCa == 0);
+        } while (giaCa == 0);
         QuayTuoiSong tuoisong = new QuayTuoiSong(Ten, MaSo, NgayNhapHang, XuatXu, soLuong, giaCa);
         tuoisongList.add(tuoisong);
     }
@@ -71,20 +71,20 @@ public class QuayTuoiSong extends KhoHang {
     public void showThongTin() {
 //        this.nuocList.forEach(o -> System.out.println(o.toString()));
         System.out.print("+");
-        for (int i=0; i < 101; i++) {
+        for (int i = 0; i < 101; i++) {
             System.out.print("-");
         }
         System.out.println("+");
         System.out.printf(formatHangHoaTieuDe,
-            "|", "STT", "|", "Ten San Pham", "|", "Ma San Pham", "|", "Ngay Nhap Hang", "|", "Xuat Su", "|", "So Luong", "|", "Gia Ca", "|");
+                "|", "STT", "|", "Ten San Pham", "|", "Ma San Pham", "|", "Ngay Nhap Hang", "|", "Xuat Su", "|", "So Luong", "|", "Gia Ca", "|");
         System.out.print("+");
-        for (int i=0; i < 101; i++) {
+        for (int i = 0; i < 101; i++) {
             System.out.print("-");
         }
         System.out.println("+");
 
         int a = 1;
-        for (QuayTuoiSong tuoiSong: tuoisongList) {
+        for (QuayTuoiSong tuoiSong : tuoisongList) {
             String ten = tuoiSong.getTen();
             String maSo = tuoiSong.getMaSo();
             String ngayNhapHang = tuoiSong.getNgayNhapHang();
@@ -93,20 +93,22 @@ public class QuayTuoiSong extends KhoHang {
             float giaCa = tuoiSong.getGiaCa();
 
             System.out.printf(formatHangHoaOutput,
-                "|", a, "|", ten, "|", maSo, "|", ngayNhapHang, "|", xuatSu, "|", soLuong, "|", giaCa, "|");
+                    "|", a, "|", ten, "|", maSo, "|", ngayNhapHang, "|", xuatSu, "|", soLuong, "|", giaCa, "|");
             a++;
         }
         System.out.print("+");
-        for (int i=0; i < 101; i++) {
+        for (int i = 0; i < 101; i++) {
             System.out.print("-");
         }
         System.out.println("+");
     }
-    public List<QuayTuoiSong> TimKiemTuoiSong(String MaSo){
-        return this.tuoisongList.stream().filter(o ->o.getMaSo().contains(MaSo)).collect(Collectors.toList());
+
+    public List<QuayTuoiSong> TimKiemTuoiSong(String MaSo) {
+        return tuoisongList.stream().filter(o -> o.getMaSo().contains(MaSo)).collect(Collectors.toList());
     }
+
     @Override
-    public void TimKiem(){
+    public void TimKiem() {
         Scanner sc = new Scanner(System.in);
 
         System.out.println("Nhap ma san pham muon tim: ");
@@ -115,10 +117,12 @@ public class QuayTuoiSong extends KhoHang {
             System.out.println(tuoiSong.toString());
         });
     }
-    public List<QuayTuoiSong> SuaThongTinQuayTuoiSong(int stt, QuayTuoiSong tuoisong){
-        tuoisongList.set(stt,tuoisong);
+
+    public List<QuayTuoiSong> SuaThongTinQuayTuoiSong(int stt, QuayTuoiSong tuoisong) {
+        tuoisongList.set(stt, tuoisong);
         return tuoisongList;
     }
+
     @Override
     public void SuaThongTin() {
         Scanner sc = new Scanner(System.in);
@@ -141,7 +145,7 @@ public class QuayTuoiSong extends KhoHang {
                 System.out.println("Không hợp lệ, vui lòng nhập lại!");
                 sc.nextLine();
             }
-        }while(soLuong == 0);
+        } while (soLuong == 0);
 
         do {
             System.out.print("Giá dự định: ");
@@ -151,9 +155,9 @@ public class QuayTuoiSong extends KhoHang {
                 System.out.println("Không hợp lệ, vui lòng nhập lại!");
                 sc.nextLine();
             }
-        }while(giaCa == 0);
+        } while (giaCa == 0);
         QuayTuoiSong tuoisong = new QuayTuoiSong(Ten, MaSo, NgayNhapHang, XuatXu, soLuong, giaCa);
-        SuaThongTinQuayTuoiSong(a-1, tuoisong);
+        SuaThongTinQuayTuoiSong(a - 1, tuoisong);
     }
 
     @Override
@@ -163,7 +167,7 @@ public class QuayTuoiSong extends KhoHang {
         InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
         BufferedReader reader = new BufferedReader(inputStreamReader);
         String line = "";
-        while((line = reader.readLine())!= null) {
+        while ((line = reader.readLine()) != null) {
             String[] row = line.split(",");
             String ten = row[0];
             String maSo = row[1];
@@ -180,7 +184,7 @@ public class QuayTuoiSong extends KhoHang {
 
     @Override
     public String toString() {
-        return  ".Tên sản phẩm: " + Ten + " - "
+        return ".Tên sản phẩm: " + Ten + " - "
                 + "Mã sản phẩm: " + MaSo + " - "
                 + "Xuất xứ: " + XuatXu + " - "
                 + "Số lượng: " + SoLuong + " - "
