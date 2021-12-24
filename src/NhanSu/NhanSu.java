@@ -2,70 +2,57 @@ package NhanSu;
 
 import Main.ThongTin;
 
-public class NhanSu extends ThongTin {
-
+public class NhanSu extends ThongTin{
+   
     public String GioiTinh;
     public int CCCD;
     public String DiaChi;
     public String SDT;
-    public int SoNgayLam;
-    public int Luong;
-
-    public NhanSu(String Ten, String MaSo, String GioiTinh, int CCCD, String DiaChi, String SDT, int SoNgayLam, int Luong) {
-        super(Ten, MaSo);
+    public String NgayVaoLam;
+    
+    public NhanSu(String Ten, String MaSo, String GioiTinh, int CCCD, String DiaChi, String SDT, String NgayVaoLam){
+        super(Ten,MaSo);
         this.GioiTinh = GioiTinh;
         this.CCCD = CCCD;
         this.DiaChi = DiaChi;
         this.SDT = SDT;
-        this.SoNgayLam = SoNgayLam;
-        this.Luong = Luong;
+        this.NgayVaoLam = NgayVaoLam;
+        
     }
-
-    public String getGioiTinh() {
+    
+  
+    public String getGioiTinh(){
         return GioiTinh;
     }
-
-    public void setGioiTinh(String GioiTinh) {
-        this.GioiTinh = GioiTinh;
-    }
-
-    public int getCCCD() {
+    public int getCCCD(){
         return CCCD;
     }
-
-    public void setCCCD(int CCCD) {
-        this.CCCD = CCCD;
-    }
-
-    public String getDiaChi() {
+    public String getDiaChi(){
         return DiaChi;
     }
-
-    public void setDiaChi(String DiaChi) {
-        this.DiaChi = DiaChi;
-    }
-
-    public String getSDT() {
+    public String getSDT(){
         return SDT;
     }
+    public String getNgayVaoLam(){
+        return NgayVaoLam;
+    }
+    
 
-    public void setSDT(String SDT) {
+    
+    public void setGioiTinh(String GioiTinh){
+        this.GioiTinh = GioiTinh;
+    }
+    public void setCCCD(int CCCD){
+        this.CCCD = CCCD;
+    }
+    public void setDiaChi(String DiaChi){
+        this.DiaChi = DiaChi;
+    }
+    public void setSDT(String SDT){
         this.SDT = SDT;
     }
-
-    public int getSoNgayLam() {
-        return SoNgayLam;
+    public void getNgayVaoLam(String NgayVaoLam){
+        this.NgayVaoLam = NgayVaoLam;
     }
-
-    public void getSoNgayLam(int SoNgayLam) {
-        this.SoNgayLam = SoNgayLam;
-    }
-
-    public int getLuong() {
-        return Luong;
-    }
-
-    public void getLuong(int Luong) {
-        this.Luong = Luong;
-    }
+     
 }
