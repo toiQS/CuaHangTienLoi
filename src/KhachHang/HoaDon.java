@@ -8,7 +8,7 @@ public class HoaDon {
     public int IdKhach;
     public String Sdt ;
     public String DiaChi;
-
+    static final String formatOutput = "%s %10s %-15s %3s %-13s %3s %-15s %3s %-10s %3s %21s\n";
     public HoaDon(){
 
     }
@@ -67,8 +67,14 @@ public class HoaDon {
         System.out.print("Nhập địa chỉ : ");
         String diachi = sc.nextLine();
 
-        HoaDon hoaDon = new HoaDon(ten, value , sdt , diachi);
-        System.out.println(hoaDon);
+        System.out.print("+");
+        for (int i=0; i<105; i++) {
+            System.out.print("-");
+        }
+        System.out.println("+");
+
+        System.out.printf(formatOutput,
+                "|", "", ten, "", value, "", diachi, "", sdt, "", "|");
     }
 
     @Override

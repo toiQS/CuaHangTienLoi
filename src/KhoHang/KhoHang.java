@@ -46,7 +46,7 @@ public abstract class KhoHang extends ThongTin {
         }
         System.out.println("+");
         System.out.printf(formatHangHoaTieuDe,
-                "|", "STT", "|", "Tên Sản Phẩm", "|", "Mã Sản Phẩm", "|", "Ngày Nhập Hàng", "|", "Xuất Sứ", "|", "Số Lượng", "|", "Giá Cả", "|");
+                "|", "STT", "|", "Tên Sản Phẩm", "|", "Mã Sản Phẩm", "|", "Ngày Nhập Hàng", "|", "Xuất Xứ", "|", "Số Lượng", "|", "Giá Cả", "|");
         System.out.print("+");
         for (int i=0; i < 101; i++) {
             System.out.print("-");
@@ -58,12 +58,12 @@ public abstract class KhoHang extends ThongTin {
             String ten = giaDung.getTen();
             String maSo = giaDung.getMaSo();
             String ngayNhapHang = giaDung.getNgayNhapHang();
-            String xuatSu = giaDung.getXuatXu();
+            String xuatXu = giaDung.getXuatXu();
             int soLuong = giaDung.getSoLuong();
             float giaCa = giaDung.getGiaCa();
 
             System.out.printf(formatHangHoaOutput,
-                    "|", a, "|", ten, "|", maSo, "|", ngayNhapHang, "|", xuatSu, "|", soLuong, "|", giaCa, "|");
+                    "|", a, "|", ten, "|", maSo, "|", ngayNhapHang, "|", xuatXu, "|", soLuong, "|", giaCa, "|");
             a++;
         }
         System.out.print("+");
@@ -82,7 +82,7 @@ public abstract class KhoHang extends ThongTin {
         }
         System.out.println("+");
         System.out.printf(formatHangHoaTieuDe,
-                "|", "STT", "|", "Tên Sản Phẩm", "|", "Mã Sản Phẩm", "|", "Ngày Nhập Hàng", "|", "Xuất Sứ", "|", "Số Lượng", "|", "Giá Cả", "|");
+                "|", "STT", "|", "Tên Sản Phẩm", "|", "Mã Sản Phẩm", "|", "Ngày Nhập Hàng", "|", "Xuất Xứ", "|", "Số Lượng", "|", "Giá Cả", "|");
         System.out.print("+");
         for (int i=0; i < 101; i++) {
             System.out.print("-");
@@ -94,12 +94,12 @@ public abstract class KhoHang extends ThongTin {
             String ten = nuoc.getTen();
             String maSo = nuoc.getMaSo();
             String ngayNhapHang = nuoc.getNgayNhapHang();
-            String xuatSu = nuoc.getXuatXu();
+            String xuatXu = nuoc.getXuatXu();
             int soLuong = nuoc.getSoLuong();
             float giaCa = nuoc.getGiaCa();
 
             System.out.printf(formatHangHoaOutput,
-                    "|", a, "|", ten, "|", maSo, "|", ngayNhapHang, "|", xuatSu, "|", soLuong, "|", giaCa, "|");
+                    "|", a, "|", ten, "|", maSo, "|", ngayNhapHang, "|", xuatXu, "|", soLuong, "|", giaCa, "|");
             a++;
         }
         System.out.print("+");
@@ -118,7 +118,7 @@ public abstract class KhoHang extends ThongTin {
         }
         System.out.println("+");
         System.out.printf(formatHangHoaTieuDe,
-                "|", "STT", "|", "Tên Sản Phẩm", "|", "Mã Sản Phẩm", "|", "Ngày Nhập Hàng", "|", "Xuất Sứ", "|", "Số Lượng", "|", "Giá Cả", "|");
+                "|", "STT", "|", "Tên Sản Phẩm", "|", "Mã Sản Phẩm", "|", "Ngày Nhập Hàng", "|", "Xuất Xứ", "|", "Số Lượng", "|", "Giá Cả", "|");
         System.out.print("+");
         for (int i=0; i < 101; i++) {
             System.out.print("-");
@@ -130,12 +130,12 @@ public abstract class KhoHang extends ThongTin {
             String ten = tuoiSong.getTen();
             String maSo = tuoiSong.getMaSo();
             String ngayNhapHang = tuoiSong.getNgayNhapHang();
-            String xuatSu = tuoiSong.getXuatXu();
+            String xuatXu = tuoiSong.getXuatXu();
             int soLuong = tuoiSong.getSoLuong();
             float giaCa = tuoiSong.getGiaCa();
 
             System.out.printf(formatHangHoaOutput,
-                    "|", a, "|", ten, "|", maSo, "|", ngayNhapHang, "|", xuatSu, "|", soLuong, "|", giaCa, "|");
+                    "|", a, "|", ten, "|", maSo, "|", ngayNhapHang, "|", xuatXu, "|", soLuong, "|", giaCa, "|");
             a++;
         }
         System.out.print("+");
@@ -154,7 +154,7 @@ public abstract class KhoHang extends ThongTin {
         }
         System.out.println("+");
         System.out.printf(formatHangHoaTieuDe,
-                "|", "STT", "|", "Tên Sản Phẩm", "|", "Mã Sản Phẩm", "|", "Ngày Nhập Hàng", "|", "Xuất Sứ", "|", "Số Lượng", "|", "Giá Cả", "|");
+                "|", "STT", "|", "Tên Sản Phẩm", "|", "Mã Sản Phẩm", "|", "Ngày Nhập Hàng", "|", "Xuất Xứ", "|", "Số Lượng", "|", "Giá Cả", "|");
         System.out.print("+");
         for (int i=0; i < 101; i++) {
             System.out.print("-");
@@ -166,12 +166,12 @@ public abstract class KhoHang extends ThongTin {
             String ten = khac.getTen();
             String maSo = khac.getMaSo();
             String ngayNhapHang = khac.getNgayNhapHang();
-            String xuatSu = khac.getXuatXu();
+            String xuatXu = khac.getXuatXu();
             int soLuong = khac.getSoLuong();
             float giaCa = khac.getGiaCa();
 
             System.out.printf(formatHangHoaOutput,
-                    "|", a, "|", ten, "|", maSo, "|", ngayNhapHang, "|", xuatSu, "|", soLuong, "|", giaCa, "|");
+                    "|", a, "|", ten, "|", maSo, "|", ngayNhapHang, "|", xuatXu, "|", soLuong, "|", giaCa, "|");
             a++;
         }
         System.out.print("+");

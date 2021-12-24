@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class XuLy implements Mua , GioHang {
-    static float  tongGia ;
+    static double  tongGia ;
 
     public String name ;
     public String id ;
@@ -23,6 +23,9 @@ public class XuLy implements Mua , GioHang {
 
     static List<XuLy> ListGioHang= new ArrayList<XuLy>(); // lưu giỏ hàng
     static List<XuLy> ListHoaDon = new ArrayList<XuLy>(); // lưu những hàng đã mua để in ra hóa đơn
+    static final String formatTieuDe = "%s %.3s %s %-15s %s %-13s %s %-15s %s %-10s %s %-10s %s %-15s %s\n";
+    static final String formatOutput = "%s %3d %s %-15s %s %-13s %s %-15s %s %-10s %s %-10d %s %-15.3f %s\n";
+
 
     public XuLy(){
     }
@@ -66,7 +69,7 @@ public class XuLy implements Mua , GioHang {
                     System.out.println("Đã mua thành công !");
                     quayTuoiSong.setSoLuong(quayTuoiSong.getSoLuong() - sl);
                     giaChung = quayTuoiSong.getGiaCa()*sl;
-                    XuLy hoaDon1 = new XuLy(quayTuoiSong.getTen(),quayTuoiSong.getMaSo(),quayTuoiSong.NgayNhapHang,quayTuoiSong.XuatXu,sl,giaChung);
+                    XuLy hoaDon1 = new XuLy(quayTuoiSong.getTen(),quayTuoiSong.getMaSo(),quayTuoiSong.getNgayNhapHang(),quayTuoiSong.getXuatXu(),sl,giaChung);
                     XuLy.ListHoaDon.add(hoaDon1);
                     tongGia = tongGia + giaChung ;
                 }
@@ -297,9 +300,38 @@ public class XuLy implements Mua , GioHang {
                 }
                 case 5 -> {
                     if(ListGioHang.size() != 0){
-                        System.out.println("Giỏ hàng hiện tại  gồm : ");
-                    for (XuLy giohang : ListGioHang)
-                        System.out.println(giohang);}
+                        System.out.println("Giỏ hàng hiện tại gồm : ");
+                        System.out.print("+");
+                        for (int i=0; i < 101; i++) {
+                            System.out.print("-");
+                        }
+                        System.out.println("+");
+                        System.out.printf(formatTieuDe,
+                                "|", "STT", "|", "Tên Sản Phẩm", "|", "Mã Sản Phẩm", "|", "Ngày Nhập Hàng", "|", "Xuất Xứ", "|", "Số Lượng", "|", "Giá Cả", "|");
+                        System.out.print("+");
+                        for (int i=0; i < 101; i++) {
+                            System.out.print("-");
+                        }
+                        System.out.println("+");
+                        int a = 0;
+                        for (XuLy giohang : ListGioHang) {
+                            String name = giohang.getName();
+                            String id = giohang.getId();
+                            String ngayNhap = giohang.getNgayNhap();
+                            String xuatXu = giohang.getXuatXu();
+                            int sl = giohang.getSl();
+                            float gia = giohang.getGia();
+
+                            System.out.printf(formatOutput
+                            , "|", a, "|", name, "|", id, "|", ngayNhap, "|", xuatXu, "|", sl, "|", gia, "|");
+                            a++;
+                        }
+                        System.out.print("+");
+                        for (int i=0; i < 101; i++) {
+                            System.out.print("-");
+                        }
+                        System.out.println("+");
+                    }
                     else System.out.println("Giỏ hàng của bạn đang trống. Hãy kham khảo các mặt hàng ưa thích và thêm vào giỏ !");
                 }
                 case 6 -> {
@@ -332,6 +364,29 @@ public class XuLy implements Mua , GioHang {
         System.out.print("Nhập lựa chọn: ");
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public float getGia() {
+        return Gia;
+    }
+
+    public String getNgayNhap() {
+        return NgayNhap;
+    }
+
+    public int getSl() {
+        return Sl;
+    }
+
+    public String getXuatXu() {
+        return XuatXu;
+    }
 
     //xuất hàng hóa mua
     @Override
