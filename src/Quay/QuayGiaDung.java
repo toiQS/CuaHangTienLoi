@@ -69,7 +69,7 @@ public class QuayGiaDung extends KhoHang {
 
     @Override
     public void showThongTin() {
-
+        this.giadungList.forEach(o -> System.out.println(o.toString()));
     }
 
     public List<QuayGiaDung> TimKiemGiaDung(String MaSo){
