@@ -1,5 +1,7 @@
 package KhachHang;
 
+
+
 public interface Mua {
     public void muaTuoiSong();
 

@@ -1,9 +1,6 @@
 package KhachHang;
 
 
-import KhachHang.GioHang;
-import KhachHang.Mua;
-import KhachHang.*;
 import KhoHang.KhoHang;
 import Quay.QuayGiaDung;
 import Quay.QuayKhac;
@@ -14,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class XuLy implements Mua, GioHang {
+public class XuLy implements Mua , GioHang {
     static float  tongGia ;
 
     public String name ;
@@ -202,7 +199,11 @@ public class XuLy implements Mua, GioHang {
             int luachon = sc.nextInt();
             sc.nextLine();
             switch (luachon) {
+
                 case 1 -> {
+
+                    KhoHang.xuatTuoiSong();
+
                     System.out.print("Nhập ID loại thịt cần thêm vào giỏ : ");
                     String ID1 = sc.nextLine();
                     int sl1 = 0;
@@ -224,9 +225,10 @@ public class XuLy implements Mua, GioHang {
                             XuLy xuLy1 = new XuLy(quayTuoiSong.getTen(),ID1,quayTuoiSong.NgayNhapHang,quayTuoiSong.getXuatXu(),sl1,quayTuoiSong.getGiaCa());
                             ListGioHang.add(xuLy1);
                         }
-                    }break;
+                    }
                 }
                 case 2 -> {
+                    KhoHang.xuatGiaDung();
                     System.out.print("Nhập ID loại gia dụng cần thêm vào giỏ : ");
                     String ID2 = sc.nextLine();
 
@@ -253,6 +255,7 @@ public class XuLy implements Mua, GioHang {
                     break;
                 }
                 case 3 -> {
+                    KhoHang.xuatNuoc();
                     System.out.print("Nhập ID loại nước cần thêm vào giỏ : ");
                     String ID3 = sc.nextLine();
 
@@ -279,6 +282,7 @@ public class XuLy implements Mua, GioHang {
                     break;
                 }
                 case 4 -> {
+                    KhoHang.xuatKhac();
                     System.out.print("Nhập ID loại khác cần thêm vào giỏ : ");
                     String ID4 = sc.nextLine();
 

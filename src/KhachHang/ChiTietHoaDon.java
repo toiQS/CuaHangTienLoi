@@ -1,6 +1,5 @@
 package KhachHang;
 
-import KhachHang.XuLy;
 
 public class ChiTietHoaDon extends XuLy {
 
