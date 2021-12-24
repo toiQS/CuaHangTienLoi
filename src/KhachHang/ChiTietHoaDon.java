@@ -8,7 +8,7 @@ public class ChiTietHoaDon extends XuLy {
         System.out.println("       ---------------------------------------------------------");
         System.out.println();
         for(XuLy HOADON : XuLy.ListHoaDon)
-            if(HOADON instanceof XuLy)
+            if(HOADON != null)
                 System.out.println(HOADON);
         System.out.println();
         System.out.println("       ---------------------------------------------------------");

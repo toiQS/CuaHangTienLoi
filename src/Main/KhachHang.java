@@ -60,16 +60,10 @@ public class KhachHang {
                     }while(endMua == 0);
                 }
                 case 2 -> {
-                    timKiem();
-                    String inputKhacHang = nhapTimKiem();
-                    System.out.println(inputKhacHang);
-                }
-                case 3 -> {
                     GioHang xuLy = new XuLy();
                     xuLy.themVaoGioHang();
                 }
-
-                case 4 -> {
+                case 3 -> {
                     endKhachHang = 1;
                     Main.endCuaHang(endKhachHang);
                     System.out.println("Cảm ơn và hẹn gặp lại!");
@@ -89,9 +83,8 @@ public class KhachHang {
         System.out.println("|            Khách hàng           |");
         System.out.println("+---------------------------------+");
         System.out.println("|    1. Mua                       |");
-        System.out.println("|    2. Tìm kiếm                  |");
-        System.out.println("|    3. Giỏ hàng                  |");
-        System.out.println("|    4. Thoát                     |");
+        System.out.println("|    2. Giỏ hàng                  |");
+        System.out.println("|    3. Thoát                     |");
         System.out.println("+---------------------------------+");
     }
 

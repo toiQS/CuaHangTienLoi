@@ -183,19 +183,9 @@ public class XuLy implements Mua , GioHang {
                                         // METHOD GIỎ HÀNG
     public void themVaoGioHang() {
         Scanner sc = new Scanner(System.in);
-
-        System.out.println("-----------Thêm vào giỏ hàng---------------");
         int whilegiohang = 0;
         do {
-            System.out.println("+====================================================+");
-            System.out.println("|  1. Thêm loại hàng ở quẩy tươi sống vào giỏ hàng   |");
-            System.out.println("|  2. Thêm loại hàng ở quẩy gia dụng vào giỏ hàng    |");
-            System.out.println("|  3. Thêm loại hàng ở quẩy nước uống vào giỏ hàng   |");
-            System.out.println("|  4. Thêm loại hàng ở quẩy khác vào giỏ hàng        |");
-            System.out.println("|  5. Xem giỏ hàng hiện tại                          |");
-            System.out.println("|  6. Thoát                                          |");
-            System.out.println("+====================================================+");
-            System.out.print("Lua chon : ");
+            menuGioHang();
             int luachon = sc.nextInt();
             sc.nextLine();
             switch (luachon) {
@@ -204,7 +194,7 @@ public class XuLy implements Mua , GioHang {
 
                     KhoHang.xuatTuoiSong();
 
-                    System.out.print("Nhập ID loại thịt cần thêm vào giỏ : ");
+                    System.out.print("Nhập ID tươi sống cần thêm vào giỏ : ");
                     String ID1 = sc.nextLine();
                     int sl1 = 0;
                     try {
@@ -252,7 +242,6 @@ public class XuLy implements Mua , GioHang {
                             ListGioHang.add(xuLy2);
                         }
                     }
-                    break;
                 }
                 case 3 -> {
                     KhoHang.xuatNuoc();
@@ -279,7 +268,6 @@ public class XuLy implements Mua , GioHang {
                             ListGioHang.add(xuLy3);
                         }
                     }
-                    break;
                 }
                 case 4 -> {
                     KhoHang.xuatKhac();
@@ -306,7 +294,6 @@ public class XuLy implements Mua , GioHang {
                             ListGioHang.add(xuLy4);
                         }
                     }
-                    break;
                 }
                 case 5 -> {
                     if(ListGioHang.size() != 0){
@@ -314,7 +301,6 @@ public class XuLy implements Mua , GioHang {
                     for (XuLy giohang : ListGioHang)
                         System.out.println(giohang);}
                     else System.out.println("Giỏ hàng của bạn đang trống. Hãy kham khảo các mặt hàng ưa thích và thêm vào giỏ !");
-                    break;
                 }
                 case 6 -> {
                     whilegiohang = 1;
@@ -329,12 +315,27 @@ public class XuLy implements Mua , GioHang {
 
     }
 
+    private void menuGioHang() {
+        for (int i=0; i<10; i++) {
+            System.out.println();
+        }
+        System.out.println("+----------------------------------------------------+");
+        System.out.println("|                  Thêm vào giỏ hàng                 |");
+        System.out.println("+----------------------------------------------------+");
+        System.out.println("|  1. Thêm loại hàng ở quẩy tươi sống vào giỏ hàng   |");
+        System.out.println("|  2. Thêm loại hàng ở quẩy gia dụng vào giỏ hàng    |");
+        System.out.println("|  3. Thêm loại hàng ở quẩy nước uống vào giỏ hàng   |");
+        System.out.println("|  4. Thêm loại hàng ở quẩy khác vào giỏ hàng        |");
+        System.out.println("|  5. Xem giỏ hàng hiện tại                          |");
+        System.out.println("|  6. Thoát                                          |");
+        System.out.println("+----------------------------------------------------+");
+        System.out.print("Nhập lựa chọn: ");
+    }
+
 
     //xuất hàng hóa mua
     @Override
     public String toString() {
         return "|        " + name  +  "    " +  id + "    " + NgayNhap + "    "   + XuatXu + "    "+  Sl + "      " +  Gia+  "        |";
     }
-
-
 }
